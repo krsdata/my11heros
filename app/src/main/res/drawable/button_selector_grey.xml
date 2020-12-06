@@ -1,0 +1,15 @@
+<selector xmlns:android="http://schemas.android.com/apk/res/android">
+    <item>
+        <layer-list>
+            <item android:bottom="1dp" android:left="1dp" android:top="1dp" android:right="1dp">
+                <shape>
+                    <solid android:color="@color/mtrl_textinput_disabled_color" />
+                    <stroke android:width="1dp" android:color="@color/mtrl_textinput_disabled_color" />
+                    <corners android:radius="4dp" />
+
+                </shape>
+            </item>
+        </layer-list>
+    </item>
+
+</selector>

@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:showIn="navigation_view">
+
+    <item
+        android:id="@+id/nav_home"
+        android:icon="@drawable/ic_home_black_24dp"
+        android:title="@string/menu_home" />
+
+
+    <item android:title="Communicate">
+        <menu>
+            <item
+                android:id="@+id/nav_wallet"
+                android:icon="@drawable/ic_card_travel_black_24dp"
+                android:title="@string/option_wallet" />
+
+            <item
+                android:id="@+id/nav_referenearn"
+                android:icon="@drawable/ic_receipt_black_24dp"
+                android:title="@string/option_mytransaaction" />
+
+            <item
+                android:id="@+id/nav_tnc"
+                android:icon="@drawable/ic_language_black_24dp"
+                android:title="@string/option_tnc" />
+            <item
+                android:id="@+id/nav_privacy"
+                android:icon="@drawable/ic_school_black_24dp"
+                android:title="@string/option_privacy" />
+
+            <item
+                android:id="@+id/nav_aboutus"
+                android:icon="@drawable/ic_local_play_black_24dp"
+                android:title="@string/option_aboutus" />
+        </menu>
+    </item>
+
+
+</menu>

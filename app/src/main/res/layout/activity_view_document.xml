@@ -1,0 +1,228 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+        <variable
+            name="contentviews"
+            type="com.my11heros.DocumentsListActivity" />
+    </data>
+    <RelativeLayout
+        android:id="@+id/container"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:fitsSystemWindows="true"
+        tools:context="com.my11heros.DocumentsListActivity"
+        android:orientation="vertical"
+        android:background="@color/light_grey_bg"
+        >
+        <androidx.appcompat.widget.Toolbar
+            android:id="@+id/toolbar"
+            android:layout_width="match_parent"
+            android:layout_height="?attr/actionBarSize"
+            android:background="@color/colorPrimaryDark"
+            android:orientation="vertical"
+            />
+    <androidx.core.widget.NestedScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@+id/toolbar">
+
+            <LinearLayout
+                android:id="@+id/top_linear_balance"
+                android:layout_below="@+id/toolbar"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_centerHorizontal="true"
+                android:layout_gravity="center_horizontal"
+                android:background="@drawable/rounded_corner_white"
+                android:orientation="vertical">
+
+                <LinearLayout
+                    android:id="@+id/linear_paytm"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:layout_marginTop="10dp"
+                    android:padding="8dp"
+                    android:background="@drawable/rounded_corner_filled_blue"
+                    >
+
+                    <LinearLayout
+                        android:layout_width="0dp"
+                        android:layout_weight="1"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical"
+                        android:padding="10dp"
+                        >
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            style="@style/document_verify_text"
+                            android:text="PAYTM"
+                            android:textStyle="bold"/>
+
+                        <TextView
+                            android:id="@+id/paytm_number"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            style="@style/document_verify_text"
+                            android:text="8767572614"/>
+
+                    </LinearLayout>
+                    <ImageView
+                        android:id="@+id/img_check"
+                        android:layout_width="40dp"
+                        android:layout_height="40dp"
+                        android:layout_gravity="center_vertical"
+                        android:src="@drawable/unchecked_doc"
+                        />
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/linear_documents"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:layout_marginTop="10dp"
+                    android:background="@drawable/rounded_corner_filled_blue"
+                    >
+
+                    <LinearLayout
+                        android:layout_width="0dp"
+                        android:layout_weight="1"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical"
+                        android:padding="10dp"
+                        >
+
+                        <TextView
+                            android:id="@+id/document_type"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            style="@style/document_verify_text"
+                            android:text="PANCARD"
+                            android:textStyle="bold"/>
+
+                        <TextView
+                            android:id="@+id/document_numbers"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            style="@style/document_verify_text"
+                            android:text="ATBPP81"/>
+                        <ImageView
+                            android:id="@+id/document_img_check"
+                            android:layout_width="40dp"
+                            android:layout_height="40dp"
+                            android:layout_gravity="center_vertical"
+                            android:src="@drawable/checked"
+                            />
+
+                    </LinearLayout>
+                    <ImageView
+                        android:id="@+id/img_doc_type"
+                        android:layout_width="@dimen/_100sdp"
+                        android:layout_height="match_parent"
+                        android:background="@drawable/btn_selector_verified"
+                        android:src="@drawable/ic_photo_camera_black_24dp" />
+
+                </LinearLayout>
+
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:layout_marginTop="10dp"
+                    android:background="@drawable/rounded_corner_filled_blue"
+                    >
+
+                    <LinearLayout
+                        android:id="@+id/linear_bankaccounts"
+                        android:layout_width="0dp"
+                        android:layout_weight="1"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical"
+                        android:padding="10dp"
+                        >
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            style="@style/document_verify_text"
+                            android:text="BANK DOCUMENTS"
+                            android:textStyle="bold"
+                            android:textColor="@color/white_transperent"/>
+
+                        <TextView
+                            android:id="@+id/bank_name"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            style="@style/document_verify_text"
+                            android:text="AXIS BANK"
+                            android:textStyle="bold"/>
+
+                        <TextView
+                            android:id="@+id/bank_account_number"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            style="@style/document_verify_text"
+                            android:text="9110100"/>
+
+
+                        <ImageView
+                            android:id="@+id/bank_img_check"
+                            android:layout_width="40dp"
+                            android:layout_height="40dp"
+                            android:layout_gravity="center_vertical"
+                            android:src="@drawable/checked"
+                            />
+
+                    </LinearLayout>
+                    <ImageView
+                        android:id="@+id/cheque_book_image"
+                        android:layout_width="@dimen/_100sdp"
+                        android:layout_height="match_parent"
+                        android:background="@drawable/btn_selector_verified"
+                        android:src="@drawable/ic_photo_camera_black_24dp" />
+
+                </LinearLayout>
+
+                <TextView
+                    android:id="@+id/contact_us"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_marginLeft="30dp"
+                    android:layout_marginRight="30dp"
+                    android:background="@drawable/default_rounded_button_sportsfight_red"
+                    android:text="Contact us"
+                    android:visibility="gone"
+                    android:gravity="center"
+                    android:padding="20dp"
+                    android:textColor="@color/white"
+                    android:fontFamily="@font/catamaran_extrabold"
+                    android:textSize="18sp"
+                    android:layout_marginTop="40dp"/>
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    style="@style/document_verify_text"
+                    android:text="@string/label_document_safe"
+                    android:gravity="center"
+                    android:padding="20dp"
+                    android:textColor="@color/grey"
+                    android:textSize="14sp"
+                    android:layout_marginTop="40dp"/>
+
+
+
+            </LinearLayout>
+
+    </androidx.core.widget.NestedScrollView>
+
+</RelativeLayout>
+</layout>

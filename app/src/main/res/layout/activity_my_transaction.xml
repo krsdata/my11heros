@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+        <variable
+            name="contentviews"
+            type="com.my11heros.MyTransactionHistoryActivity" />
+    </data>
+
+    <RelativeLayout
+        android:id="@+id/container"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:fitsSystemWindows="true"
+        tools:context="com.my11heros.CreateTeamActivity"
+        android:orientation="vertical"
+        android:background="@color/light_grey_bg"
+        >
+        <androidx.appcompat.widget.Toolbar
+            android:id="@+id/toolbar"
+            android:layout_width="match_parent"
+            android:layout_height="?attr/actionBarSize"
+            android:background="@color/colorPrimaryDark"
+            android:orientation="vertical"
+            />
+        <RelativeLayout
+            android:layout_below="@+id/toolbar"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_centerHorizontal="true"
+            android:layout_gravity="center_horizontal"
+            android:orientation="vertical"
+            android:padding="10dip">
+
+              <androidx.recyclerview.widget.RecyclerView
+                  android:id="@+id/transaction_history_recycler"
+                  android:layout_width="match_parent"
+                  android:layout_height="match_parent"/>
+
+             <ProgressBar
+                 android:id="@+id/progress_bar"
+                 android:layout_width="30dp"
+                 android:layout_height="30dp"
+                 android:layout_centerInParent="true"/>
+
+             <TextView
+                 android:id="@+id/emptyview"
+                 android:layout_width="wrap_content"
+                 android:layout_height="wrap_content"
+                 android:layout_centerInParent="true"
+                 android:text="No Transaction History"
+                 android:textColor="@color/black"
+                 android:fontFamily="@font/catamaran_extrabold"
+                 android:textSize="@dimen/_22sdp"/>
+
+        </RelativeLayout>
+        </RelativeLayout>
+
+</layout>

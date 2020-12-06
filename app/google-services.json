@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "313203622041",
+    "firebase_url": "https://my11heros-360ee.firebaseio.com",
+    "project_id": "my11heros-360ee",
+    "storage_bucket": "my11heros-360ee.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:313203622041:android:10281b3584f471a28f3808",
+        "android_client_info": {
+          "package_name": "com.my11heros"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "313203622041-1rg9nuj9bbbjuig3j15t2n8so6bep4oc.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.my11heros",
+            "certificate_hash": "1e5e818febb8f318e723727fc628832d1953e6b5"
+          }
+        },
+        {
+          "client_id": "313203622041-p74qb15s4unqp47ga1pkabd0t03pu84h.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCFDmiMGUZOtXfpdl52dU0uRTS8x-wMwY0"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "313203622041-p74qb15s4unqp47ga1pkabd0t03pu84h.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

@@ -1,0 +1,109 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:minHeight="@dimen/_55sdp"
+    android:gravity="center_vertical"
+    android:paddingLeft="10dip"
+    android:layout_margin="3dp"
+    android:orientation="vertical"
+    android:background="@color/white"
+    android:padding="8dp">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="5dp">
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Joining Date:"
+            android:textSize="@dimen/header_size"
+            android:layout_gravity="center_vertical"
+            android:textColor="@color/grey"
+            android:layout_marginLeft="5dip"
+            android:fontFamily="@font/montserrat_regular"
+            />
+        <TextView
+            android:id="@+id/transaction_date"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="10/11/1985"
+            android:textSize="@dimen/header_size"
+            android:layout_gravity="center_vertical"
+            android:textColor="@color/black"
+            android:layout_marginLeft="15dip"
+            android:fontFamily="@font/montserrat_regular"
+            />
+
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_vertical"
+        android:gravity="center_vertical"
+        android:orientation="horizontal"
+        android:layout_marginTop="5dp"
+        >
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_weight="0.4"
+            android:layout_gravity="center_vertical"
+            android:layout_height="wrap_content"
+            android:gravity="center_vertical"
+            android:orientation="horizontal">
+            <TextView
+                android:id="@+id/friend_name"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Manoj Prasad"
+                android:textSize="@dimen/header_size"
+                android:layout_gravity="center_vertical"
+                android:textColor="@color/black"
+                android:layout_marginLeft="5dip"
+                android:fontFamily="@font/montserrat_bold"
+                />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical"
+            android:orientation="horizontal"
+            android:padding="10dp"
+            android:background="@drawable/button_selector_white"
+           >
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Earned "
+                android:textSize="@dimen/header_size"
+                android:layout_gravity="center_vertical"
+                android:textColor="@color/black"
+                android:layout_marginLeft="15dip"
+                android:fontFamily="@font/montserrat_regular"
+                />
+
+            <TextView
+                android:id="@+id/earned_amount"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="$140"
+                android:textSize="@dimen/header_size"
+                android:layout_gravity="center_vertical"
+                android:textColor="@color/black"
+                android:layout_marginLeft="15dip"
+                android:fontFamily="@font/montserrat_regular"
+                />
+
+
+        </LinearLayout>
+
+
+    </LinearLayout>
+
+
+
+</LinearLayout>

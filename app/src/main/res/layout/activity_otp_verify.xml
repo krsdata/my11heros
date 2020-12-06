@@ -1,0 +1,182 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+	xmlns:app="http://schemas.android.com/apk/res-auto">
+	<data>
+		<variable
+			name="contentviews"
+			type="com.my11heros.OtpVerifyActivity" />
+	</data>
+<RelativeLayout
+	android:orientation="vertical"
+	android:background="#f0eff4"
+	android:layout_width="match_parent"
+	android:layout_height="wrap_content">
+	<androidx.appcompat.widget.Toolbar
+		android:id="@+id/toolbar"
+		android:layout_width="match_parent"
+		android:layout_height="?attr/actionBarSize"
+		android:fitsSystemWindows="true"
+		android:background="?attr/colorPrimary"
+		app:theme="@style/ToolbarTheme"
+		/>
+
+		<LinearLayout android:orientation="vertical"
+			android:layout_width="match_parent"
+			android:layout_height="match_parent"
+			android:layout_marginLeft="16dp"
+			android:layout_marginRight="16dp"
+			android:layout_below="@+id/toolbar">
+		<TextView android:textSize="24sp"
+			android:textColor="#282828" android:gravity="center"
+			android:layout_width="match_parent"
+			android:layout_height="wrap_content"
+			android:text="Verifying mobile number"
+			android:lineSpacingExtra="9sp" />
+		<TextView android:textSize="14sp" android:textColor="#828282"
+			android:gravity="center"
+			android:layout_gravity="center"
+			android:layout_width="match_parent"
+			android:layout_height="wrap_content"
+			android:layout_marginTop="2dp"
+			android:text="We have sent an OTP on your number"
+			android:lineSpacingExtra="10sp" />
+
+			<LinearLayout
+				android:layout_width="match_parent"
+				android:layout_height="wrap_content"
+				android:orientation="horizontal"
+				android:gravity="center_horizontal">
+				<androidx.appcompat.widget.AppCompatEditText
+					android:textSize="14sp"
+					android:textColor="#272727"
+					android:gravity="center"
+					android:layout_gravity="center"
+					android:id="@+id/mobile_number"
+					android:layout_width="0dp"
+					android:layout_weight="1"
+					android:layout_height="45dp"
+					android:layout_marginTop="2dp"
+					android:lineSpacingExtra="10sp"
+					android:text="asdaddsa"
+					android:background="@drawable/et_style"/>
+
+				<Button
+					android:id="@+id/change_mobile_number"
+					android:layout_width="95dp"
+					android:layout_height="45dp"
+					android:text="SWITCH"
+					android:visibility="visible"
+					android:layout_marginLeft="10dp"
+					android:textSize="@dimen/login_text_size_16sp"
+					android:textColor="@color/white"
+					android:background="@drawable/rounded_corner_filled_blue"/>
+
+			</LinearLayout>
+			<TextView
+				android:id="@+id/timer_otp_detect"
+				android:layout_width="match_parent"
+				android:layout_height="wrap_content"
+				android:fontFamily="@font/open_sans"
+				android:text="00:43"
+				android:gravity="center"
+				android:textAllCaps="false"
+				android:textColor="@color/red"
+				android:textSize="16sp"
+				android:textStyle="bold" />
+		<LinearLayout android:gravity="center" android:layout_gravity="center"
+			android:id="@+id/linear_otp"
+			android:layout_width="match_parent"
+			android:layout_height="wrap_content"
+			android:layout_marginLeft="16dp"
+			android:layout_marginTop="24dp"
+			android:layout_marginRight="16dp">
+			<EditText android:textSize="22dp"
+				android:textStyle="bold"
+				android:textColor="#282828"
+				android:gravity="center"
+				android:id="@+id/otp_code1"
+				android:background="@drawable/google_btn"
+				android:layout_width="0dp"
+				android:layout_height="40dp"
+				android:layout_marginRight="16dp"
+				android:maxLength="1"
+				android:layout_weight="1"
+				android:inputType="number" />
+			<EditText android:textSize="22dp"
+				android:textStyle="bold"
+				android:textColor="#282828"
+				android:gravity="center"
+				android:id="@+id/otp_code2"
+				android:background="@drawable/google_btn"
+				android:layout_width="0dp"
+				android:layout_height="40dp"
+				android:layout_marginRight="16dp"
+				android:maxLength="1"
+				android:layout_weight="1"
+				android:inputType="number" />
+
+			<EditText android:textSize="22dp"
+				android:textStyle="bold"
+				android:textColor="#282828"
+				android:gravity="center"
+				android:id="@+id/otp_code3"
+				android:background="@drawable/google_btn"
+				android:layout_width="0dp"
+				android:layout_height="40dp"
+				android:layout_marginRight="16dp"
+				android:maxLength="1"
+				android:layout_weight="1"
+				android:inputType="number" />
+
+			<EditText android:textSize="22dp"
+				android:textStyle="bold"
+				android:textColor="#282828"
+				android:gravity="center"
+				android:id="@+id/otp_code4"
+				android:background="@drawable/google_btn"
+				android:layout_width="0dp"
+				android:layout_height="40dp"
+				android:layout_marginRight="16dp"
+				android:maxLength="1"
+				android:layout_weight="1"
+				android:inputType="number" />
+
+		</LinearLayout>
+		<TextView android:textSize="14sp"
+			android:textColor="#828282"
+			android:gravity="center"
+			android:layout_width="match_parent"
+			android:layout_height="wrap_content"
+			android:layout_marginTop="32dp"
+			android:text="Didn&apos;t received the OTP?"
+			android:lineSpacingExtra="10sp" />
+
+		<TextView android:textSize="14sp"
+			android:textColor="#282828"
+			android:gravity="center"
+			android:id="@+id/resend_otp"
+			android:layout_width="match_parent"
+			android:layout_height="wrap_content"
+			android:layout_marginTop="4dp"
+			android:text=" Resend OTP?"
+			android:lineSpacingExtra="10sp" />
+		<Button android:textColor="#ffffff"
+			android:id="@+id/btn_submit"
+			android:background="@drawable/rounded_corner_filled_blue"
+			android:layout_width="match_parent"
+			android:layout_height="wrap_content"
+			android:layout_marginTop="16dp"
+			android:text="Continue"
+			android:textAllCaps="false" />
+	</LinearLayout>
+	<ProgressBar
+		android:id="@+id/progress_bar"
+		android:layout_width="wrap_content"
+		android:layout_height="wrap_content"
+		android:layout_marginLeft="16dp"
+		android:layout_marginRight="16dp"
+		android:indeterminate="true"
+		android:visibility="gone"
+		android:layout_centerInParent="true" />
+</RelativeLayout>
+</layout>

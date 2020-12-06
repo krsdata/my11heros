@@ -1,0 +1,214 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+
+        <variable
+            name="contentviews"
+            type="com.my11heros.ui.login.LoginScreenActivity" />
+    </data>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/colorAccent"
+        android:orientation="vertical">
+
+        <TextView
+            android:id="@+id/_topbar"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:layout_marginLeft="60dp"
+            android:layout_marginTop="20dp"
+            android:layout_marginRight="60dp"
+            android:fontFamily="@font/catamaran_extrabold"
+            android:gravity="center"
+            android:text="INDIA'S BIGGEST FANTASY SPORTS PLATFORM"
+            android:textColor="@color/white"
+            android:textSize="@dimen/_14sdp" />
+
+        <RelativeLayout
+            android:id="@+id/login_label"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/_topbar"
+            android:layout_marginTop="@dimen/_15sdp">
+
+            <TextView
+                android:id="@+id/_login_with"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerHorizontal="true"
+                android:fontFamily="@font/tunga"
+                android:gravity="center"
+                android:text="Login With"
+                android:textColor="@color/white"
+                android:textSize="@dimen/_18sdp" />
+
+            <LinearLayout
+                android:id="@+id/login_panel"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/_login_with"
+                android:layout_centerInParent="true"
+                android:layout_marginLeft="@dimen/_50sdp"
+                android:layout_marginTop="20dp"
+                android:layout_marginRight="@dimen/_50sdp"
+                android:orientation="vertical">
+
+                <com.google.android.gms.common.SignInButton
+                    android:id="@+id/sign_in_button"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content" />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="30dp"
+                    android:gravity="center"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:fontFamily="@font/montserrat_regular"
+                        android:gravity="center"
+                        android:text="@string/privacy_policies"
+                        android:textColor="@color/white"
+                        android:textSize="@dimen/_8sdp" />
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/_5sdp"
+                        android:gravity="center"
+                        android:orientation="horizontal">
+
+                        <TextView
+                            android:id="@+id/terms_condition"
+                            android:layout_width="wrap_content"
+                            android:layout_height="match_parent"
+                            android:fontFamily="@font/montserrat_regular"
+                            android:gravity="center"
+                            android:text="@string/tnc_text"
+                            android:textColor="@color/white"
+                            android:textSize="@dimen/_8sdp"
+                            android:textStyle="bold" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="match_parent"
+                            android:layout_marginLeft="5dp"
+                            android:fontFamily="@font/montserrat_regular"
+                            android:gravity="center"
+                            android:text="@string/and"
+                            android:textColor="@color/white"
+                            android:textSize="@dimen/_8sdp"
+                            android:textStyle="bold" />
+
+                        <TextView
+                            android:id="@+id/privacy_policy"
+                            android:layout_width="wrap_content"
+                            android:layout_height="match_parent"
+                            android:layout_marginLeft="5dp"
+                            android:fontFamily="@font/montserrat_regular"
+                            android:gravity="center"
+                            android:text="@string/privacypolicy_text"
+                            android:textColor="@color/white"
+                            android:textSize="@dimen/_8sdp"
+                            android:textStyle="bold" />
+
+
+                    </LinearLayout>
+
+
+                </LinearLayout>
+
+
+            </LinearLayout>
+
+
+        </RelativeLayout>
+
+        <com.my11heros.customviews.ArcBackgroundView
+            android:id="@+id/arc_view"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/login_label"
+            android:layout_alignParentBottom="true"
+            android:layout_marginTop="90dp"
+            android:visibility="gone"
+            app:ArcBackgroundViewEndColor="@color/colorAccent"
+            app:ArcBackgroundViewStartColor="@color/colorAccent_light"
+            app:ArcBackgroundViewTopHeight="80dp" />
+
+        <LinearLayout
+            android:id="@+id/tnc_policy"
+            android:layout_width="match_parent"
+            android:layout_height="55dp"
+            android:layout_alignParentBottom="true"
+            android:layout_marginBottom="10dp"
+            android:gravity="center"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/checkbox_tnc"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:fontFamily="@font/montserrat_regular"
+                android:gravity="center"
+                android:text="@string/label_login_agree"
+                android:textColor="@color/white"
+                android:textSize="@dimen/_8sdp" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:id="@+id/txt_tnc"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/tunga"
+                    android:text="Condition of Use"
+                    android:textColor="@color/white" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/tunga"
+                    android:text=" and "
+                    android:textColor="@color/white" />
+
+                <TextView
+                    android:id="@+id/txt_privacy"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/tunga"
+                    android:text="Privacy Policy"
+                    android:textColor="@color/white" />
+
+
+            </LinearLayout>
+
+
+        </LinearLayout>
+
+        <ImageView
+            android:id="@+id/logo_value"
+            android:layout_width="match_parent"
+            android:layout_height="90dp"
+            android:layout_above="@+id/tnc_policy"
+            android:fontFamily="@font/open_sans_semibold"
+            android:gravity="center_horizontal"
+            android:src="@mipmap/ic_launcher"
+            android:textColor="@color/black" />
+
+    </RelativeLayout>
+
+</layout>

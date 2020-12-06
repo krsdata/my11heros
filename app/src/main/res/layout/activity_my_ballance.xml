@@ -1,0 +1,244 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="contentviews"
+            type="com.my11heros.MyBalanceActivity" />
+    </data>
+
+    <RelativeLayout
+        android:id="@+id/container"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/light_grey_bg"
+        android:fitsSystemWindows="true"
+        android:orientation="vertical"
+        tools:context="com.my11heros.CreateTeamActivity">
+
+        <androidx.appcompat.widget.Toolbar
+            android:id="@+id/toolbar"
+            android:layout_width="match_parent"
+            android:layout_height="?attr/actionBarSize"
+            android:background="@color/colorPrimaryDark"
+            android:orientation="vertical" />
+
+        <LinearLayout
+            android:id="@+id/top_linear_balance"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/toolbar"
+            android:layout_centerHorizontal="true"
+            android:layout_gravity="center_horizontal"
+            android:layout_margin="10dp"
+            android:background="@drawable/rounded_corner_white"
+            android:orientation="vertical"
+            android:padding="10dip">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:fontFamily="@font/montserrat_regular"
+                android:text="TOTAL BALANCE"
+                android:textColor="@color/grey"
+                android:textSize="@dimen/_12sdp" />
+
+            <TextView
+                android:id="@+id/wallet_total_amount"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginTop="10dip"
+                android:fontFamily="@font/montserrat_regular"
+                android:text="₹0"
+                android:textColor="@color/colorPrimaryDark"
+                android:textSize="@dimen/_12sdp" />
+
+            <TextView
+                android:id="@+id/add_cash"
+                android:layout_width="130dp"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginTop="10dip"
+                android:background="@drawable/default_rounded_button_sportsfight"
+                android:fontFamily="@font/montserrat_bold"
+                android:gravity="center"
+                android:padding="10dp"
+                android:text="ADD CASH"
+                android:textColor="@color/white"
+                android:textSize="@dimen/_12sdp" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/linear_wallet_Added"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/top_linear_balance"
+            android:layout_margin="10dp"
+            android:background="@drawable/rounded_corner_white"
+            android:orientation="vertical"
+            android:padding="10dip">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/montserrat_regular"
+                android:text="Winning Amount"
+                android:textColor="@color/grey"
+                android:textSize="@dimen/_12sdp" />
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <TextView
+                    android:id="@+id/amount_added"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="10dip"
+                    android:fontFamily="@font/montserrat_regular"
+                    android:text="₹0"
+                    android:textColor="@color/colorPrimaryDark"
+                    android:textSize="@dimen/_12sdp" />
+
+                <TextView
+                    android:id="@+id/verify_account_message"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/amount_added"
+                    android:layout_toStartOf="@+id/verify_account"
+                    android:fontFamily="@font/montserrat_regular"
+                    android:text="Verify your account to be eligible to withdraw."
+                    android:textColor="@color/progress"
+                    android:textSize="@dimen/_7sdp" />
+
+
+                <TextView
+                    android:id="@+id/verify_account"
+                    android:layout_width="140dp"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentEnd="true"
+                    android:layout_gravity="center"
+                    android:layout_marginTop="10dip"
+                    android:background="@drawable/button_selector_verify"
+                    android:fontFamily="@font/montserrat_regular"
+                    android:gravity="center"
+                    android:padding="10dp"
+                    android:text="VERIFY NOW"
+                    android:textColor="@color/black"
+                    android:textSize="@dimen/_12sdp" />
+
+                <TextView
+                    android:id="@+id/btn_withdraw"
+                    android:layout_width="140dp"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/verify_account"
+                    android:layout_alignParentEnd="true"
+                    android:layout_gravity="center"
+                    android:layout_marginTop="10dip"
+                    android:background="@drawable/button_selector_verify"
+                    android:fontFamily="@font/montserrat_regular"
+                    android:gravity="center"
+                    android:padding="10dp"
+                    android:text="Withdraw"
+                    android:textColor="@color/black"
+                    android:textSize="@dimen/_12sdp" />
+            </RelativeLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:padding="@dimen/_10sdp">
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:fontFamily="@font/montserrat_regular"
+                    android:text="Deposit Amount"
+                    android:textColor="@color/black"
+                    android:textSize="@dimen/_12sdp" />
+
+                <TextView
+                    android:id="@+id/deposit_amount"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="10dip"
+                    android:fontFamily="@font/montserrat_regular"
+                    android:text="₹0"
+                    android:textColor="@color/colorPrimaryDark"
+                    android:textSize="@dimen/_12sdp" />
+            </LinearLayout>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:background="@color/grey" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@drawable/rounded_corner_white"
+                android:orientation="vertical"
+                android:padding="@dimen/_10sdp">
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:fontFamily="@font/montserrat_regular"
+                    android:text="Bonus Amount"
+                    android:textColor="@color/black"
+                    android:textSize="@dimen/_12sdp" />
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_marginTop="5dp"
+                    android:fontFamily="@font/montserrat_regular"
+                    android:text="Maximum usable cash bonus per match =5% of entry fees"
+                    android:textColor="@color/black"
+                    android:textSize="@dimen/_10sdp" />
+
+                <TextView
+                    android:id="@+id/bonus_amount"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="10dip"
+                    android:fontFamily="@font/montserrat_regular"
+                    android:text="₹0"
+                    android:textColor="@color/colorPrimaryDark"
+                    android:textSize="@dimen/_12sdp" />
+            </LinearLayout>
+        </LinearLayout>
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="55dp"
+            android:layout_below="@+id/linear_wallet_Added"
+            android:layout_margin="10dp"
+            android:background="@drawable/rounded_corner_white"
+            android:orientation="vertical"
+            android:padding="15dip">
+
+            <TextView
+                android:id="@+id/txt_recent_transaction"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:fontFamily="@font/montserrat_regular"
+                android:text="My Recent Transactions"
+                android:textColor="@color/black"
+                android:textSize="@dimen/_12sdp" />
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentRight="true"
+                android:src="@drawable/ic_keyboard_arrow_right_black_24dp" />
+        </RelativeLayout>
+
+    </RelativeLayout>
+
+</layout>

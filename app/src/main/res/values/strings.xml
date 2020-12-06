@@ -1,0 +1,125 @@
+<resources>
+    <string name="app_name">My11Heros</string>
+    <string name="title_home">Home</string>
+    <string name="title_mymatches">Matches</string>
+    <string name="title_account">Accounts</string>
+    <string name="title_more">More</string>
+    <string name="notifications_admin_channel_name">Winner11Channel</string>
+    <string name="notifications_admin_channel_description">This is application descriptions</string>
+
+    <string name="default_notification_channel_id">My11Heros</string>
+    <string name="screen_name_login">Login</string>
+    <string name="screen_name_register">Register</string>
+    <string name="privacy_policies">By loggin in, you accept you are 18+ and agree to our </string>
+    <string name="tnc_text"><u> T&amp;C </u></string>
+    <string name="and">&amp; </string>
+    <string name="privacypolicy_text"> <u>Privacy Policy </u></string>
+    <string name="state_warnings"> We do not allow players from Telangana, Orissa, Sikkim, Nagaland and Assam to play cash games. You  ust be 18+ years to play real money skill games</string>
+    <string name="activity_type_contest">Contest</string>
+    <string name="activity_type_create_team">Create Team</string>
+    <string name="view_all_contest">View all %s contest</string>
+
+    <string name="game_type_cricket">Cricket</string>
+    <string name="game_type_football">Football</string>
+    <string name="game_type_basketball">Basketball</string>
+    <string name="game_type_hockey">Hockey</string>
+    <string name="game_type_volleyball">Volleyball</string>
+    <string name="msg_no_matches">There are no upcoming matches as of now</string>
+
+    <string name="contest_type_contests">Contests</string>
+    <string name="contest_type_mycontest">My Contest(0)</string>
+    <string name="contest_type_myteam">My Team(0)</string>
+
+    <string name="createteam_type_wk">WK(0)</string>
+    <string name="createteam_type_bat">BAT(0)</string>
+    <string name="createteam_type_ar">AR(0)</string>
+    <string name="createteam_type_bowl">BOWL(0)</string>
+
+    <string name="menu_home">Home</string>
+    <string name="nav_header_title">Android Studio</string>
+    <string name="nav_header_subtitle">android.studio@android.com</string>
+    <string name="nav_header_desc">Navigation header</string>
+    <string name="action_settings">Settings</string>
+
+    <string name="option_wallet">My Wallet</string>
+    <string name="option_mytransaaction">My Transactions</string>
+    <string name="option_tnc">Terms and Condition</string>
+    <string name="option_privacy">Privacy Policy</string>
+    <string name="option_aboutus">About us</string>
+    <string name="option_logout">Logout</string>
+
+    <string name="navigation_drawer_open">Open navigation drawer</string>
+    <string name="navigation_drawer_close">Close navigation drawer</string>
+
+
+    <string name="mymatch_upcoming">Upcoming</string>
+    <string name="mymatch_live">Live</string>
+    <string name="mymatch_completed">Completed</string>
+
+    <string name="downloading">Downloading&#8230;</string>
+    <string name="title_file_download">APK is downloading</string>
+    <string name="storage_access_required">Storage access is required to downloading the file.</string>
+    <string name="storage_permission_denied">Storage permission request was denied.</string>
+    <string name="ok">OK</string>
+
+    <string name="facebook_app_id">251742452647735</string>
+    <string name="fb_login_protocol_scheme">fb251742452647735</string>
+    <string name="file_provider">image_sports_fight</string>
+    <string name="prize_break_up_note">"Note: The actual prize money may be different than the prize money mentioned above if there is a tie for any of the winning positions. As per the government regulations,a tax of 31.2% will be deducted if an individual wins more than ₹10,000" </string>
+
+
+    <string-array name="india_states">
+        <item>Andaman and Nicobar Islands</item>
+        <item>Andhra Pradesh</item>
+        <item>Arunachal Pradesh</item>
+        <item>Assam</item>
+        <item>Bihar</item>
+        <item>Chandigarh</item>
+        <item>Chhattisgarh</item>
+        <item>Dadra and Nagar Haveli</item>
+        <item>Daman and Diu</item>
+        <item>Delhi</item>
+        <item>Goa</item>
+        <item>Gujarat</item>
+        <item>Haryana</item>
+        <item>Himachal Pradesh</item>
+        <item>Jammu and Kashmir</item>
+        <item>Jharkhand</item>
+        <item>Karnataka</item>
+        <item>Kerala</item>
+        <item>Lakshadweep</item>
+        <item>Madhya Pradesh</item>
+        <item>Maharashtra</item>
+        <item>Manipur</item>
+        <item>Meghalaya</item>
+        <item>Mizoram</item>
+        <item>Nagaland</item>
+        <item>Orissa</item>
+        <item>Pondicherry</item>
+        <item>Punjab</item>
+        <item>Rajasthan</item>
+        <item>Sikkim</item>
+        <item>Tamil Nadu</item>
+        <item>Telangana</item>
+        <item>Tripura</item>
+        <item>Uttaranchal</item>
+        <item>Uttar Pradesh</item>
+        <item>West Bengal</item>
+    </string-array>
+
+    <string name="gcm_default_sender_id">"701940049916"</string>
+    <string name="razorpaythemecolor">"#0172ac"</string>
+    <string name="razorpay_key">rzp_live_SiMilNQfyJNzJe</string>
+    <string name="label_login_agree">By creating an account or logging in, you agree to My11Heros</string>
+    <string name="label_policy">READ My11Heros Policies</string>
+    <string name="label_acceptance1">By joining this, you accept My11Heros </string>
+    <string name="label_acceptance2">and confirm that you are not a resident of Andhra Pradesh, Assam, Odisha, Telangana, Nagaland and Sikkim. I also agree to be contancted by My11Heros and their partner.</string>
+    <string name="label_document_safe">Your documents are safe with My11Heros.in, we do not share this documents with anyone else nor we disclose the personal identifications.</string>
+    <string name="label_register_on_sf">"Register on My11Heros application with referral code "</string>
+    <string name="label_supportteam">"My11Heros Support Team"</string>
+    <string name="warning_mobilenumber">"Please enter valid mobile number, to authenticate with My11Heros system"</string>
+    <string name="warning_somethingwentwront">"Something went wrong, please contact My11Heros team"</string>
+    <string name="contact_support_Team">"Contact My11Heros Support Team"</string>
+    <string name="label_update">"My11Heros Update"</string>
+    <string name="verify_communication">Verify Communication</string>
+</resources>

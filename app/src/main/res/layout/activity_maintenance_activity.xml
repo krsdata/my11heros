@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+        <variable
+            name="contentviews"
+            type="com.my11heros.MaintainanceActivity" />
+    </data>
+
+    <RelativeLayout
+        android:id="@+id/container"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:fitsSystemWindows="true"
+        tools:context="com.my11heros.ContestActivity"
+        android:background="@color/white"
+        >
+
+        <ImageView
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/_80sdp"
+            android:src="@mipmap/ic_launcher"/>
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:src="@drawable/maintenance_mode"/>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:textSize="18sp"
+            android:fontFamily="@font/montserrat_regular"
+            android:gravity="center"
+            android:padding="10px"
+            android:layout_marginBottom="35dp"
+            android:textColor="@color/black"
+            android:text="We sincerely apologize for the incovenience. We will right back soon."/>
+
+    </RelativeLayout>
+
+</layout>

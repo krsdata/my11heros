@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    >
+
+    <data>
+        <variable
+            name="viewmodel"
+            type="com.my11heros.ui.mymatches.MyUpcomingMatchesFragment" />
+    </data>
+<androidx.coordinatorlayout.widget.CoordinatorLayout
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/light_grey_bg">
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/recycler_my_upcoming"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+       />
+
+    <LinearLayout
+        android:id="@+id/linear_empty_contest"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:gravity="center"
+        android:layout_marginTop="20dp"
+        >
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="You haven't joined any upcoming contest!"
+            />
+        <ImageView
+            android:layout_width="240dp"
+            android:layout_height="240dp"
+            android:scaleType="fitXY"
+            android:layout_marginTop="20dp"
+            android:padding="40dp"
+            android:background="@drawable/circle_text"
+            android:src="@drawable/ic_trophy"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Join contest for any of the upcoming matches"
+            />
+
+        <TextView
+            android:id="@+id/btn_empty_view"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="VIEW UPCOMING MATCHES"
+            android:textSize="10sp"
+            android:padding="10dp"
+            android:layout_marginTop="20dp"
+            android:fontFamily="@font/montserratsemibold"
+            android:background="@drawable/default_rounded_button_sportsfight"
+            android:textColor="@color/white"
+            />
+    </LinearLayout>
+
+    <ProgressBar
+        android:id="@+id/progress_bar"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"/>
+
+</androidx.coordinatorlayout.widget.CoordinatorLayout>
+</layout>

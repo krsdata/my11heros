@@ -1,0 +1,278 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    package="com.my11heros"
+    tools:ignore="LockedOrientationActivity">
+
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.REQUEST_INSTALL_PACKAGES" />
+    <uses-permission android:name="android.permission.CAMERA" />
+
+    <uses-feature
+        android:name="android.hardware.camera"
+        android:required="true" />
+
+    <application
+        android:name="com.my11heros.SportsFightApplication"
+        android:allowBackup="false"
+        android:hardwareAccelerated="true"
+        android:icon="@mipmap/ic_launcher"
+        android:label="@string/app_name"
+        android:networkSecurityConfig="@xml/network_security_config"
+        android:requestLegacyExternalStorage="true"
+        android:roundIcon="@mipmap/ic_launcher_round"
+        android:supportsRtl="true"
+        android:theme="@style/AppTheme_app"
+        android:usesCleartextTraffic="true"
+        tools:ignore="GoogleAppIndexingWarning,MissingDefaultResource"
+        tools:replace="android:icon,android:theme">
+        <activity
+            android:name="com.my11heros.SplashScreenActivity"
+            android:configChanges="uiMode"
+            android:screenOrientation="portrait">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+
+            <!-- Branch URI scheme -->
+            <!--<intent-filter>
+                <data
+                    android:host="open"
+                    android:scheme="ninja11" />
+                <action android:name="android.intent.action.VIEW" />
+
+                <category android:name="android.intent.category.DEFAULT" />
+                <category android:name="android.intent.category.BROWSABLE" />
+            </intent-filter>-->
+
+            <!-- Branch App Links -->
+            <!--<intent-filter android:autoVerify="true">
+                <action android:name="android.intent.action.VIEW" />
+
+                <category android:name="android.intent.category.DEFAULT" />
+                <category android:name="android.intent.category.BROWSABLE" />
+
+                <data
+                    android:host="ninja11.app.link"
+                    android:scheme="https" />
+            </intent-filter>-->
+
+            <!-- Branch App Links -->
+            <!--<intent-filter android:autoVerify="true">
+                <action android:name="android.intent.action.VIEW" />
+
+                <category android:name="android.intent.category.DEFAULT" />
+                <category android:name="android.intent.category.BROWSABLE" />
+
+                <data
+                    android:host="ninja11-alternate.app.link"
+                    android:scheme="https" />
+            </intent-filter>-->
+        </activity>
+
+        <activity
+            android:name="com.my11heros.ui.login.LoginScreenActivity"
+            android:configChanges="keyboard|keyboardHidden|screenLayout|screenSize|orientation"
+            android:label="@string/screen_name_login"
+            android:screenOrientation="portrait"/>
+
+        <activity
+            android:name="com.my11heros.ui.login.RegisterScreenActivity"
+            android:configChanges="keyboard|keyboardHidden|screenLayout|screenSize|orientation"
+            android:label="@string/screen_name_register"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name="com.my11heros.MainActivity"
+            android:screenOrientation="portrait"
+            android:theme="@style/dashboard_theme" />
+
+        <activity
+            android:name="com.my11heros.ContestActivity"
+            android:label="@string/activity_type_contest"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name="com.my11heros.MaintainanceActivity"
+            android:label="@string/activity_type_contest"
+            android:screenOrientation="portrait" />
+
+        <activity
+            android:name="com.my11heros.QuizContestActivity"
+            android:label="@string/activity_type_contest"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name="com.my11heros.CreateTeamActivity"
+            android:label="@string/activity_type_create_team"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name="com.my11heros.TeamPreviewActivity"
+            android:label=""
+            android:screenOrientation="portrait" />
+
+        <activity
+            android:name="com.my11heros.NotificationListActivity"
+            android:label=""
+            android:screenOrientation="portrait" />
+
+        <activity
+            android:name="com.my11heros.SaveTeamActivity"
+            android:label=""
+            android:screenOrientation="portrait" />
+
+        <activity
+            android:name="com.my11heros.SelectTeamActivity"
+            android:label=""
+            android:screenOrientation="portrait" />
+
+        <activity
+            android:name="com.my11heros.MyBalanceActivity"
+            android:label=""
+            android:screenOrientation="portrait" />
+        <activity
+            android:name="com.my11heros.AddMoneyActivity"
+            android:label=""
+            android:screenOrientation="portrait" />
+
+        <activity
+            android:name="com.my11heros.UpdateApplicationActivity"
+            android:label=""
+            android:screenOrientation="portrait" />
+
+        <activity
+            android:name="com.my11heros.WebActivity"
+            android:label=""
+            android:screenOrientation="portrait" />
+        <activity
+            android:name="com.my11heros.LeadersBoardActivity"
+            android:label=""
+            android:screenOrientation="portrait" />
+        <activity
+            android:name="com.my11heros.MoreContestActivity"
+            android:label=""
+            android:screenOrientation="portrait" />
+
+        <activity
+            android:name="com.my11heros.InviteFriendsActivity"
+            android:label=""
+            android:screenOrientation="portrait" />
+
+        <activity
+            android:name="com.my11heros.SupportActivity"
+            android:label=""
+            android:screenOrientation="portrait" />
+
+        <activity
+            android:name="com.my11heros.FullScreenImageViewActivity"
+            android:label=""
+            android:screenOrientation="portrait" />
+
+        <activity
+            android:name="com.my11heros.VerifyDocumentsActivity"
+            android:label=""
+            android:screenOrientation="portrait" />
+
+        <activity
+            android:name="com.my11heros.WithdrawAmountsActivity"
+            android:label=""
+            android:screenOrientation="portrait" />
+
+        <activity
+            android:name="com.my11heros.DocumentsListActivity"
+            android:label=""
+            android:screenOrientation="portrait" />
+
+        <activity
+            android:name="com.my11heros.MyTransactionHistoryActivity"
+            android:label=""
+            android:screenOrientation="portrait" />
+
+        <activity
+            android:name="com.my11heros.EditProfileActivity"
+            android:label="Update Profile"
+            android:screenOrientation="portrait" />
+
+        <activity
+            android:name="com.my11heros.ChangePasswordActivity"
+            android:label="Change Password"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name="com.my11heros.RefferalFriendsListActivity"
+            android:label="Update Profile"
+            android:screenOrientation="portrait" />
+
+        <activity
+            android:name="com.my11heros.OtpVerifyActivity"
+            android:label="Update Profile"
+            android:screenOrientation="portrait" />
+
+        <activity
+            android:name="com.my11heros.ui.JoinContestActivity"
+            android:label="Join Contest"
+            android:screenOrientation="portrait" />
+
+        <provider
+            android:name="androidx.core.content.FileProvider"
+            android:authorities="${applicationId}.provider"
+            android:exported="false"
+            android:grantUriPermissions="true">
+            <meta-data
+                android:name="android.support.FILE_PROVIDER_PATHS"
+                android:resource="@xml/file_provider_paths" />
+        </provider>
+
+        <service android:name="com.my11heros.fcm.MyFirebaseMessagingService">
+            <intent-filter>
+                <action android:name="com.google.firebase.MESSAGING_EVENT" />
+            </intent-filter>
+        </service>
+
+        <meta-data
+            android:name="com.google.firebase.messaging.default_notification_icon"
+            android:resource="@mipmap/ic_launcher" />
+        <!-- Set color used with incoming notification messages. This is used when no color is set for the incoming
+             notification message. See README(https://goo.gl/6BKBk7) for more. -->
+        <meta-data
+            android:name="com.google.firebase.messaging.default_notification_color"
+            android:resource="@color/colorAccent" />
+
+        <meta-data
+            android:name="com.google.firebase.messaging.default_notification_channel_id"
+            android:value="@string/default_notification_channel_id" />
+
+
+        <meta-data
+            android:name="com.facebook.sdk.ApplicationId"
+            android:value="@string/facebook_app_id" />
+
+        <meta-data
+            android:name="fontProviderRequests"
+            android:value="Noto Color Emoji Compat" />
+
+        <meta-data
+            android:name="com.google.android.gms.wallet.api.enabled"
+            android:value="true" />
+
+        <meta-data
+            android:name="com.razorpay.ApiKey"
+            android:value="@string/razorpay_key" />
+
+        <meta-data
+            android:name="firebase_analytics_collection_enabled"
+            android:value="true" />
+
+        <!-- Branch init -->
+        <meta-data
+            android:name="io.branch.sdk.BranchKey"
+            android:value="key_live_kmLX9H0wFiENeUk9LH5cecnkBAoH4Qjv" />
+        <!-- Branch testing (TestMode "true" to simulate fresh installs on dev environment) -->
+        <meta-data
+            android:name="io.branch.sdk.TestMode"
+            android:value="false" />
+    </application>
+
+</manifest>

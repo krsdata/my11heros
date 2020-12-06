@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="activity_horizontal_margin">16dp</dimen>
+    <dimen name="activity_vertical_margin">16dp</dimen>
+    <dimen name="matches_view_top_margin">8dp</dimen>
+    <dimen name="matches_view_left_margin">11dp</dimen>
+    <dimen name="matches_view_right_margin">11dp</dimen>
+    <dimen name="matches_view_left_margin_inner">5dp</dimen>
+    <dimen name="matches_view_right_margin_inner">5dp</dimen>
+    <dimen name="matches_view_left_margin_consolidated">16dp</dimen>
+    <dimen name="matches_gap_between_each_views">10dp</dimen>
+
+    <dimen name="banner_height">58dp</dimen>
+    <dimen name="games_sizes">90dp</dimen>
+    <dimen name="contest_filter_size">@dimen/_25sdp</dimen>
+    <dimen name="contest_filter_size_all">@dimen/_35sdp</dimen>
+    <dimen name="contest_filter_text_size">12sp</dimen>
+
+    <dimen name="toolbar_title_text_size">18sp</dimen>
+    <dimen name="header_size">13sp</dimen>
+    <dimen name="country_code_size">12sp</dimen>
+    <dimen name="small_info_size">12sp</dimen>
+
+    <dimen name="create_team_text_size_normal">12sp</dimen>
+    <dimen name="create_team_flag_size">40dp</dimen>
+
+    <dimen name="login_text_size_16sp">16sp</dimen>
+    <dimen name="login_text_size_18sp">18sp</dimen>
+
+    <dimen name="save_team_text_size_normal">9sp</dimen>
+    <dimen name="save_team_text_size_small">10sp</dimen>
+    <dimen name="header_icon_size">@dimen/_20sdp</dimen>
+    <dimen name="save_match_circle">30dp</dimen>
+</resources>

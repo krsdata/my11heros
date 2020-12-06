@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/linear_"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="horizontal"
+    android:padding="@dimen/_10sdp"
+    android:gravity="center_vertical"
+    android:background="#F0F8FF"
+    >
+   <LinearLayout
+       android:layout_width="wrap_content"
+       android:layout_height="wrap_content"
+       android:orientation="vertical">
+
+      <TextView
+          android:id="@+id/team_name"
+          android:layout_width="wrap_content"
+          android:layout_height="wrap_content"
+          android:fontFamily="@font/open_sans_light"
+          android:text="EXODUSX1(T1)"
+          android:textColor="@color/black"
+          android:textSize="16sp" />
+
+      <TextView
+          android:id="@+id/team_won_status"
+          android:layout_width="wrap_content"
+          android:layout_height="wrap_content"
+          android:text="You Won $35"
+          android:textColor="@color/green"
+          android:fontFamily="@font/montserrat_medium"
+          android:textSize="14sp"/>
+   </LinearLayout>
+
+   <LinearLayout
+       android:layout_width="match_parent"
+       android:layout_height="wrap_content"
+       android:orientation="horizontal"
+       android:gravity="center_vertical|right"
+       android:layout_marginRight="10dp">
+      <TextView
+          android:id="@+id/team_points"
+          android:layout_width="0dp"
+          android:layout_weight="1"
+          android:layout_height="wrap_content"
+          android:text="804"
+          android:gravity="center"
+          android:textColor="@color/black"
+          android:fontFamily="@font/open_sans_light"
+          android:textSize="16sp"/>
+
+      <TextView
+          android:id="@+id/team_ranks"
+          android:layout_width="0dp"
+          android:layout_weight="1"
+          android:gravity="center|right"
+          android:layout_height="wrap_content"
+          android:text="#1"
+          android:textColor="@color/black"
+          android:fontFamily="@font/montserrat_medium"
+          android:textSize="14sp"/>
+   </LinearLayout>
+
+</LinearLayout>

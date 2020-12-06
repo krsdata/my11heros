@@ -1,0 +1,243 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+
+        <variable
+            name="viewmodel"
+            type="com.my11heros.ui.contest.ContestFragment" />
+    </data>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/light_grey_bg">
+
+        <LinearLayout
+            android:id="@+id/filter_bar"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/greybackround"
+            android:gravity="center_vertical"
+            android:orientation="vertical"
+            android:paddingStart="@dimen/_10sdp"
+            android:paddingEnd="@dimen/_10sdp">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="0.5"
+                    android:gravity="center"
+                    android:text=""
+                    android:textColor="@color/black" />
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="12dp"
+                    android:layout_weight="1"
+                    android:fontFamily="@font/montserrat_regular"
+                    android:gravity="start"
+                    android:text="ENTRY FEES"
+                    android:textColor="@color/black"
+                    android:textSize="11sp" />
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:fontFamily="@font/montserrat_regular"
+                    android:gravity="center|end"
+                    android:text="SEARCH BY SPOT SIZE"
+                    android:textColor="@color/black"
+                    android:textSize="11sp" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/_30sdp"
+                android:layout_marginTop="@dimen/_5sdp"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:id="@+id/filter_by_all"
+                    android:layout_width="@dimen/contest_filter_size"
+                    android:layout_height="@dimen/contest_filter_size"
+                    android:layout_marginStart="8dp"
+                    android:background="@drawable/circle_green"
+                    android:fontFamily="@font/montserrat_regular"
+                    android:gravity="center"
+                    android:text="ALL"
+                    android:textColor="@color/white"
+                    android:textSize="@dimen/_8sdp" />
+
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:gravity="center"
+                    android:orientation="horizontal">
+
+                    <LinearLayout
+                        android:id="@+id/linear_entry_prize_sort"
+                        android:layout_width="@dimen/contest_filter_size"
+                        android:layout_height="@dimen/contest_filter_size"
+                        android:background="@drawable/circle_grey"
+                        android:gravity="center">
+
+                        <TextView
+                            android:id="@+id/rupees"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:fontFamily="@font/montserratsemibold"
+                            android:gravity="center"
+                            android:text="₹"
+                            android:textColor="@color/black"
+                            android:textSize="@dimen/contest_filter_text_size" />
+
+                        <ImageView
+                            android:id="@+id/prize_arrow"
+                            android:layout_width="14dp"
+                            android:layout_height="14dp"
+                            android:src="@drawable/ic_baseline_arrow_upward_24" />
+                    </LinearLayout>
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:gravity="end"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:id="@+id/sort_by_2spots"
+                        android:layout_width="@dimen/contest_filter_size"
+                        android:layout_height="@dimen/contest_filter_size"
+                        android:layout_marginStart="8dp"
+                        android:background="@drawable/circle_grey"
+                        android:fontFamily="@font/montserrat_bold"
+                        android:gravity="center"
+                        android:text="2"
+                        android:textColor="@color/black"
+                        android:textSize="@dimen/contest_filter_text_size" />
+
+                    <TextView
+                        android:id="@+id/sort_by_3spots"
+                        android:layout_width="@dimen/contest_filter_size"
+                        android:layout_height="@dimen/contest_filter_size"
+                        android:layout_marginStart="8dp"
+                        android:background="@drawable/circle_grey"
+                        android:fontFamily="@font/montserrat_bold"
+                        android:gravity="center"
+                        android:text="3"
+                        android:textColor="@color/black"
+                        android:textSize="@dimen/contest_filter_text_size" />
+
+                    <TextView
+                        android:id="@+id/sort_by_4spots"
+                        android:layout_width="@dimen/contest_filter_size"
+                        android:layout_height="@dimen/contest_filter_size"
+                        android:layout_marginStart="8dp"
+                        android:background="@drawable/circle_grey"
+                        android:fontFamily="@font/montserrat_bold"
+                        android:gravity="center"
+                        android:text="4"
+                        android:textColor="@color/black"
+                        android:textSize="@dimen/contest_filter_text_size" />
+                </LinearLayout>
+            </LinearLayout>
+        </LinearLayout>
+
+        <androidx.swiperefreshlayout.widget.SwipeRefreshLayout
+            android:id="@+id/contest_refresh"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_below="@+id/filter_bar">
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/contest_view_recycler"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:clipToPadding="false"
+                android:layoutAnimation="@anim/layout_animation"
+                android:paddingBottom="80dp"
+                app:layout_behavior="@string/appbar_scrolling_view_behavior" />
+        </androidx.swiperefreshlayout.widget.SwipeRefreshLayout>
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/recycler_by_spotsize"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_below="@+id/filter_bar"
+            android:clipToPadding="false"
+            android:layoutAnimation="@anim/layout_animation"
+            android:paddingBottom="80dp"
+            app:layout_behavior="@string/appbar_scrolling_view_behavior" />
+
+        <TextView
+            android:id="@+id/btn_create_team"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/_30sdp"
+            android:layout_alignParentBottom="true"
+            android:layout_centerHorizontal="true"
+            android:layout_gravity="center_horizontal|bottom"
+            android:layout_marginStart="@dimen/_15sdp"
+            android:layout_marginEnd="@dimen/_15sdp"
+            android:layout_marginBottom="20dp"
+            android:background="@drawable/button_selector_green"
+            android:fontFamily="@font/montserratsemibold"
+            android:gravity="center"
+            android:text="CREATE A TEAM"
+            android:textColor="@color/white"
+            android:textSize="@dimen/_13sdp"
+            android:textStyle="bold" />
+
+        <LinearLayout
+            android:id="@+id/linear_empty_contest"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginTop="20dp"
+            android:gravity="center"
+            android:orientation="vertical"
+            android:visibility="gone">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="No matches are scheduled yet!!" />
+
+            <ImageView
+                android:layout_width="240dp"
+                android:layout_height="240dp"
+                android:layout_marginTop="20dp"
+                android:background="@drawable/circle_text"
+                android:padding="40dp"
+                android:scaleType="fitXY"
+                android:src="@drawable/ic_trophy" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Please wait for our next updates!" />
+
+            <TextView
+                android:id="@+id/btn_empty_view"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
+                android:background="@drawable/default_rounded_button_sportsfight"
+                android:fontFamily="@font/montserratsemibold"
+                android:padding="10dp"
+                android:text="@string/label_policy"
+                android:textColor="@color/white"
+                android:textSize="10sp" />
+        </LinearLayout>
+    </RelativeLayout>
+</layout>

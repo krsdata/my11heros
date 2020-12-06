@@ -1,0 +1,463 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+    <data>
+
+        <variable
+            name="contentviews"
+            type="com.my11heros.TeamPreviewActivity" />
+    </data>
+
+    <RelativeLayout
+        android:id="@+id/container"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@drawable/ground"
+        android:fitsSystemWindows="true">
+
+        <TextView
+            android:id="@+id/team_name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="5dp"
+            android:layout_marginTop="@dimen/_3sdp"
+            android:fontFamily="@font/montserrat_bold"
+            android:text="MAN001"
+            android:layout_alignParentTop="true"
+            android:layout_alignParentStart="true"
+            android:textAllCaps="true"
+            android:textColor="@color/white"
+            android:textSize="@dimen/_12sdp" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:alpha="0.4"
+            android:fontFamily="@font/catamaran_extrabold"
+            android:text="@string/app_name"
+            android:gravity="center"
+            android:layout_centerHorizontal="true"
+            android:textAllCaps="true"
+            android:textColor="@color/white"
+            android:textSize="@dimen/_14sdp" />
+
+        <LinearLayout
+            android:id="@+id/linear_top_close"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentEnd="true"
+            android:layout_marginTop="10dp"
+            android:layout_marginEnd="10dp"
+            android:orientation="horizontal">
+
+            <ImageView
+                android:id="@+id/img_refresh"
+                android:layout_width="35dp"
+                android:layout_height="35dp"
+                android:layout_marginEnd="10dp"
+                android:src="@drawable/ic_refresh_black_24dp"
+                app:tint="@color/white" />
+
+            <ImageView
+                android:id="@+id/img_close"
+                android:layout_width="35dp"
+                android:layout_height="35dp"
+                android:src="@drawable/ic_close_black_24dp"
+                app:tint="@color/white" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            android:layout_below="@+id/linear_top_close"
+            android:layout_above="@+id/points_bar"
+            android:weightSum="4">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="0.7"
+                android:orientation="vertical">
+
+                <TextView
+                    style="@style/ground_style_info"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="WICKET KEEPER"
+                    android:layout_gravity="center"
+                    android:textAllCaps="true" />
+
+                <GridView
+                    android:id="@+id/grid_wicket_keeper"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:clipChildren="true"
+                    android:gravity="center"
+                    android:horizontalSpacing="3dp"
+                    android:verticalSpacing="3dp" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="1.1"
+                android:orientation="vertical">
+
+                <TextView
+                    style="@style/ground_style_info"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="BATSMAN"
+                    android:layout_gravity="center"
+                    android:textAllCaps="true" />
+
+                <GridView
+                    android:id="@+id/grid_batsman"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:clipChildren="true"
+                    android:gravity="center_horizontal"
+                    android:horizontalSpacing="3dp"
+                    android:verticalSpacing="3dp" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="1.1"
+                android:orientation="vertical">
+
+                <TextView
+                    style="@style/ground_style_info"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="ALL ROUNDER"
+                    android:layout_gravity="center"
+                    android:textAllCaps="true" />
+
+                <GridView
+                    android:id="@+id/grid_all_rounders"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:clipChildren="true"
+                    android:gravity="center"
+                    android:horizontalSpacing="3dp"
+                    android:verticalSpacing="3dp" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="1.1"
+                android:orientation="vertical">
+
+                <TextView
+                    style="@style/ground_style_info"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="BOWLER"
+                    android:layout_gravity="center"
+                    android:textAllCaps="true" />
+
+                <GridView
+                    android:id="@+id/grid_bowlers"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:clipChildren="true"
+                    android:gravity="center"
+                    android:horizontalSpacing="3dp"
+                    android:verticalSpacing="3dp" />
+            </LinearLayout>
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/points_bar"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/_35sdp"
+            android:layout_alignParentBottom="true"
+            android:background="@color/black"
+            android:orientation="horizontal">
+
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:orientation="vertical">
+
+                <TextView
+                    android:id="@+id/total_points_value"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/roboto"
+                    android:text="515.5"
+                    android:textColor="@color/white"
+                    android:textSize="@dimen/_9sdp" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/roboto"
+                    android:text="TOTAL POINTS"
+                    android:textColor="@color/greyish"
+                    android:textSize="@dimen/_9sdp" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_marginEnd="10dp"
+                android:layout_weight="1"
+                android:gravity="center_vertical|end"
+                android:orientation="vertical">
+
+                <TextView
+                    android:id="@+id/fantasy_points_websview"
+                    android:layout_width="@dimen/_20sdp"
+                    android:layout_height="@dimen/_20sdp"
+                    android:layout_margin="5dp"
+                    android:background="@drawable/circle_text"
+                    android:fontFamily="@font/montserrat_bold"
+                    android:gravity="center"
+                    android:text="PT+"
+                    android:textColor="@color/black"
+                    android:textSize="@dimen/_8sdp" />
+            </LinearLayout>
+        </LinearLayout>
+
+        <!--<LinearLayout
+            android:id="@+id/linear_ground_grid"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:gravity="center_horizontal"
+            android:orientation="vertical">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:alpha="0.4"
+                android:fontFamily="@font/catamaran_extrabold"
+                android:text="@string/app_name"
+                android:textAllCaps="true"
+                android:textColor="@color/white"
+                android:textSize="@dimen/_14sdp" />
+
+            <TextView
+                style="@style/ground_style_info"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/_10sdp"
+                android:text="WICKET KEEPER"
+                android:textAllCaps="true" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/linear_top_close"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentEnd="true"
+            android:layout_margin="10dip"
+            android:orientation="horizontal">
+
+            <ImageView
+                android:id="@+id/img_refresh"
+                android:layout_width="35dp"
+                android:layout_height="35dp"
+                android:layout_marginEnd="10dip"
+                android:src="@drawable/ic_refresh_black_24dp"
+                app:tint="@color/white" />
+
+            <ImageView
+                android:id="@+id/img_close"
+                android:layout_width="35dp"
+                android:layout_height="35dp"
+                android:src="@drawable/ic_close_black_24dp"
+                app:tint="@color/white" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_above="@+id/points_bar"
+            android:layout_below="@+id/linear_top_close"
+            android:layout_centerInParent="true"
+            android:layout_marginLeft="30dp"
+            android:layout_marginTop="@dimen/_15sdp"
+            android:layout_marginRight="30dp"
+            android:layout_marginBottom="@dimen/_10sdp" />
+
+        <GridView
+            android:id="@+id/grid_wicket_keeper"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_above="@+id/relative_center"
+            android:layout_below="@+id/linear_top_close"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="15dp"
+            android:clipChildren="true"
+            android:gravity="center"
+            android:horizontalSpacing="3dp"
+            android:verticalSpacing="3dp" />
+
+        <RelativeLayout
+            android:id="@+id/relative_center"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/_260sdp"
+            android:layout_centerVertical="true">
+
+            <LinearLayout
+                android:id="@+id/linear_pitch_view"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_centerHorizontal="true"
+                android:gravity="center_horizontal"
+                android:orientation="vertical">
+
+                <TextView
+                    style="@style/ground_style_info"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="BATSMAN"
+                    android:textAllCaps="true" />
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/_120sdp"
+                    android:layout_marginTop="@dimen/_3sdp" />
+
+                <TextView
+                    style="@style/ground_style_info"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_vertical"
+                    android:text="ALL ROUNDER"
+                    android:textAllCaps="true" />
+            </LinearLayout>
+
+            <GridView
+                android:id="@+id/grid_batsman"
+                android:layout_width="wrap_content"
+                android:layout_height="@dimen/_125sdp"
+                android:layout_centerHorizontal="true"
+                android:layout_marginTop="10dp"
+                android:clipChildren="true"
+                android:gravity="center_horizontal"
+                android:horizontalSpacing="3dp"
+                android:verticalSpacing="3dp" />
+
+            <GridView
+                android:id="@+id/grid_all_rounders"
+                android:layout_width="wrap_content"
+                android:layout_height="@dimen/_125sdp"
+                android:layout_below="@+id/grid_batsman"
+                android:layout_centerHorizontal="true"
+                android:layout_marginTop="0dp"
+                android:clipChildren="true"
+                android:gravity="center"
+                android:horizontalSpacing="3dp"
+                android:verticalSpacing="3dp" />
+
+        </RelativeLayout>
+
+        <TextView
+            android:id="@+id/_bowler"
+            style="@style/ground_style_info"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/relative_center"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="@dimen/_5sdp"
+            android:text="BOWLER"
+            android:textAllCaps="true"
+            android:textColor="@color/white" />
+
+        <GridView
+            android:id="@+id/grid_bowlers"
+            android:layout_width="wrap_content"
+            android:layout_height="@dimen/_120sdp"
+            android:layout_above="@+id/points_bar"
+            android:layout_below="@+id/_bowler"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="@dimen/_5sdp"
+            android:clipChildren="true"
+            android:gravity="center"
+            android:horizontalSpacing="3dp"
+            android:verticalSpacing="3dp" />
+
+        <LinearLayout
+            android:id="@+id/points_bar"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/_35sdp"
+            android:layout_alignParentBottom="true"
+            android:background="@color/black"
+            android:orientation="horizontal">
+
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:orientation="vertical">
+
+                <TextView
+                    android:id="@+id/total_points_value"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/roboto"
+                    android:text="515.5"
+                    android:textColor="@color/white"
+                    android:textSize="@dimen/_9sdp" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/roboto"
+                    android:text="TOTAL POINTS"
+                    android:textColor="@color/greyish"
+                    android:textSize="@dimen/_9sdp" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_marginEnd="10dp"
+                android:layout_weight="1"
+                android:gravity="center_vertical|end"
+                android:orientation="vertical">
+
+                <TextView
+                    android:id="@+id/fantasy_points_websview"
+                    android:layout_width="@dimen/_20sdp"
+                    android:layout_height="@dimen/_20sdp"
+                    android:layout_margin="5dp"
+                    android:background="@drawable/circle_text"
+                    android:fontFamily="@font/montserrat_bold"
+                    android:gravity="center"
+                    android:text="PT+"
+                    android:textColor="@color/black"
+                    android:textSize="@dimen/_8sdp" />
+            </LinearLayout>
+        </LinearLayout>
+
+        <TextView
+            android:id="@+id/team_name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="5dp"
+            android:layout_marginTop="@dimen/_3sdp"
+            android:fontFamily="@font/montserrat_bold"
+            android:text="MAN001"
+            android:textAllCaps="true"
+            android:textColor="@color/white"
+            android:textSize="@dimen/_12sdp" />-->
+    </RelativeLayout>
+</layout>

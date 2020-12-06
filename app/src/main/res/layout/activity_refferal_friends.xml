@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+        <variable
+            name="contentviews"
+            type="com.my11heros.RefferalFriendsListActivity" />
+    </data>
+
+    <RelativeLayout
+        android:id="@+id/container"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:fitsSystemWindows="true"
+        tools:context="com.my11heros.RefferalFriendsListActivity"
+        android:orientation="vertical"
+        android:background="@color/light_grey_bg"
+        >
+        <androidx.appcompat.widget.Toolbar
+            android:id="@+id/toolbar"
+            android:layout_width="match_parent"
+            android:layout_height="?attr/actionBarSize"
+            android:background="@color/colorPrimaryDark"
+            android:orientation="vertical"
+            />
+        <RelativeLayout
+            android:layout_below="@+id/toolbar"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_centerHorizontal="true"
+            android:layout_gravity="center_horizontal"
+            android:orientation="vertical"
+          >
+
+              <androidx.recyclerview.widget.RecyclerView
+                  android:id="@+id/transaction_history_recycler"
+                  android:layout_width="match_parent"
+                  android:layout_height="match_parent"/>
+
+             <ProgressBar
+                 android:id="@+id/progress_bar"
+                 android:layout_width="30dp"
+                 android:layout_height="30dp"
+                 android:layout_centerInParent="true"/>
+
+            <RelativeLayout
+                android:id="@+id/empty_view_refferal"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_centerHorizontal="true"
+                >
+
+
+
+                <TextView
+                    android:id="@+id/reffer_label"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerInParent="true"
+                    android:layout_centerHorizontal="true"
+                    android:layout_marginTop="20dp"
+                    android:text="YOU HAVE NOT REFFERED WITH ANY FRIENDS"
+                    android:textColor="@color/black"
+                    android:fontFamily="@font/montserrat_bold"/>
+
+                <Button
+                    android:id="@+id/reffer_now_button"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerHorizontal="true"
+                    android:layout_below="@+id/reffer_label"
+                    android:layout_centerInParent="true"
+                    android:layout_marginTop="10dp"
+                    android:text="SHARE NOW"
+                    android:textColor="@color/white"
+                    android:padding="8dp"
+                    android:background="@drawable/button_selector_red"
+                    android:fontFamily="@font/catamaran_extrabold"
+                    android:textSize="@dimen/_16sdp"/>
+
+
+
+            </RelativeLayout>
+
+        </RelativeLayout>
+        </RelativeLayout>
+
+</layout>

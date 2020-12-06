@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:background="#ffffff"
+    android:padding="16dp"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+
+    <LinearLayout android:orientation="vertical"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerVertical="true">
+
+        <TextView
+            android:id="@+id/transaction_note"
+            android:textSize="14sp"
+            android:textColor="#282828"
+            android:text="BONUS ON SIGNUP"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/montserrat_bold"/>
+
+        <TextView
+            android:id="@+id/transaction_id"
+            android:textSize="12sp"
+            android:textColor="#282828"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="#12344TRANSACTION ID"
+            android:fontFamily="@font/open_sans_semibold"
+            android:layout_marginTop="4dp" />
+
+        <TextView
+            android:id="@+id/transaction_date"
+            android:textSize="12sp"
+            android:textColor="#828282"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="10-11-1985"
+            android:fontFamily="@font/open_sans_semibold"
+            android:layout_marginTop="4dp" />
+    </LinearLayout>
+
+    <TextView
+        android:id="@+id/transaction_amount"
+        android:textSize="14sp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="4dp"
+        android:text="-$12"
+        android:textColor="#282828"
+        android:layout_alignParentRight="true"
+        android:fontFamily="@font/open_sans_semibold"
+        android:layout_centerVertical="true" />
+</RelativeLayout>

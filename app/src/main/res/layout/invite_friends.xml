@@ -1,0 +1,186 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+
+        <variable
+            name="onRefernEarn"
+            type="com.my11heros.InviteFriendsActivity.OnClickListners" />
+    </data>
+
+    <androidx.coordinatorlayout.widget.CoordinatorLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:fitsSystemWindows="true">
+
+        <com.google.android.material.appbar.AppBarLayout
+            android:id="@+id/appbar"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <androidx.appcompat.widget.Toolbar
+                android:id="@+id/toolbar"
+                android:layout_width="match_parent"
+                android:layout_height="?attr/actionBarSize"
+                android:background="@color/colorPrimaryDark"
+                android:elevation="5dp"
+                app:theme="@style/ToolbarColoredBackArrow"
+                app:titleTextAppearance="@style/TextAppearance.MyApp.Widget.ActionBar.Title" />
+
+        </com.google.android.material.appbar.AppBarLayout>
+
+        <androidx.core.widget.NestedScrollView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            app:layout_behavior="@string/appbar_scrolling_view_behavior">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginStart="@dimen/_15sdp"
+                android:layout_marginEnd="@dimen/_15sdp"
+                android:fitsSystemWindows="true"
+                android:orientation="vertical"
+                app:layout_behavior="@string/appbar_scrolling_view_behavior">
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/open_sans_semibold"
+                    android:text="REFER AND EARN ₹100 BONUS"
+                    android:textColor="@color/colorAccent"
+                    android:textSize="28sp" />
+
+                <View
+                    android:layout_width="200dp"
+                    android:layout_height="3dp"
+                    android:layout_marginTop="5dip"
+                    android:background="@color/grey" />
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="40dp"
+                    android:fontFamily="@font/open_sans_semibold"
+                    android:text="LIFE TIME EARNING (EITHER YOUR FRIENDS PLAY OR NOT)"
+                    android:textColor="@color/black"
+                    android:textSize="16sp" />
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="8dp"
+                    android:fontFamily="@font/open_sans_light"
+                    android:text="NO EARNING LIMIT"
+                    android:textColor="@color/black"
+                    android:textSize="16sp" />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/_40sdp"
+                    android:layout_marginTop="@dimen/_30sdp"
+                    android:background="@drawable/xml_textbox_bg"
+                    android:orientation="horizontal">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="match_parent"
+                            android:fontFamily="@font/roboto"
+                            android:gravity="center"
+                            android:text="Referral Code : "
+                            android:textColor="@color/black"
+                            android:textSize="@dimen/_14sdp" />
+
+                        <TextView
+                            android:id="@+id/rereral_code"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:fontFamily="@font/roboto"
+                            android:gravity="center|start"
+                            android:text="MANPRAS264"
+                            android:textColor="@color/black"
+                            android:textSize="@dimen/_14sdp"
+                            android:textStyle="bold"/>
+                    </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/_30sdp"
+                    android:layout_marginTop="@dimen/_30sdp"
+                    android:background="@drawable/default_rounded_button_sportsfight"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:id="@+id/invite_friends"
+                        android:layout_width="match_parent"
+                        android:layout_height="@dimen/_30sdp"
+                        android:fontFamily="@font/roboto"
+                        android:gravity="center"
+                        android:text="Invite your friends"
+                        android:textColor="@color/white"
+                        android:textSize="@dimen/_14sdp" />
+                </LinearLayout>
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="65dip"
+                    android:fontFamily="@font/open_sans_semibold"
+                    android:gravity="center"
+                    android:text="REFER WITH "
+                    android:visibility="gone"
+                    android:textColor="@color/black"
+                    android:textSize="18sp"
+                    android:textStyle="bold" />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="30dp"
+                    android:visibility="gone"
+                    android:gravity="center">
+
+                    <ImageView
+                        android:id="@+id/share_whatsapp"
+                        android:layout_width="60dp"
+                        android:layout_height="60dp"
+                        android:onClick="@{onRefernEarn::onWhatsApp}"
+                        android:src="@drawable/ic_whatsapp" />
+
+                    <ImageView
+                        android:id="@+id/share_facebook"
+                        android:layout_width="60dp"
+                        android:layout_height="60dp"
+                        android:layout_marginLeft="20dp"
+                        android:onClick="@{onRefernEarn::onFacebook}"
+                        android:src="@drawable/facebook_logo"
+                        android:visibility="gone" />
+
+                    <ImageView
+                        android:id="@+id/share_twitter"
+                        android:layout_width="60dp"
+                        android:layout_height="60dp"
+                        android:layout_marginLeft="20dp"
+                        android:layout_marginTop="@dimen/_10sdp"
+                        android:onClick="@{onRefernEarn::onTwitter}"
+                        android:src="@drawable/ic_twitter"
+                        android:visibility="gone" />
+
+
+                </LinearLayout>
+
+                <Button
+                    android:id="@+id/more_options"
+                    android:layout_width="220dp"
+                    android:layout_height="35dp"
+                    android:layout_gravity="center_horizontal"
+                    android:layout_marginTop="10dp"
+                    android:background="@drawable/default_rounded_button_sportsfight"
+                    android:text="@string/title_more"
+                    android:visibility="gone"
+                    android:textColor="@color/white" />
+            </LinearLayout>
+        </androidx.core.widget.NestedScrollView>
+    </androidx.coordinatorlayout.widget.CoordinatorLayout>
+</layout>

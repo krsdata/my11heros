@@ -1,0 +1,232 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/linear_trades_status"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@color/white"
+    android:orientation="vertical">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="65dp"
+        android:background="@color/white"
+        android:orientation="horizontal"
+        android:paddingTop="@dimen/matches_gap_between_each_views">
+
+        <RelativeLayout
+            android:id="@+id/rel_player_image"
+            android:layout_width="75dp"
+            android:layout_height="wrap_content">
+
+            <ImageView
+                android:id="@+id/player_image"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:scaleType="fitXY"
+                android:src="@drawable/player_blue" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_alignParentStart="true"
+                android:layout_alignParentBottom="true">
+
+                <TextView
+                    android:id="@+id/selected_player_country"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:background="@color/black"
+                    android:gravity="center"
+                    android:padding="3dp"
+                    android:text="AU-W"
+                    android:textColor="@color/white"
+                    android:textSize="8sp" />
+
+                <TextView
+                    android:id="@+id/selected_player_playing_style"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:background="@color/colorPrimaryDark"
+                    android:gravity="center"
+                    android:padding="3dp"
+                    android:text="BAT"
+                    android:textColor="@color/white"
+                    android:textSize="8sp" />
+
+            </LinearLayout>
+        </RelativeLayout>
+
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_marginLeft="8dip"
+            android:layout_weight="2"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/player_name"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/montserrat_bold"
+                android:maxLines="1"
+                android:padding="3dp"
+                android:singleLine="true"
+                android:text="Virat Kohli"
+                android:textColor="@color/black"
+                android:textSize="13sp" />
+
+            <TextView
+                android:id="@+id/player_selection_percentage"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/montserrat_regular"
+                android:maxLines="1"
+                android:padding="3dp"
+                android:singleLine="true"
+                android:text="Selected by 81.96%"
+                android:textColor="@color/black"
+                android:textSize="8sp" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_toLeftOf="@+id/linear_selection_"
+            android:layout_weight="0.7"
+            android:gravity="center_vertical"
+            android:minWidth="55dp"
+            android:orientation="horizontal">
+
+            <TextView
+                android:id="@+id/player_points"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginRight="10dp"
+                android:padding="3dp"
+                android:text="100"
+                android:textSize="@dimen/save_team_text_size_normal"
+                android:textStyle="bold"
+                android:textColor="@color/black" />
+
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/linear_selection_"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_alignParentRight="true"
+            android:layout_weight="2"
+            android:gravity="center_vertical"
+            android:orientation="horizontal">
+
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_alignParentRight="true"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:visibility="gone"
+                android:orientation="vertical">
+
+                <TextView
+                    android:id="@+id/role_type_trump"
+                    android:layout_width="@dimen/save_match_circle"
+                    android:layout_height="@dimen/save_match_circle"
+                    android:background="@drawable/circle_save_match"
+                    android:fontFamily="@font/montserrat_bold"
+                    android:gravity="center"
+                    android:padding="3dp"
+                    android:text="T"
+                    android:textColor="@color/black"
+                    android:textSize="@dimen/save_team_text_size_normal" />
+
+                <TextView
+                    android:id="@+id/selected_trump_percentage"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/montserrat_regular"
+                    android:padding="3dp"
+                    android:text="6.08%"
+                    android:textColor="@color/black"
+                    android:textSize="@dimen/save_team_text_size_normal" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:orientation="vertical">
+
+                <TextView
+                    android:id="@+id/role_type_captain"
+                    android:layout_width="@dimen/save_match_circle"
+                    android:layout_height="@dimen/save_match_circle"
+                    android:background="@drawable/circle_save_match"
+                    android:fontFamily="@font/montserrat_bold"
+                    android:gravity="center"
+                    android:padding="3dp"
+                    android:text="C"
+                    android:textColor="@color/black"
+                    android:textSize="@dimen/save_team_text_size_normal" />
+
+                <TextView
+                    android:id="@+id/selected_captain_percentage"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/montserrat_regular"
+                    android:padding="3dp"
+                    android:text="0.8%"
+                    android:textColor="@color/black"
+                    android:textSize="@dimen/save_team_text_size_normal" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_alignParentRight="true"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:orientation="vertical">
+
+                <TextView
+                    android:id="@+id/role_type_vicecaptain"
+                    android:layout_width="@dimen/save_match_circle"
+                    android:layout_height="@dimen/save_match_circle"
+                    android:background="@drawable/circle_save_match"
+                    android:fontFamily="@font/montserrat_bold"
+                    android:gravity="center"
+                    android:padding="3dp"
+                    android:text="VC"
+                    android:textColor="@color/black"
+                    android:textSize="@dimen/save_team_text_size_normal" />
+
+                <TextView
+                    android:id="@+id/selected_vc_percentage"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/montserrat_regular"
+                    android:padding="3dp"
+                    android:text="3%"
+                    android:textColor="@color/black"
+                    android:textSize="@dimen/save_team_text_size_normal" />
+
+            </LinearLayout>
+
+        </LinearLayout>
+
+
+
+    </LinearLayout>
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="0.5dp"
+        android:layout_marginTop="3dp"
+        android:background="@color/greyish" />
+</LinearLayout>

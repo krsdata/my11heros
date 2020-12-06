@@ -1,0 +1,323 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools">
+    <data>
+        <variable
+            name="contentviews"
+            type="com.my11heros.AddMoneyActivity" />
+    </data>
+
+    <androidx.core.widget.NestedScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/light_grey_bg">
+
+        <RelativeLayout
+            android:id="@+id/container"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:fitsSystemWindows="true"
+            android:orientation="vertical"
+            tools:context="winning.cricks.CreateTeamActivity">
+
+            <androidx.appcompat.widget.Toolbar
+                android:id="@+id/toolbar"
+                android:layout_width="match_parent"
+                android:layout_height="?attr/actionBarSize"
+                android:background="@color/colorPrimaryDark"
+                android:orientation="vertical" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/toolbar"
+                android:orientation="vertical">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:layout_weight="1"
+                        android:fontFamily="@font/montserrat_regular"
+                        android:text="Deposit"
+                        android:textColor="@color/grey"
+                        android:textSize="@dimen/_12sdp" />
+
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:layout_weight="1"
+                        android:fontFamily="@font/montserrat_regular"
+                        android:text="Cash"
+                        android:textColor="@color/grey"
+                        android:textSize="@dimen/_12sdp" />
+
+
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:layout_weight="1"
+                        android:fontFamily="@font/montserrat_regular"
+                        android:text="Bonus Cash"
+                        android:textColor="@color/grey"
+                        android:textSize="@dimen/_12sdp" />
+                </LinearLayout>
+            </LinearLayout>
+
+            <RelativeLayout
+                android:id="@+id/top_linear_balance"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/toolbar"
+                android:layout_centerHorizontal="true"
+                android:layout_gravity="center_horizontal"
+                android:background="@drawable/rounded_corner_white"
+                android:orientation="vertical"
+                android:padding="10dip">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:fontFamily="@font/montserrat_regular"
+                    android:text="Current Balance"
+                    android:textColor="@color/grey"
+                    android:textSize="@dimen/_12sdp" />
+
+                <TextView
+                    android:id="@+id/wallet_total_amount"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentEnd="true"
+                    android:layout_gravity="center"
+                    android:fontFamily="@font/montserrat_regular"
+                    android:text="₹188"
+                    android:textColor="@color/black"
+                    android:textSize="@dimen/_12sdp" />
+            </RelativeLayout>
+
+            <LinearLayout
+                android:id="@+id/linear_wallet_Added"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/top_linear_balance"
+                android:layout_margin="10dp"
+                android:background="@drawable/rounded_corner_white"
+                android:orientation="vertical"
+                android:padding="10dip">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/montserrat_regular"
+                    android:text="Amount to Add"
+                    android:textColor="@color/grey"
+                    android:textSize="@dimen/_12sdp" />
+
+                <EditText
+                    android:id="@+id/edit_amounts"
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/_45sdp"
+                    android:layout_marginTop="10dp"
+                    android:background="@drawable/button_selector_verify"
+                    android:drawableStart="@drawable/ic_rupee"
+                    android:fontFamily="@font/roboto"
+                    android:inputType="number"
+                    android:maxLength="5"
+                    android:maxLines="1"
+                    android:singleLine="true"
+                    android:text="500"
+                    android:textSize="@dimen/_18sdp" />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/_45sdp"
+                    android:layout_marginTop="20dp">
+
+                    <TextView
+                        android:id="@+id/add_100rs"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:background="@drawable/button_selector_black"
+                        android:fontFamily="@font/montserrat_regular"
+                        android:gravity="center"
+                        android:padding="8dp"
+                        android:text="100"
+                        android:textColor="@color/black"
+                        android:textSize="@dimen/_16sdp" />
+
+                    <TextView
+                        android:id="@+id/add_200rs"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="8dp"
+                        android:layout_weight="1"
+                        android:background="@drawable/button_selector_black"
+                        android:fontFamily="@font/montserrat_regular"
+                        android:gravity="center"
+                        android:padding="8dp"
+                        android:text="200"
+                        android:textColor="@color/black"
+                        android:textSize="@dimen/_16sdp" />
+
+                    <TextView
+                        android:id="@+id/add_300rs"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="8dp"
+                        android:layout_weight="1"
+                        android:background="@drawable/button_selector_black"
+                        android:fontFamily="@font/montserrat_regular"
+                        android:gravity="center"
+                        android:padding="8dp"
+                        android:text="300"
+                        android:textColor="@color/black"
+                        android:textSize="@dimen/_16sdp" />
+
+                    <TextView
+                        android:id="@+id/add_500rs"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="8dp"
+                        android:layout_weight="1"
+                        android:background="@drawable/default_rounded_button_sportsfight"
+                        android:fontFamily="@font/montserrat_regular"
+                        android:gravity="center"
+                        android:padding="8dp"
+                        android:text="500"
+                        android:textColor="@color/white"
+                        android:textSize="@dimen/_16sdp" />
+                </LinearLayout>
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/lineapayment"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/linear_wallet_Added"
+                android:layout_margin="10dp"
+                android:background="@drawable/rounded_corner_white"
+                android:orientation="vertical"
+                android:padding="10dip">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="10dp"
+                    android:fontFamily="@font/montserrat_bold"
+                    android:text="Wallet Payments"
+                    android:textColor="@color/greyish"
+                    android:textSize="@dimen/_12sdp" />
+
+                <RadioGroup
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+
+                    <RadioButton
+                        android:id="@+id/use_paytm_wallet"
+                        android:layout_width="match_parent"
+                        android:layout_height="@dimen/_45sdp"
+                        android:layout_marginLeft="4dp"
+                        android:layout_marginRight="4dp"
+                        android:checked="true"
+                        android:drawableStart="@drawable/icon_paytm"
+                        android:drawablePadding="10dp"
+                        android:fontFamily="@font/montserrat_bold"
+                        android:text="Paytm"
+                        android:textSize="@dimen/_12sdp"
+                        android:visibility="visible" />
+
+                    <View
+                        android:id="@+id/view1"
+                        android:layout_width="match_parent"
+                        android:layout_height="0.8dp"
+                        android:layout_marginTop="5dp"
+                        android:visibility="gone"
+                        android:background="@color/greyish" />
+
+                    <RadioButton
+                        android:id="@+id/use_wallet_gpay"
+                        android:layout_width="match_parent"
+                        android:layout_height="@dimen/_45sdp"
+                        android:layout_marginLeft="4dp"
+                        android:layout_marginRight="4dp"
+                        android:drawableStart="@drawable/icon_google"
+                        android:drawablePadding="10dp"
+                        android:fontFamily="@font/montserrat_bold"
+                        android:text="Gpay"
+                        android:textSize="@dimen/_12sdp"
+                        android:visibility="visible" />
+
+                    <View
+                        android:id="@+id/view2"
+                        android:layout_width="match_parent"
+                        android:layout_height="0.8dp"
+                        android:layout_marginTop="5dp"
+                        android:visibility="gone"
+                        android:background="@color/greyish" />
+
+                    <RadioButton
+                        android:id="@+id/use_wallet_phonepay"
+                        android:layout_width="match_parent"
+                        android:layout_height="@dimen/_45sdp"
+                        android:layout_marginLeft="4dp"
+                        android:layout_marginRight="4dp"
+                        android:checked="false"
+                        android:drawableStart="@drawable/icon_phonepay"
+                        android:drawablePadding="10dp"
+                        android:fontFamily="@font/montserrat_bold"
+                        android:text="Credit Card/ Debit Card/ Netbanking/ Wallets"
+                        android:textSize="@dimen/_12sdp"
+                        android:visibility="visible" />
+
+                    <View
+                        android:layout_width="match_parent"
+                        android:layout_height="0.8dp"
+                        android:layout_marginTop="10dp"
+                        android:background="@color/greyish"
+                        android:visibility="gone" />
+                </RadioGroup>
+            </LinearLayout>
+
+            <RelativeLayout
+                android:id="@+id/rel_payment"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/_45sdp"
+                android:layout_below="@+id/lineapayment"
+                android:layout_margin="10dp"
+                android:background="@drawable/default_rounded_button_sportsfight"
+                android:orientation="vertical"
+                android:padding="10dip">
+
+                <TextView
+                    android:id="@+id/add_Cash"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:fontFamily="@font/montserrat_bold"
+                    android:gravity="center"
+                    android:text="ADD CASH"
+                    android:textColor="@color/white"
+                    android:textSize="@dimen/_12sdp" />
+            </RelativeLayout>
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/rel_payment"
+                android:fontFamily="@font/montserrat_regular"
+                android:gravity="center"
+                android:padding="8dp"
+                android:text="@string/state_warnings"
+                android:textColor="@color/black"
+                android:textSize="@dimen/_8sdp" />
+        </RelativeLayout>
+    </androidx.core.widget.NestedScrollView>
+</layout>
