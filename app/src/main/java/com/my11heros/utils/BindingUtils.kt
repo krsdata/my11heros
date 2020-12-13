@@ -38,7 +38,7 @@ class BindingUtils {
         val PHONE_NUMBER: String = "=+91"
         val GOOGLE_TEZ_PACKAGE_NAME = "com.google.android.apps.nbu.paisa.user"
         val PAYMENT_GOOGLEPAY_UPI = "9340301139@okbizaxis"
-        val PAYMENT_RAZOR_PAY_KEY = "rzp_live_SiMilNQfyJNzJe"
+        val PAYMENT_RAZOR_PAY_KEY = "rzp_live_31mXi69McwbIiq"
         val BASE_URL_MAIN = "https://my11heros.com/"
         val BASE_URL_API = "https://app.my11heros.com/"
         val WEBVIEW_FANTASY_POINTS = BASE_URL_MAIN + "fantasy-points-system/index.html"

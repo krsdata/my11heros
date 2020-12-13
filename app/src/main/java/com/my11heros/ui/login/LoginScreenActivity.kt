@@ -7,6 +7,7 @@ import android.graphics.Bitmap
 import android.os.Build
 import android.os.Bundle
 import android.text.TextUtils
+import android.util.Log
 import android.view.View
 import android.view.animation.Animation
 import android.view.animation.AnimationUtils
@@ -54,12 +55,15 @@ class LoginScreenActivity : BaseActivity(), Callback<ResponseModel> {
 
     companion object {
         var AUTH_TYPE_GMAIL = "googleAuth"
+        var TAG: String = LoginScreenActivity::class.java.simpleName
     }
 
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = DataBindingUtil.setContentView(this, R.layout.activity_login)
+        updateFireBase()
+
         supportActionBar?.setDisplayHomeAsUpEnabled(true)
         supportActionBar?.setHomeButtonEnabled(true)
         firebaseAuth = FirebaseAuth.getInstance()
@@ -155,6 +159,7 @@ class LoginScreenActivity : BaseActivity(), Callback<ResponseModel> {
 
     private fun firebaseAuthWithGoogle(acct: GoogleSignInAccount) {
         customeProgressDialog.show()
+
         val credential = GoogleAuthProvider.getCredential(acct.idToken, null)
         firebaseAuth.signInWithCredential(credential).addOnCompleteListener {
             customeProgressDialog.dismiss()
@@ -165,7 +170,6 @@ class LoginScreenActivity : BaseActivity(), Callback<ResponseModel> {
                     name = user.displayName!!
                     emailid = user.email!!
                     photoUrl = firebaseAuth.currentUser!!.photoUrl.toString()
-
                     login(emailid, AUTH_TYPE_GMAIL)
                     mGoogleSignInClient.signOut()
                 }
@@ -185,6 +189,9 @@ class LoginScreenActivity : BaseActivity(), Callback<ResponseModel> {
             MyUtils.showToast(this@LoginScreenActivity, "No Internet connection found")
             return
         }
+
+        Log.e(TAG, "notificationToken ========> "+ notificationToken)
+
         customeProgressDialog.show()
         val request = RequestModel()
         request.name = name
@@ -202,10 +209,10 @@ class LoginScreenActivity : BaseActivity(), Callback<ResponseModel> {
         if (!isFinishing) {
             customeProgressDialog.dismiss()
 
-            var responseb = response!!.body()
+            val responseb = response!!.body()
             if (responseb != null) {
                 if (responseb.status) {
-                    var infoModels = responseb.infomodel
+                    val infoModels = responseb.infomodel
                     if (infoModels != null) {
                         if (TextUtils.isEmpty(responseb.infomodel!!.profileImage)) {
                             //MyPreferences.setProfilePicture(this, photoUrl)
@@ -228,7 +235,7 @@ class LoginScreenActivity : BaseActivity(), Callback<ResponseModel> {
                         } else
                             if (infoModels.isOtpVerified) {
                                 MyPreferences.setLoginStatus(this@LoginScreenActivity, true)
-                                var intent =
+                                val intent =
                                     Intent(this@LoginScreenActivity, MainActivity::class.java)
                                 setResult(Activity.RESULT_OK)
                                 startActivity(intent)
@@ -269,7 +276,7 @@ class LoginScreenActivity : BaseActivity(), Callback<ResponseModel> {
     }
 
     private fun sendOTP(uid: String?) {
-        var intent = Intent(this, OtpVerifyActivity::class.java)
+        val intent = Intent(this, OtpVerifyActivity::class.java)
         intent.putExtra(OtpVerifyActivity.EXTRA_KEY_EDIT_MOBILE_NUMBER, true)
         intent.putExtra(OtpVerifyActivity.EXTRA_KEY_PROVIDER_ID, uid)
         startActivityForResult(intent, RegisterScreenActivity.REQUESTCODE_LOGIN)

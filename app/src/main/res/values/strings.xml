@@ -107,9 +107,9 @@
         <item>West Bengal</item>
     </string-array>
 
-    <string name="gcm_default_sender_id">"701940049916"</string>
+    <string name="gcm_default_sender_id">"313203622041"</string>
     <string name="razorpaythemecolor">"#2F73FD"</string>
-    <string name="razorpay_key">rzp_live_SiMilNQfyJNzJe</string>
+    <string name="razorpay_key">rzp_live_31mXi69McwbIiq</string>
     <string name="label_login_agree">By creating an account or logging in, you agree to My11Heros</string>
     <string name="label_policy">READ My11Heros Policies</string>
     <string name="label_acceptance1">By joining this, you accept My11Heros </string>

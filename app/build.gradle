@@ -22,6 +22,10 @@ android {
         setProperty("archivesBaseName", "My11Heros-$versionName")
     }
 
+        packagingOptions {
+        exclude 'AndroidManifest.xml'
+    }
+
     dataBinding {
         enabled = true
     }
@@ -30,16 +34,15 @@ android {
         debug {
             buildConfigField "boolean", "MLOG", "true"
             debuggable true
-            useProguard true
-            shrinkResources true
-            minifyEnabled true
-            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+            useProguard false
+            shrinkResources false
+            minifyEnabled false
         }
         release {
             buildConfigField "boolean", "MLOG", "false"
-            useProguard true
-            shrinkResources true
-            minifyEnabled true
+            useProguard false
+            shrinkResources false
+            minifyEnabled false
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
         }
     }
@@ -50,24 +53,24 @@ android {
     kotlinOptions {
         jvmTarget = '1.8'
     }
-//    bundle {
-//        language {
-//            enableSplit = false
-//        }
-//        density {
-//            enableSplit = true
-//        }
-//        abi {
-//            enableSplit = true
-//        }
-//    }
+    bundle {
+        language {
+            enableSplit = false
+        }
+        density {
+            enableSplit = true
+        }
+        abi {
+            enableSplit = true
+        }
+    }
 
     lintOptions {
         checkReleaseBuilds false
         abortOnError false
     }
 
-//    aaptOptions { cruncherEnabled = false }
+    aaptOptions { cruncherEnabled = false }
 }
 
 dependencies {

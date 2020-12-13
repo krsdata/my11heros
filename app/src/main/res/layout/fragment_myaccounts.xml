@@ -48,7 +48,7 @@
             <RelativeLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="15dp">
+                android:layout_marginTop="10dp">
 
                 <com.mikhaellopez.circularimageview.CircularImageView
                     android:id="@+id/profile_image"
@@ -79,6 +79,7 @@
                 <Button
                     android:id="@+id/btn_edit_profile"
                     android:layout_width="0dp"
+                    style="@style/Widget.AppCompat.Button"
                     android:layout_height="match_parent"
                     android:layout_marginStart="@dimen/_10sdp"
                     android:layout_marginEnd="@dimen/_5sdp"
@@ -91,13 +92,14 @@
 
                 <Button
                     android:id="@+id/btn_verify_account"
+                    style="@style/Widget.AppCompat.Button"
                     android:layout_width="0dp"
                     android:layout_height="match_parent"
                     android:layout_marginStart="@dimen/_5sdp"
                     android:layout_marginEnd="@dimen/_10sdp"
                     android:layout_weight="1"
                     android:background="@color/colorPrimary"
-                    android:text="Verify Accounts"
+                    android:text="Verify Acc"
                     android:textColor="@color/white"
                     android:textSize="@dimen/_10sdp"
                     tools:ignore="ButtonStyle" />

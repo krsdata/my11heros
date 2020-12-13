@@ -20,6 +20,7 @@ import android.os.Handler
 import android.provider.MediaStore
 import android.text.TextUtils
 import android.util.Base64
+import android.util.Log
 import android.widget.Toast
 import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
@@ -27,7 +28,6 @@ import androidx.core.app.ActivityCompat
 import androidx.core.content.ContextCompat
 import androidx.core.content.FileProvider
 import com.andrognito.flashbar.Flashbar
-import com.andrognito.flashbar.anim.FlashAnim
 import com.deliverdas.customers.utils.HardwareInfoManager
 import com.google.firebase.iid.FirebaseInstanceId
 import com.my11heros.*
@@ -259,7 +259,8 @@ abstract class BaseActivity : AppCompatActivity() {
                             onUploadedImageUrl(photoUrl)
                             //Toast.makeText(this@BaseActivity, "" + res.message, Toast.LENGTH_LONG).show()
                         } else {
-                            Toast.makeText(this@BaseActivity, "" + res!!.message, Toast.LENGTH_LONG).show()
+                            Toast.makeText(this@BaseActivity, "" + res!!.message, Toast.LENGTH_LONG)
+                                .show()
                         }
                     }
                 }
@@ -422,8 +423,10 @@ abstract class BaseActivity : AppCompatActivity() {
         FirebaseInstanceId.getInstance().instanceId
             .addOnSuccessListener { instanceIdResult ->
                 val deviceToken = instanceIdResult.token
+                Log.e("BaseActivity", "deviceToken ==========>" + deviceToken)
                 if (!TextUtils.isEmpty(deviceToken)) {
                     notificationToken = deviceToken
+
                     MyPreferences.setDeviceToken(this@BaseActivity, deviceToken)
                 }
 //                    var notid =  FirebaseInstanceId.getInstance()
@@ -434,7 +437,8 @@ abstract class BaseActivity : AppCompatActivity() {
                     request.user_id = userId
                     request.device_id = deviceToken
                     request.token = MyPreferences.getToken(this@BaseActivity)!!
-                    request.deviceDetails = HardwareInfoManager(this@BaseActivity).collectData(deviceToken)
+                    request.deviceDetails =
+                        HardwareInfoManager(this@BaseActivity).collectData(deviceToken)
                     WebServiceClient(this@BaseActivity).client.create(IApiMethod::class.java)
                         .deviceNotification(request)
                         .enqueue(object : Callback<UsersPostDBResponse?> {

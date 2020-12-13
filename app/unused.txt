@@ -25534,7 +25534,6 @@ kotlinx.coroutines.scheduling.ExperimentalCoroutineDispatcher:
 com.paytm.pgsdk.PaytmPGService:
     public static synchronized com.paytm.pgsdk.PaytmPGService getStagingService()
     public synchronized void initialize(com.paytm.pgsdk.PaytmOrder,com.paytm.pgsdk.PaytmClientCertificate)
-    public void enableLog(android.content.Context)
     public synchronized void startPaymentTransaction(android.content.Context,boolean,boolean,com.paytm.pgsdk.PaytmPaymentTransactionCallback)
     public final android.content.pm.ApplicationInfo getApplicationinfo(android.content.Context)
     public volatile com.paytm.pgsdk.PaytmClientCertificate mCertificate
@@ -29035,8 +29034,6 @@ io.branch.referral.PrefHelper:
     public static void Debug(java.lang.String)
     public static void LogAlways(java.lang.String)
     public static void <clinit>()
-    public final void setBuckets(java.util.ArrayList)
-    public final void setActions(java.util.ArrayList)
     public final java.util.ArrayList deserializeString(java.lang.String)
     public final void clearPrefOnBranchKeyChange()
     public java.lang.String getAPIBaseUrl()
@@ -31500,8 +31497,8 @@ com.bumptech.glide.load.data.InputStreamRewinder$Factory:
 retrofit2.DefaultCallAdapterFactory$ExecutorCallbackCall$1:
     private synthetic void lambda$onFailure$1(retrofit2.Callback,java.lang.Throwable)
     private synthetic void lambda$onResponse$0(retrofit2.Callback,retrofit2.Response)
-    public synthetic void lambda$onFailure$1$DefaultCallAdapterFactory$ExecutorCallbackCall$1(retrofit2.Callback,java.lang.Throwable)
     public synthetic void lambda$onResponse$0$DefaultCallAdapterFactory$ExecutorCallbackCall$1(retrofit2.Callback,retrofit2.Response)
+    public synthetic void lambda$onFailure$1$DefaultCallAdapterFactory$ExecutorCallbackCall$1(retrofit2.Callback,java.lang.Throwable)
 androidx.constraintlayout.widget.ConstraintSet$Constraint:
     public static synthetic void access$000(androidx.constraintlayout.widget.ConstraintSet$Constraint,int,androidx.constraintlayout.widget.ConstraintLayout$LayoutParams)
     public static void access$300(androidx.constraintlayout.widget.ConstraintSet$Constraint,androidx.constraintlayout.widget.ConstraintHelper,int,androidx.constraintlayout.widget.Constraints$LayoutParams)

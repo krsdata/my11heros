@@ -50,7 +50,7 @@ class MainActivity : BaseActivity(), NavigationView.OnNavigationItemSelectedList
         userInfo = (application as SportsFightApplication).userInformations
         setSupportActionBar(mBinding!!.toolbar)
         // setUpDrawerLayout()
-
+        updateFireBase()
 
         mBinding!!.imgWalletAmount.setOnClickListener(View.OnClickListener {
             val intent = Intent(this@MainActivity, MyBalanceActivity::class.java)

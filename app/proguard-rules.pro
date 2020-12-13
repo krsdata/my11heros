@@ -61,7 +61,7 @@
 -dontwarn com.crashlytics.**
 
 -keepattributes *Annotation*
-#-keepattributes SourceFile,LineNumberTable
+-keepattributes SourceFile,LineNumberTable
 -renamesourcefileattribute SourceFile
 -keep public class * extends java.lang.Exception
 

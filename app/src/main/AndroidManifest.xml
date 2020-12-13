@@ -27,7 +27,6 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme_app"
-        android:usesCleartextTraffic="true"
         tools:ignore="GoogleAppIndexingWarning,MissingDefaultResource"
         tools:replace="android:icon,android:theme">
         <activity
@@ -41,7 +40,7 @@
             </intent-filter>
 
             <!-- Branch URI scheme -->
-            <!--<intent-filter>
+            <intent-filter>
                 <data
                     android:host="open"
                     android:scheme="ninja11" />
@@ -49,10 +48,10 @@
 
                 <category android:name="android.intent.category.DEFAULT" />
                 <category android:name="android.intent.category.BROWSABLE" />
-            </intent-filter>-->
+            </intent-filter>
 
             <!-- Branch App Links -->
-            <!--<intent-filter android:autoVerify="true">
+            <intent-filter android:autoVerify="true">
                 <action android:name="android.intent.action.VIEW" />
 
                 <category android:name="android.intent.category.DEFAULT" />
@@ -61,10 +60,10 @@
                 <data
                     android:host="ninja11.app.link"
                     android:scheme="https" />
-            </intent-filter>-->
+            </intent-filter>
 
             <!-- Branch App Links -->
-            <!--<intent-filter android:autoVerify="true">
+            <intent-filter android:autoVerify="true">
                 <action android:name="android.intent.action.VIEW" />
 
                 <category android:name="android.intent.category.DEFAULT" />
@@ -73,7 +72,7 @@
                 <data
                     android:host="ninja11-alternate.app.link"
                     android:scheme="https" />
-            </intent-filter>-->
+            </intent-filter>
         </activity>
 
         <activity
@@ -268,7 +267,7 @@
         <!-- Branch init -->
         <meta-data
             android:name="io.branch.sdk.BranchKey"
-            android:value="key_live_kmLX9H0wFiENeUk9LH5cecnkBAoH4Qjv" />
+            android:value="key_live_ib3bbeBWjWM6wZq8aB2OwimdvrnNULlk" />
         <!-- Branch testing (TestMode "true" to simulate fresh installs on dev environment) -->
         <meta-data
             android:name="io.branch.sdk.TestMode"
