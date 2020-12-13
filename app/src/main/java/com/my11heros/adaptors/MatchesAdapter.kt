@@ -41,14 +41,14 @@ class MatchesAdapter(val context: Context, val tradeinfoModels: ArrayList<Matche
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): RecyclerView.ViewHolder {
-        if (viewType == TYPE_JOINED) {
-            val view = LayoutInflater.from(parent.context)
-                .inflate(R.layout.matches_row_joined_matches, parent, false)
-            return ViewHolderJoinedMatches(view)
-        } else if (viewType == TYPE_BANNERS) {
+        if (viewType == TYPE_BANNERS) {
             val view = LayoutInflater.from(parent.context)
                 .inflate(R.layout.matches_row_banners_matches, parent, false)
             return BannersViewHolder(view)
+        } else if (viewType == TYPE_JOINED) {
+            val view = LayoutInflater.from(parent.context)
+                .inflate(R.layout.matches_row_joined_matches, parent, false)
+            return ViewHolderJoinedMatches(view)
         } else if (viewType == TYPE_UPCOMING_MATCHES) {
             val view = LayoutInflater.from(parent.context)
                 .inflate(R.layout.matches_row_upcoming_matches, parent, false)

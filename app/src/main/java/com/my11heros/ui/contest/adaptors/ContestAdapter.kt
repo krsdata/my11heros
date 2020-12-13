@@ -2,7 +2,6 @@ package com.my11heros.ui.contest.adaptors
 
 import android.app.Activity
 import android.content.Context
-import android.content.Intent
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -11,9 +10,6 @@ import android.widget.TextView
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.edify.atrist.listener.OnContestEvents
-import com.my11heros.ContestActivity
-import com.my11heros.LeadersBoardActivity
-import com.my11heros.MoreContestActivity
 import com.my11heros.R
 import com.my11heros.models.ContestsParentModels
 import com.my11heros.models.UpcomingMatchesModel
@@ -55,7 +51,7 @@ class ContestAdapter(
         /**
          * Replace this part with below part once api comes
          */
-        viewJoinedMatches.viewMoreLayout?.visibility = View.GONE
+        viewJoinedMatches.viewMoreLayout.visibility = View.GONE
         val adapter = ContestListAdapter(
             context,
             objectVal.allContestsRunning!!,

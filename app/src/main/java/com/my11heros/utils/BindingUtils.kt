@@ -34,7 +34,7 @@ class BindingUtils {
         val BANNERS_KEY_REFFER: String = "reffer"
         val BANNERS_KEY_SUPPORT: String = "support"
         val BANNERS_KEY_BROWSERS: String = "browser"
-        val EMAIL: String = "support@ninja11.in"
+        val EMAIL: String = "my11heros@gmail.com"
         val PHONE_NUMBER: String = "=+91"
         val GOOGLE_TEZ_PACKAGE_NAME = "com.google.android.apps.nbu.paisa.user"
         val PAYMENT_GOOGLEPAY_UPI = "9340301139@okbizaxis"

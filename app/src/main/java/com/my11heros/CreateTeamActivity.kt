@@ -880,7 +880,7 @@ class CreateTeamActivity : BaseActivity(), OnTeamCreateListener {
 
     private fun updateTimerHeader() {
         mBinding!!.matchTimer.text = matchObject!!.statusString.toUpperCase()
-        mBinding!!.matchTimer.setTextColor(resources.getColor(R.color.green))
+        mBinding!!.matchTimer.setTextColor(resources.getColor(R.color.colorPrimary))
     }
 
     private fun startCountDown() {

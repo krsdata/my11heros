@@ -126,7 +126,7 @@ class MoreContestActivity : BaseActivity(), OnContestLoadedListener, OnContestEv
 
     private fun updateTimerHeader() {
         mBinding!!.matchTimer.text = matchObject!!.statusString.toUpperCase()
-        mBinding!!.matchTimer.setTextColor(resources.getColor(R.color.green))
+        mBinding!!.matchTimer.setTextColor(resources.getColor(R.color.colorPrimary))
         mBinding!!.watchTimerImg.visibility = View.GONE
     }
 

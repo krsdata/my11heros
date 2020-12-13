@@ -54,7 +54,7 @@ class PlayersContestAdapter(
         if (objectVal.isPlaying11 /*&& matchObject.isLineup*/) {
             viewHolder.anouncedIndicatorCircle?.setBackgroundResource(R.drawable.circle_green)
             viewHolder.anouncedIndicatorText?.text = "Announced"
-            viewHolder.anouncedIndicatorText?.setTextColor(context.resources.getColor(R.color.green))
+            viewHolder.anouncedIndicatorText?.setTextColor(context.resources.getColor(R.color.colorPrimary))
         } else {
             viewHolder.anouncedIndicatorText?.text = ""
             viewHolder.anouncedIndicatorCircle?.setBackgroundResource(R.drawable.circle_red)

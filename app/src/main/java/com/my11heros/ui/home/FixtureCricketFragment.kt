@@ -125,18 +125,8 @@ class FixtureCricketFragment : BaseFragment(), SwipeRefreshLayout.OnRefreshListe
     }
 
     private fun getAllMatches() {
-//        if(!isVisible()){
-//            return
-//        }
         if (!MyUtils.isConnectedWithInternet(activity as AppCompatActivity)) {
             mBinding!!.swipeRefresh.isRefreshing = false
-//            val mSnackbar =
-//                Snackbar.make(mBinding!!.linearEmptyContest, , Snackbar.LENGTH_LONG)
-//                    .setAction("RETRY") {
-//                        getAllMatches()
-//                    }
-//            mSnackbar.show()
-
 
             Snackbar.make(
                 requireActivity().findViewById(android.R.id.content),
@@ -208,13 +198,6 @@ class FixtureCricketFragment : BaseFragment(), SwipeRefreshLayout.OnRefreshListe
         }
     }
 
-    //    override fun onAttach(activity: Activity) {
-//        super.onAttach(activity)
-//        if (activity is OnPageRefreshedListener) {
-//            Log.d("Annv - Fragment", "activity " + activity.localClassName)
-//           listener = activity as OnPageRefreshedListener
-//        }
-//    }
     override fun onRefresh() {
         getAllMatches()
         getMessage()

@@ -17,6 +17,7 @@ import androidx.fragment.app.FragmentManager
 import androidx.fragment.app.FragmentPagerAdapter
 import androidx.viewpager.widget.ViewPager
 import com.bumptech.glide.Glide
+import com.bumptech.glide.load.engine.DiskCacheStrategy
 import com.edify.atrist.listener.OnMatchTimerStarted
 import com.my11heros.databinding.ActivityLeadersBoardBinding
 import com.my11heros.models.PlayerModels
@@ -35,6 +36,8 @@ import com.my11heros.utils.MyUtils
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
+import java.util.*
+import kotlin.collections.ArrayList
 
 
 class LeadersBoardActivity : BaseActivity() {
@@ -104,10 +107,7 @@ class LeadersBoardActivity : BaseActivity() {
 
         setupViewPager(mBinding!!.viewpager)
         mBinding!!.tabs.setupWithViewPager(mBinding!!.viewpager)
-
-
         initContestDetails()
-
     }
 
     override fun onResume() {
@@ -123,9 +123,26 @@ class LeadersBoardActivity : BaseActivity() {
     }
 
     private fun updateTimerHeader() {
-        mBinding!!.matchTimer.text = matchObject!!.statusString.toUpperCase()
-        mBinding!!.matchTimer.setTextColor(resources.getColor(R.color.green))
-        mBinding!!.watchTimerImg.visibility = View.GONE
+        mBinding!!.matchTimer.text = matchObject!!.statusString.toUpperCase(Locale.ENGLISH)
+        if (matchObject!!.status == BindingUtils.MATCH_STATUS_UPCOMING) {
+            mBinding!!.tournamentTitle.text = matchObject!!.leagueTitle
+        } else {
+            mBinding!!.tournamentTitle.text = matchObject!!.matchTitle
+        }
+
+        Glide.with(this)
+            .load(matchObject!!.teamAInfo!!.logoUrl)
+            .placeholder(R.drawable.placeholder_player_teama)
+            .disallowHardwareConfig()
+            .diskCacheStrategy(DiskCacheStrategy.ALL)
+            .into(mBinding!!.teamaLogo)
+
+        Glide.with(this)
+            .load(matchObject!!.teamBInfo!!.logoUrl)
+            .placeholder(R.drawable.placeholder_player_teama)
+            .disallowHardwareConfig()
+            .diskCacheStrategy(DiskCacheStrategy.ALL)
+            .into(mBinding!!.teambLogo)
     }
 
     private fun startCountDown() {
@@ -174,9 +191,8 @@ class LeadersBoardActivity : BaseActivity() {
             .placeholder(R.drawable.placeholder_player_teama)
             .into(mBinding!!.includeLiveMatchRow.imgTeambLogo)
 
-        mBinding!!.matchTimer.text = matchObject!!.statusString.toUpperCase()
-        mBinding!!.matchTimer.setTextColor(resources.getColor(R.color.green))
-        mBinding!!.watchTimerImg.visibility = View.GONE
+        mBinding!!.matchTimer.text = matchObject!!.statusString.toUpperCase(Locale.ENGLISH)
+        mBinding!!.matchTimer.setTextColor(resources.getColor(R.color.white))
 
         mBinding!!.includeLiveMatchRow.teamAName.text = matchObject!!.teamAInfo!!.teamShortName
         mBinding!!.includeLiveMatchRow.teamBName.text = matchObject!!.teamBInfo!!.teamShortName
@@ -186,6 +202,26 @@ class LeadersBoardActivity : BaseActivity() {
 
         mBinding!!.includeLiveMatchRow.teamBScore.text = "0-0"
         mBinding!!.includeLiveMatchRow.teamBOver.text = "0-0"
+
+        if (matchObject!!.status == BindingUtils.MATCH_STATUS_UPCOMING) {
+            mBinding!!.tournamentTitle.text = matchObject!!.leagueTitle
+        } else {
+            mBinding!!.tournamentTitle.text = matchObject!!.matchTitle
+        }
+
+        Glide.with(this)
+            .load(matchObject!!.teamAInfo!!.logoUrl)
+            .placeholder(R.drawable.placeholder_player_teama)
+            .disallowHardwareConfig()
+            .diskCacheStrategy(DiskCacheStrategy.ALL)
+            .into(mBinding!!.teamaLogo)
+
+        Glide.with(this)
+            .load(matchObject!!.teamBInfo!!.logoUrl)
+            .placeholder(R.drawable.placeholder_player_teama)
+            .disallowHardwareConfig()
+            .diskCacheStrategy(DiskCacheStrategy.ALL)
+            .into(mBinding!!.teambLogo)
 
         updateScores()
     }
@@ -265,8 +301,29 @@ class LeadersBoardActivity : BaseActivity() {
     private fun initUpcomingMatchData() {
         mBinding!!.teamsa.text = matchObject!!.teamAInfo!!.teamShortName
         mBinding!!.teamsb.text = matchObject!!.teamBInfo!!.teamShortName
-        var totalSpots = contestObject!!.totalSpots
-        var filledSpots = contestObject!!.filledSpots
+
+        if (matchObject!!.status == BindingUtils.MATCH_STATUS_UPCOMING) {
+            mBinding!!.tournamentTitle.text = matchObject!!.leagueTitle
+        } else {
+            mBinding!!.tournamentTitle.text = matchObject!!.matchTitle
+        }
+
+        Glide.with(this)
+            .load(matchObject!!.teamAInfo!!.logoUrl)
+            .placeholder(R.drawable.placeholder_player_teama)
+            .disallowHardwareConfig()
+            .diskCacheStrategy(DiskCacheStrategy.ALL)
+            .into(mBinding!!.teamaLogo)
+
+        Glide.with(this)
+            .load(matchObject!!.teamBInfo!!.logoUrl)
+            .placeholder(R.drawable.placeholder_player_teama)
+            .disallowHardwareConfig()
+            .diskCacheStrategy(DiskCacheStrategy.ALL)
+            .into(mBinding!!.teambLogo)
+
+        val totalSpots = contestObject!!.totalSpots
+        val filledSpots = contestObject!!.filledSpots
         mBinding!!.includeContestRow.contestPrizePool.text =
             String.format("%s%s", "₹ ", contestObject!!.totalWinningPrize)
 

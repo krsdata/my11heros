@@ -90,13 +90,14 @@ class ContestListAdapter(
             viewHolder.contestBonus?.text = String.format("%s%s", objectVal.usableBonus, "%")
         }
 
-        if(getItemViewType(position) == TYPE_NORMAL) {
+        if (getItemViewType(position) == TYPE_NORMAL) {
             if (objectVal.totalSpots == 0) {
                 viewHolder.contestProgress.max =
                     objectVal.filledSpots + BindingUtils.UNLIMITED_SPOT_MARGIN
                 viewHolder.contestProgress.progress = objectVal.filledSpots
                 viewHolder.totalSpot?.text = String.format("unlimited spots")
-                viewHolder.totalSpotLeft?.text = String.format("%d spot filled", objectVal.filledSpots)
+                viewHolder.totalSpotLeft?.text =
+                    String.format("%d spot filled", objectVal.filledSpots)
             } else {
                 viewHolder.contestProgress.max = objectVal.totalSpots
                 viewHolder.contestProgress.progress = objectVal.filledSpots

@@ -227,7 +227,7 @@
                 android:layout_marginEnd="10dp"
                 android:fontFamily="@font/montserrat_bold"
                 android:text="You Won $35"
-                android:textColor="@color/green"
+                android:textColor="@color/colorPrimary"
                 android:textSize="@dimen/small_info_size" />
         </RelativeLayout>
     </LinearLayout>

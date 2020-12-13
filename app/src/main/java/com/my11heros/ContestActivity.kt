@@ -11,6 +11,8 @@ import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentManager
 import androidx.fragment.app.FragmentPagerAdapter
 import androidx.viewpager.widget.ViewPager
+import com.bumptech.glide.Glide
+import com.bumptech.glide.load.engine.DiskCacheStrategy
 import com.edify.atrist.listener.OnContestEvents
 import com.edify.atrist.listener.OnContestLoadedListener
 import com.edify.atrist.listener.OnMatchTimerStarted
@@ -93,6 +95,26 @@ class ContestActivity : BaseActivity(), OnContestLoadedListener, OnContestEvents
     private fun initViewUpcomingMatches() {
         mBinding!!.teamsa.text = matchObject!!.teamAInfo!!.teamShortName
         mBinding!!.teamsb.text = matchObject!!.teamBInfo!!.teamShortName
+
+        if (matchObject!!.status == BindingUtils.MATCH_STATUS_UPCOMING) {
+            mBinding!!.tournamentTitle.text = matchObject!!.leagueTitle
+        } else {
+            mBinding!!.tournamentTitle.text = matchObject!!.matchTitle
+        }
+
+        Glide.with(this)
+            .load(matchObject!!.teamAInfo!!.logoUrl)
+            .placeholder(R.drawable.placeholder_player_teama)
+            .disallowHardwareConfig()
+            .diskCacheStrategy(DiskCacheStrategy.ALL)
+            .into(mBinding!!.teamaLogo)
+
+        Glide.with(this)
+            .load(matchObject!!.teamBInfo!!.logoUrl)
+            .placeholder(R.drawable.placeholder_player_teama)
+            .disallowHardwareConfig()
+            .diskCacheStrategy(DiskCacheStrategy.ALL)
+            .into(mBinding!!.teambLogo)
     }
 
     override fun onResume() {
@@ -122,7 +144,7 @@ class ContestActivity : BaseActivity(), OnContestLoadedListener, OnContestEvents
             override fun onTicks(time: String) {
                 mBinding!!.matchTimer.text = time
                 mBinding!!.matchTimer.setTextColor(resources.getColor(R.color.white))
-                mBinding!!.watchTimerImg.visibility = View.VISIBLE
+                //mBinding!!.watchTimerImg.visibility = View.VISIBLE
                 BindingUtils.logD("TimerLogs", "ContestScreen: $time")
             }
         })
@@ -131,7 +153,7 @@ class ContestActivity : BaseActivity(), OnContestLoadedListener, OnContestEvents
     private fun updateTimerHeader() {
         mBinding!!.matchTimer.text = matchObject!!.statusString.toUpperCase(Locale.getDefault())
         mBinding!!.matchTimer.setTextColor(resources.getColor(R.color.white))
-        mBinding!!.watchTimerImg.visibility = View.GONE
+        //mBinding!!.watchTimerImg.visibility = View.GONE
     }
 
     private fun pauseCountDown() {

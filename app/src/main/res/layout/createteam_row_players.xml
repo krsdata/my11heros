@@ -85,7 +85,7 @@
                 android:maxLines="1"
                 android:singleLine="true"
                 android:text="Announced"
-                android:textColor="@color/green"
+                android:textColor="@color/colorPrimary"
                 android:textSize="@dimen/_7sdp" />
         </LinearLayout>
     </LinearLayout>

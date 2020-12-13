@@ -34,7 +34,7 @@ class MoreOptionsFragment : BaseFragment() {
         inflater: LayoutInflater,
         container: ViewGroup?,
         savedInstanceState: Bundle?
-    ): View? {
+    ): View {
         mBinding = DataBindingUtil.inflate(
             inflater,
             R.layout.fragment_moreoptions, container, false
@@ -60,7 +60,7 @@ class MoreOptionsFragment : BaseFragment() {
     private fun initContent() {
         allOptionsList.clear()
 
-        val upcomingMModle11 = MoreOptionsModel()
+        /*val upcomingMModle11 = MoreOptionsModel()
         upcomingMModle11.drawable = R.drawable.more_terms_conditions
         upcomingMModle11.id = 11
         upcomingMModle11.title = "Top Referral Users"
@@ -70,7 +70,7 @@ class MoreOptionsFragment : BaseFragment() {
         upcomingMModle10.drawable = R.drawable.more_terms_conditions
         upcomingMModle10.id = 10
         upcomingMModle10.title = "Offers"
-        allOptionsList.add(upcomingMModle10)
+        allOptionsList.add(upcomingMModle10)*/
 
         val upcomingMModle1 = MoreOptionsModel()
         upcomingMModle1.drawable = R.drawable.more_refern_earn

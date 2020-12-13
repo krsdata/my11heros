@@ -40,83 +40,6 @@
                     android:src="@drawable/ic_arrow_back_black_24dp"
                     app:tint="@color/white" />
 
-                <LinearLayout
-                    android:layout_width="wrap_content"
-                    android:layout_height="match_parent"
-                    android:layout_centerInParent="true"
-                    android:gravity="center"
-                    android:orientation="vertical"
-                    android:weightSum="2">
-
-                    <LinearLayout
-                        android:layout_width="wrap_content"
-                        android:layout_height="0dp"
-                        android:layout_weight="1"
-                        android:orientation="horizontal">
-
-                        <TextView
-                            android:id="@+id/teamsa"
-                            android:layout_width="wrap_content"
-                            android:layout_height="match_parent"
-                            android:layout_gravity="center"
-                            android:layout_marginStart="10dp"
-                            android:fontFamily="@font/montserrat_bold"
-                            android:gravity="center"
-                            android:text="AU-W"
-                            android:textColor="@color/white"
-                            android:textSize="14sp" />
-
-                        <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="match_parent"
-                            android:layout_gravity="center"
-                            android:layout_marginStart="10dp"
-                            android:fontFamily="@font/montserrat_bold"
-                            android:gravity="center"
-                            android:text="vs"
-                            android:textColor="@color/white" />
-
-                        <TextView
-                            android:id="@+id/teamsb"
-                            android:layout_width="wrap_content"
-                            android:layout_height="match_parent"
-                            android:layout_gravity="center"
-                            android:layout_marginStart="10dp"
-                            android:fontFamily="@font/montserrat_bold"
-                            android:gravity="center"
-                            android:text="AU-W"
-                            android:textColor="@color/white"
-                            android:textSize="14sp" />
-                    </LinearLayout>
-
-                    <LinearLayout
-                        android:layout_width="wrap_content"
-                        android:layout_height="0dp"
-                        android:layout_weight="1"
-                        android:orientation="horizontal">
-
-                        <ImageView
-                            android:id="@+id/watch_timer_img"
-                            android:layout_width="22dp"
-                            android:layout_height="match_parent"
-                            android:layout_marginEnd="5dp"
-                            android:src="@drawable/ic_av_timer_black_24dp"
-                            app:tint="@color/white" />
-
-                        <TextView
-                            android:id="@+id/match_timer"
-                            android:layout_width="wrap_content"
-                            android:layout_height="match_parent"
-                            android:layout_gravity="center"
-                            android:fontFamily="@font/montserrat_regular"
-                            android:gravity="center"
-                            android:paddingBottom="@dimen/_2sdp"
-                            android:text="nilesh"
-                            android:textColor="@color/white"
-                            android:textSize="14sp" />
-                    </LinearLayout>
-                </LinearLayout>
-
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
@@ -126,7 +49,7 @@
                     android:text="Contest"
                     android:textColor="@color/white"
                     android:textSize="@dimen/_16sdp"
-                    android:visibility="gone" />
+                    android:visibility="visible" />
 
                 <ImageView
                     android:id="@+id/img_wallet"
@@ -142,10 +65,126 @@
             </RelativeLayout>
         </LinearLayout>
 
+        <RelativeLayout
+            android:id="@+id/contest_info"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/_45sdp"
+            android:layout_below="@+id/linear_top_bar"
+            android:background="@color/colorPrimary">
+
+            <com.mikhaellopez.circularimageview.CircularImageView
+                android:id="@+id/teama_logo"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_alignParentStart="true"
+                android:layout_marginStart="@dimen/_5sdp"
+                android:layout_marginTop="@dimen/_5sdp"
+                android:layout_marginBottom="@dimen/_5sdp"
+                android:scaleType="fitCenter"
+                android:src="@drawable/flag_indian"
+                app:civ_border="true"
+                app:civ_border_color="@color/white"
+                app:civ_border_width="1dp"
+                app:civ_circle_color="@color/colorPrimaryDark"
+                app:civ_circle_color_end="@color/colorPrimaryDark"
+                app:civ_circle_color_start="@color/colorPrimaryDark" />
+
+            <TextView
+                android:id="@+id/teamsa"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:fontFamily="@font/montserrat_bold"
+                android:layout_toEndOf="@+id/teama_logo"
+                android:gravity="center"
+                android:layout_marginStart="@dimen/_2sdp"
+                android:text="AU-W"
+                android:textColor="@color/white"
+                android:textSize="14sp" />
+
+            <com.mikhaellopez.circularimageview.CircularImageView
+                android:id="@+id/teamb_logo"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_alignParentEnd="true"
+                android:layout_marginTop="@dimen/_5sdp"
+                android:layout_marginEnd="@dimen/_5sdp"
+                android:layout_marginBottom="@dimen/_5sdp"
+                android:scaleType="fitCenter"
+                android:src="@drawable/flag_newzeland"
+                app:civ_border="true"
+                app:civ_border_color="@color/white"
+                app:civ_border_width="1dp"
+                app:civ_circle_color="@color/colorPrimaryDark"
+                app:civ_circle_color_end="@color/colorPrimaryDark"
+                app:civ_circle_color_start="@color/colorPrimaryDark" />
+
+            <TextView
+                android:id="@+id/teamsb"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:gravity="center"
+                android:layout_marginEnd="@dimen/_2sdp"
+                android:fontFamily="@font/montserrat_bold"
+                android:layout_toStartOf="@+id/teamb_logo"
+                android:text="AU-W"
+                android:textColor="@color/white"
+                android:textSize="14sp" />
+
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:weightSum="2"
+                android:layout_toStartOf="@+id/teamsb"
+                android:layout_toEndOf="@+id/teamsa"
+                android:layout_marginStart="@dimen/_5sdp"
+                android:layout_marginEnd="@dimen/_5sdp"
+                android:orientation="vertical">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="0dp"
+                    android:layout_weight="1.2"
+                    android:layout_gravity="center"
+                    android:gravity="center"
+                    android:orientation="horizontal">
+                    <TextView
+                        android:id="@+id/tournament_title"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_gravity="center"
+                        android:fontFamily="@font/montserrat_regular"
+                        android:gravity="center"
+                        android:text="team title"
+                        android:textColor="@color/white"
+                        android:textSize="@dimen/_11sdp" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="0dp"
+                    android:layout_weight="0.8"
+                    android:layout_gravity="center"
+                    android:gravity="center"
+                    android:orientation="horizontal">
+                    <TextView
+                        android:id="@+id/match_timer"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_gravity="center"
+                        android:fontFamily="@font/montserrat_regular"
+                        android:gravity="center"
+                        android:text="3h 29m"
+                        android:textColor="@color/white"
+                        android:textSize="@dimen/_11sdp" />
+                </LinearLayout>
+            </LinearLayout>
+        </RelativeLayout>
+
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:layout_below="@+id/linear_top_bar"
+            android:layout_below="@+id/contest_info"
             android:orientation="vertical">
 
             <com.google.android.material.tabs.TabLayout

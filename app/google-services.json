@@ -23,6 +23,14 @@
           }
         },
         {
+          "client_id": "313203622041-2eujsgv6meaveehkpt362bf43ueuho7k.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.my11heros",
+            "certificate_hash": "adca1ff96ea44f386911eda382fe58de9faac49e"
+          }
+        },
+        {
           "client_id": "313203622041-p74qb15s4unqp47ga1pkabd0t03pu84h.apps.googleusercontent.com",
           "client_type": 3
         }

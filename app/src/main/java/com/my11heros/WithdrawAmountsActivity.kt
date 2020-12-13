@@ -184,7 +184,7 @@ class WithdrawAmountsActivity : BaseActivity() {
             .gravity(Flashbar.Gravity.TOP)
             .title(getString(R.string.app_name))
             .message(message)
-            .backgroundDrawable(R.color.green)
+            .backgroundDrawable(R.color.colorPrimary)
             /*.showIcon()
             .icon(R.drawable.ic_photo_camera_black_24dp)
             .iconAnimation(

@@ -64,9 +64,9 @@
                         android:id="@+id/countrycolorview"
                         android:layout_width="45dp"
                         android:layout_height="35dp"
-                        android:visibility="invisible"
                         android:layout_centerVertical="true"
-                        android:background="@color/red" />
+                        android:background="@color/red"
+                        android:visibility="invisible" />
 
                     <com.mikhaellopez.circularimageview.CircularImageView
                         android:id="@+id/teama_logo"
@@ -77,10 +77,10 @@
                         android:src="@drawable/flag_indian"
                         app:civ_border="true"
                         app:civ_border_color="@color/white"
-                        app:civ_circle_color_end="@color/colorPrimaryDark"
-                        app:civ_circle_color_start="@color/colorPrimaryDark"
+                        app:civ_border_width="3dp"
                         app:civ_circle_color="@color/colorPrimaryDark"
-                        app:civ_border_width="3dp" />
+                        app:civ_circle_color_end="@color/colorPrimaryDark"
+                        app:civ_circle_color_start="@color/colorPrimaryDark" />
                 </RelativeLayout>
 
                 <TextView
@@ -112,7 +112,7 @@
                     android:fontFamily="@font/montserrat_bold"
                     android:gravity="center"
                     android:text="LINE UP"
-                    android:textColor="@color/green"
+                    android:textColor="@color/colorPrimary"
                     android:textSize="12sp" />
 
                 <TextView
@@ -120,10 +120,10 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center_horizontal"
+                    android:layout_marginTop="@dimen/_12sdp"
                     android:fontFamily="@font/montserrat_bold"
                     android:maxLines="1"
                     android:singleLine="true"
-                    android:layout_marginTop="@dimen/_12sdp"
                     android:text="1D:24H:30M:40S"
                     android:textColor="@color/text"
                     android:textSize="@dimen/_10sdp" />
@@ -161,7 +161,7 @@
                     android:singleLine="true"
                     android:text="NZ"
                     android:textColor="@color/black"
-                    android:textSize="@dimen/_10sdp"/>
+                    android:textSize="@dimen/_10sdp" />
 
                 <RelativeLayout
                     android:layout_width="wrap_content"
@@ -171,10 +171,10 @@
                         android:id="@+id/countrybcolorview"
                         android:layout_width="@dimen/_45sdp"
                         android:layout_height="35dp"
-                        android:visibility="invisible"
                         android:layout_centerVertical="true"
                         android:layout_marginStart="15dp"
-                        android:background="@color/red" />
+                        android:background="@color/red"
+                        android:visibility="invisible" />
 
                     <com.mikhaellopez.circularimageview.CircularImageView
                         android:id="@+id/teamb_logo"
@@ -185,10 +185,10 @@
                         android:src="@drawable/flag_newzeland"
                         app:civ_border="true"
                         app:civ_border_color="@color/white"
-                        app:civ_circle_color_end="@color/colorPrimaryDark"
-                        app:civ_circle_color_start="@color/colorPrimaryDark"
+                        app:civ_border_width="3dp"
                         app:civ_circle_color="@color/colorPrimaryDark"
-                        app:civ_border_width="3dp" />
+                        app:civ_circle_color_end="@color/colorPrimaryDark"
+                        app:civ_circle_color_start="@color/colorPrimaryDark" />
                 </RelativeLayout>
             </LinearLayout>
         </RelativeLayout>
@@ -244,8 +244,8 @@
         android:id="@+id/free_view"
         android:layout_width="@dimen/_65sdp"
         android:layout_height="wrap_content"
-        android:layout_gravity="right"
-        android:background="@color/green_light"
+        android:layout_gravity="end"
+        android:background="@color/colorPrimary"
         android:fontFamily="@font/montserrat_bold"
         android:gravity="center"
         android:padding="3dip"

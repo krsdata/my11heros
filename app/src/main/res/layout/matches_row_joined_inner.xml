@@ -64,7 +64,8 @@
                         android:layout_width="45dp"
                         android:layout_height="35dp"
                         android:layout_centerVertical="true"
-                        android:background="@color/red" />
+                        android:background="@color/red"
+                        android:visibility="invisible" />
 
                     <com.mikhaellopez.circularimageview.CircularImageView
                         android:id="@+id/teama_logo"
@@ -124,7 +125,8 @@
                         android:layout_height="35dp"
                         android:layout_centerVertical="true"
                         android:layout_marginStart="15dp"
-                        android:background="@color/red" />
+                        android:background="@color/red"
+                        android:visibility="invisible" />
 
                     <com.mikhaellopez.circularimageview.CircularImageView
                         android:id="@+id/teamb_logo"
@@ -138,6 +140,7 @@
                         app:civ_border_width="3dp" />
                 </RelativeLayout>
             </LinearLayout>
+
             <LinearLayout
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -222,238 +225,8 @@
                 android:layout_marginEnd="10dp"
                 android:fontFamily="@font/montserrat_bold"
                 android:text="You Won $35"
-                android:textColor="@color/green"
+                android:textColor="@color/colorPrimary"
                 android:textSize="@dimen/small_info_size" />
         </RelativeLayout>
     </LinearLayout>
-</androidx.cardview.widget.CardView><!--
-<?xml version="1.0" encoding="utf-8"?>
-<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:layout_width="match_parent"
-    android:layout_height="wrap_content"
-    android:layout_marginLeft="@dimen/matches_view_left_margin_consolidated"
-    android:layout_marginTop="@dimen/matches_view_top_margin"
-    android:layout_marginRight="@dimen/matches_view_left_margin_consolidated"
-    app:cardCornerRadius="6dp"
-    app:cardElevation="12dp">
-
-    <LinearLayout
-        android:id="@+id/linear_trades_status"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="@dimen/matches_gap_between_each_views"
-        android:orientation="vertical"
-        android:paddingBottom="6dp">
-
-        <RelativeLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="@dimen/matches_view_left_margin_inner"
-            android:layout_marginRight="@dimen/matches_view_right_margin_inner">
-
-            <TextView
-                android:id="@+id/completed_match_title"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:fontFamily="@font/montserrat_medium"
-                android:text="South Africa vs England ODI"
-                android:textColor="@color/black"
-                android:textSize="@dimen/small_info_size" />
-
-            <TextView
-                android:id="@+id/completed_match_status"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_alignParentRight="true"
-                android:fontFamily="@font/montserrat_bold"
-                android:text="Live"
-                android:textColor="@color/black"
-                android:textSize="@dimen/_8sdp" />
-        </RelativeLayout>
-
-        <RelativeLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="@dimen/matches_gap_between_each_views"
-            android:orientation="horizontal">
-
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="horizontal">
-
-                <RelativeLayout
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content">
-
-                    <View
-                        android:id="@+id/countrycolorview"
-                        android:layout_width="45dp"
-                        android:layout_height="35dp"
-                        android:layout_centerVertical="true"
-                        android:background="@color/red"
-                        android:visibility="gone" />
-
-                    <com.mikhaellopez.circularimageview.CircularImageView
-                        android:id="@+id/teama_logo"
-                        android:layout_width="45dp"
-                        android:layout_height="45dp"
-                        android:layout_marginLeft="10dp"
-                        android:scaleType="centerCrop"
-                        android:src="@drawable/placeholder_player_teama" />
-                </RelativeLayout>
-
-                <TextView
-                    android:id="@+id/upcoming_opponent1"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_gravity="center_vertical"
-                    android:layout_marginLeft="5dip"
-                    android:fontFamily="@font/open_sans_semibold"
-                    android:maxLines="1"
-                    android:singleLine="true"
-                    android:text="IND"
-                    android:textColor="@color/black"
-                    android:textSize="@dimen/country_code_size"
-                    android:textStyle="bold" />
-            </LinearLayout>
-
-            <LinearLayout
-                android:id="@+id/opp2"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_alignParentRight="true"
-                android:orientation="horizontal">
-
-                <TextView
-                    android:id="@+id/upcoming_opponent2"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_gravity="center_vertical"
-                    android:fontFamily="@font/open_sans_semibold"
-                    android:maxLines="1"
-                    android:singleLine="true"
-                    android:text="NZ"
-                    android:textColor="@color/black"
-                    android:textSize="@dimen/country_code_size"
-                    android:textStyle="bold" />
-
-                <RelativeLayout
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content">
-
-                    <View
-                        android:id="@+id/countrybcolorview"
-                        android:layout_width="@dimen/_45sdp"
-                        android:layout_height="35dp"
-                        android:layout_centerVertical="true"
-                        android:layout_marginLeft="15dp"
-                        android:background="@color/red"
-                        android:visibility="gone" />
-
-                    <com.mikhaellopez.circularimageview.CircularImageView
-                        android:id="@+id/teamb_logo"
-                        android:layout_width="45dp"
-                        android:layout_height="45dp"
-                        android:layout_alignParentLeft="true"
-                        android:layout_marginRight="10dp"
-                        android:scaleType="centerCrop"
-                        android:src="@drawable/placeholder_player_teama" />
-                </RelativeLayout>
-
-
-            </LinearLayout>
-
-            <LinearLayout
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_below="@+id/opp2"
-                android:layout_centerInParent="true"
-                android:gravity="center"
-                android:orientation="horizontal">
-
-                <TextView
-                    android:id="@+id/upcoming_match_progress"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginLeft="5dip"
-                    android:fontFamily="@font/montserrat_bold"
-                    android:maxLines="1"
-                    android:singleLine="true"
-                    android:text="asdsadsadasadaaaasdasasdasasdsda kasdkjsadkasdkj"
-                    android:textColor="@color/red"
-                    android:textSize="@dimen/small_info_size" />
-            </LinearLayout>
-        </RelativeLayout>
-
-        <RelativeLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content">
-
-            <LinearLayout
-                android:id="@+id/upcoming_linear_contest_view"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginLeft="@dimen/matches_view_left_margin_inner"
-                android:layout_marginTop="@dimen/matches_gap_between_each_views"
-                android:layout_marginRight="@dimen/matches_view_right_margin_inner"
-                android:orientation="horizontal">
-
-                <TextView
-                    android:id="@+id/total_team_created"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:fontFamily="@font/montserrat_bold"
-                    android:text="0"
-                    android:textColor="@color/black"
-                    android:textSize="@dimen/small_info_size" />
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginLeft="2dip"
-                    android:fontFamily="@font/montserrat_medium"
-                    android:text="Team"
-                    android:textColor="@color/black"
-                    android:textSize="@dimen/small_info_size" />
-
-                <TextView
-                    android:id="@+id/total_contest_joined"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginLeft="6dip"
-                    android:fontFamily="@font/montserrat_bold"
-                    android:text="0"
-                    android:textColor="@color/black"
-                    android:textSize="@dimen/small_info_size"
-                    android:textStyle="bold" />
-
-                <TextView
-
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginLeft="2dip"
-                    android:fontFamily="@font/montserrat_medium"
-                    android:text="Contest"
-                    android:textColor="@color/black"
-                    android:textSize="@dimen/small_info_size" />
-            </LinearLayout>
-
-            <TextView
-                android:id="@+id/winning_price"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_alignParentRight="true"
-                android:layout_centerVertical="true"
-                android:layout_marginLeft="2dip"
-                android:layout_marginRight="10dp"
-                android:fontFamily="@font/montserrat_bold"
-                android:text="You Won $35"
-                android:textColor="@color/green"
-                android:textSize="@dimen/small_info_size" />
-
-        </RelativeLayout>
-    </LinearLayout>
-</androidx.cardview.widget.CardView>-->
+</androidx.cardview.widget.CardView>

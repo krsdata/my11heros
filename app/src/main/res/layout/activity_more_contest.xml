@@ -135,9 +135,10 @@
                         android:id="@+id/watch_timer_img"
                         android:layout_width="22dp"
                         android:layout_height="22dp"
+                        android:visibility="invisible"
                         android:layout_marginRight="5dip"
                         android:src="@drawable/ic_av_timer_black_24dp"
-                        android:tint="@color/colorPrimaryDark" />
+                        app:tint="@color/colorPrimaryDark" />
 
                     <TextView
                         android:id="@+id/match_timer"

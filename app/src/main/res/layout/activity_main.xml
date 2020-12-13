@@ -18,14 +18,14 @@
         <RelativeLayout
             android:id="@+id/tool_layout"
             android:layout_width="match_parent"
-            android:layout_height="?attr/actionBarSize"
+            android:layout_height="@dimen/_48sdp"
             android:layout_alignParentTop="true"
             android:background="@color/colorPrimary">
 
             <androidx.appcompat.widget.Toolbar
                 android:id="@+id/toolbar"
                 android:layout_width="match_parent"
-                android:layout_height="?attr/actionBarSize"
+                android:layout_height="@dimen/_48sdp"
                 android:layout_alignParentTop="true"
                 android:background="@color/white"
                 android:fitsSystemWindows="true"
@@ -34,7 +34,6 @@
                 <RelativeLayout
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    android:layout_marginEnd="@dimen/_12sdp"
                     android:gravity="top">
 
                     <ImageView
@@ -43,13 +42,15 @@
                         android:layout_alignParentTop="true"
                         android:layout_centerInParent="true"
                         android:layout_centerVertical="true"
+                        android:scaleType="fitXY"
                         android:src="@mipmap/ic_launcher" />
 
                     <com.mikhaellopez.circularimageview.CircularImageView
                         android:id="@+id/profile_image"
-                        android:layout_width="35dp"
-                        android:layout_height="35dp"
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
                         android:layout_centerVertical="true"
+                        android:layout_margin="@dimen/_5sdp"
                         android:src="@drawable/ic_account_circle_black_24dp"
                         app:civ_border="true"
                         app:civ_border_color="@color/colorPrimary"
@@ -57,20 +58,23 @@
 
                     <ImageView
                         android:id="@+id/img_wallet_amount"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_alignParentEnd="true"
-                        android:layout_centerVertical="true"
-                        android:layout_marginEnd="@dimen/_25sdp"
+                        android:layout_width="@dimen/_25sdp"
+                        android:layout_height="match_parent"
+                        android:layout_toStartOf="@+id/notification_id"
+                        android:layout_marginEnd="@dimen/_5sdp"
+                        android:layout_marginTop="@dimen/_5sdp"
+                        android:layout_marginBottom="@dimen/_5sdp"
                         android:src="@drawable/ic_account_balance_wallet_black_24dp"
                         app:tint="@color/colorPrimary" />
 
                     <ImageView
                         android:id="@+id/notification_id"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
+                        android:layout_width="@dimen/_25sdp"
+                        android:layout_height="match_parent"
+                        android:layout_marginTop="@dimen/_5sdp"
+                        android:layout_marginBottom="@dimen/_5sdp"
                         android:layout_alignParentEnd="true"
-                        android:layout_centerVertical="true"
+                        android:layout_marginEnd="@dimen/_2sdp"
                         android:src="@drawable/ic_notifications_black_24dp"
                         app:tint="@color/colorPrimary" />
                 </RelativeLayout>

@@ -12,7 +12,9 @@ import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.DividerItemDecoration
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
+import com.my11heros.R
 import com.my11heros.SportsFightApplication
+import com.my11heros.databinding.FragmentTransactionHistoryBinding
 import com.my11heros.models.TransactionModel
 import com.my11heros.network.IApiMethod
 import com.my11heros.network.RequestModel
@@ -23,8 +25,6 @@ import com.my11heros.utils.MyUtils
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
-import com.my11heros.R
-import com.my11heros.databinding.FragmentTransactionHistoryBinding
 
 
 class TransactionFragment : Fragment() {
@@ -33,25 +33,24 @@ class TransactionFragment : Fragment() {
     private var mBinding: FragmentTransactionHistoryBinding? = null
     var transactionList = ArrayList<TransactionModel>()
 
-   // var myAccountFragment: MyAccountFragment?=null
-    companion object{
-        fun newInstance(bundle : Bundle) : TransactionFragment {
+    // var myAccountFragment: MyAccountFragment?=null
+    companion object {
+        fun newInstance(bundle: Bundle): TransactionFragment {
             val fragment = TransactionFragment()
-            fragment.arguments=bundle
+            fragment.arguments = bundle
             return fragment
         }
     }
 
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-       // myAccountFragment = arguments!!.get(SERIALIZABLE_ACCOUNT_BAL) as MyAccountFragment
+    override fun onCreateView(
+        inflater: LayoutInflater, container: ViewGroup?,
+        savedInstanceState: Bundle?
+    ): View? {
 
-    }
-    override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?,
-                              savedInstanceState: Bundle?): View? {
-
-        mBinding  = DataBindingUtil.inflate(inflater,
-            R.layout.fragment_transaction_history, container, false)
+        mBinding = DataBindingUtil.inflate(
+            inflater,
+            R.layout.fragment_transaction_history, container, false
+        )
 
         return mBinding!!.root
     }
@@ -59,12 +58,12 @@ class TransactionFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         var transactionHistory =
-            (activity!!.applicationContext as SportsFightApplication).getTransactionHistory
-        if(transactionHistory!=null && transactionHistory.size>0){
+            (requireActivity().applicationContext as SportsFightApplication).getTransactionHistory
+        if (transactionHistory != null && transactionHistory.size > 0) {
             transactionList.clear()
             transactionList.addAll(transactionHistory)
         }
-        adapter = TransactionAdaptor(activity!!, transactionList)
+        adapter = TransactionAdaptor(requireActivity(), transactionList)
 
         mBinding!!.recyclerView.layoutManager =
             LinearLayoutManager(activity, RecyclerView.VERTICAL, false)
@@ -79,19 +78,20 @@ class TransactionFragment : Fragment() {
     }
 
     fun getMyTransaction() {
-        if(!MyUtils.isConnectedWithInternet(activity as AppCompatActivity)) {
-            MyUtils.showToast(activity as AppCompatActivity,"No Internet connection found")
+        if (!MyUtils.isConnectedWithInternet(activity as AppCompatActivity)) {
+            MyUtils.showToast(activity as AppCompatActivity, "No Internet connection found")
             return
         }
         //var userInfo = (activity as PlugSportsApplication).userInformations
         mBinding!!.progressBarTransaction.visibility = View.VISIBLE
         var models = RequestModel()
-        models.user_id = MyPreferences.getUserID(activity!!)!!
+        models.user_id = MyPreferences.getUserID(requireActivity())!!
 
-        WebServiceClient(activity!!).client.create(IApiMethod::class.java).getTransactionHistory(models)
+        WebServiceClient(requireActivity()).client.create(IApiMethod::class.java)
+            .getTransactionHistory(models)
             .enqueue(object : Callback<UsersPostDBResponse?> {
                 override fun onFailure(call: Call<UsersPostDBResponse?>?, t: Throwable?) {
-                    if(isAdded) {
+                    if (isAdded) {
                         mBinding!!.progressBarTransaction.visibility = View.GONE
                     }
                 }
@@ -100,32 +100,27 @@ class TransactionFragment : Fragment() {
                     call: Call<UsersPostDBResponse?>?,
                     response: Response<UsersPostDBResponse?>?
                 ) {
-                    if(!isVisible){
+                    if (!isVisible) {
                         return
                     }
                     mBinding!!.progressBarTransaction.visibility = View.GONE
                     var res = response!!.body()
-                    if(res!=null) {
+                    if (res != null) {
                         mBinding!!.progressBarTransaction.visibility = View.GONE
                         var responseModel = res.transactionHistory
-                        if(responseModel!=null) {
+                        if (responseModel != null) {
                             if (responseModel.transactionList != null && responseModel.transactionList!!.size > 0) {
                                 (activity!!.applicationContext as SportsFightApplication).saveTransactionHistory(
-                                    responseModel.transactionList!!)
+                                    responseModel.transactionList!!
+                                )
                                 transactionList.addAll(responseModel.transactionList!!)
                                 adapter.notifyDataSetChanged()
-
                             }
                         }
-
                     }
-
                 }
-
             })
-
     }
-
 
     inner class TransactionAdaptor(
         val context: Context,
@@ -140,7 +135,6 @@ class TransactionFragment : Fragment() {
             var view = LayoutInflater.from(parent.context)
                 .inflate(R.layout.row_recent_transactions, parent, false)
             return DataViewHolder(view)
-
         }
 
         override fun onBindViewHolder(parent: RecyclerView.ViewHolder, viewType: Int) {
@@ -151,21 +145,20 @@ class TransactionFragment : Fragment() {
             viewHolder.transactionId?.text = objectVal.transactionId
             viewHolder.transactionDate?.text = objectVal.createdDate
 
-             if(objectVal.debitCreditStatus.equals("+")){
-                 viewHolder.transactionAmount.setTextColor(activity!!.resources.getColor(R.color.green))
-                 viewHolder.transactionAmount?.text = objectVal.debitCreditStatus+"₹"+objectVal.depositAmount
-             }else {
-                 viewHolder.transactionAmount.setTextColor(activity!!.resources.getColor(R.color.red))
-                 viewHolder.transactionAmount?.text = objectVal.debitCreditStatus+"₹"+objectVal.depositAmount
-             }
-
+            if (objectVal.debitCreditStatus.equals("+")) {
+                viewHolder.transactionAmount.setTextColor(activity!!.resources.getColor(R.color.colorPrimary))
+                viewHolder.transactionAmount?.text =
+                    objectVal.debitCreditStatus + "₹" + objectVal.depositAmount
+            } else {
+                viewHolder.transactionAmount.setTextColor(activity!!.resources.getColor(R.color.red))
+                viewHolder.transactionAmount?.text =
+                    objectVal.debitCreditStatus + "₹" + objectVal.depositAmount
+            }
         }
-
 
         override fun getItemCount(): Int {
             return optionListObject.size
         }
-
 
         inner class DataViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
             init {
@@ -179,8 +172,5 @@ class TransactionFragment : Fragment() {
             val transactionDate = itemView.findViewById<TextView>(R.id.transaction_date)
             val transactionAmount = itemView.findViewById<TextView>(R.id.transaction_amount)
         }
-
-
     }
-
 }

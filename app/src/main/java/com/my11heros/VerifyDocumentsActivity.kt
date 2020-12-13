@@ -66,7 +66,7 @@ class VerifyDocumentsActivity : BaseActivity() {
             mBinding!!.linearMobileBorder.setBackgroundResource(R.drawable.btn_selector_verified)
             mBinding!!.verifyMobileMessage.text = "Your mobile number verified"
             mBinding!!.verifyMobileNumber.text = userInfo!!.mobileNumber
-            mBinding!!.verifyMobileNumber.setTextColor(resources.getColor(R.color.green))
+            mBinding!!.verifyMobileNumber.setTextColor(resources.getColor(R.color.colorPrimary))
 
         } else {
             mBinding!!.linearMobileBorder.setBackgroundResource(R.drawable.btn_selector_not_verified)
@@ -79,7 +79,7 @@ class VerifyDocumentsActivity : BaseActivity() {
             mBinding!!.linearEmailBorder.setBackgroundResource(R.drawable.btn_selector_verified)
             mBinding!!.verifyEmailMessage.text = "Your Email Address verified"
             mBinding!!.verifyEmailAddress.text = userInfo!!.userEmail
-            mBinding!!.verifyEmailAddress.setTextColor(resources.getColor(R.color.green))
+            mBinding!!.verifyEmailAddress.setTextColor(resources.getColor(R.color.colorPrimary))
         } else {
             mBinding!!.linearEmailBorder.setBackgroundResource(R.drawable.btn_selector_not_verified)
             mBinding!!.verifyEmailMessage.text = "Your Email Address not verified"
