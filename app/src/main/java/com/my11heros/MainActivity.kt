@@ -132,6 +132,7 @@ class MainActivity : BaseActivity(), NavigationView.OnNavigationItemSelectedList
             val fm = supportFragmentManager
             val pioneersFragment =
                 UpdateAppDialogFragment(updatedApkUrl, releaseNote)
+            pioneersFragment.isCancelable = false
             pioneersFragment.show(fm, "updateapp_tag")
         }
     }

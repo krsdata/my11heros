@@ -26,9 +26,8 @@
            android:layout_height="wrap_content"
            android:textColor="@color/black"
            android:text="1"
-           android:textStyle="bold"
-           android:fontFamily="@font/montserrat_bold"
-           android:layout_marginLeft="5dp"
+           android:fontFamily="@font/montserrat_regular"
+           android:layout_marginStart="5dp"
            android:textSize="@dimen/_14sdp"/>
    </LinearLayout>
 
@@ -37,7 +36,7 @@
         android:layout_height="wrap_content"
         android:orientation="horizontal"
         android:layout_gravity="center_vertical"
-        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true"
         android:layout_centerVertical="true">
 
         <TextView
@@ -46,10 +45,9 @@
             android:layout_height="wrap_content"
             android:textColor="@color/black"
             android:text="₹10 Lakhs"
-            android:layout_marginLeft="5dp"
+            android:layout_marginStart="5dp"
             android:textSize="@dimen/_14sdp"
-            android:textStyle="bold"
-            android:fontFamily="@font/montserrat_bold"/>
+            android:fontFamily="@font/montserrat_regular"/>
     </LinearLayout>
 
 

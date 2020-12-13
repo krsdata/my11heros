@@ -4,7 +4,7 @@
     <string name="title_mymatches">Matches</string>
     <string name="title_account">Accounts</string>
     <string name="title_more">More</string>
-    <string name="notifications_admin_channel_name">Winner11Channel</string>
+    <string name="notifications_admin_channel_name">My11HerosChannel</string>
     <string name="notifications_admin_channel_description">This is application descriptions</string>
 
     <string name="default_notification_channel_id">My11Heros</string>
@@ -108,7 +108,7 @@
     </string-array>
 
     <string name="gcm_default_sender_id">"701940049916"</string>
-    <string name="razorpaythemecolor">"#0172ac"</string>
+    <string name="razorpaythemecolor">"#2F73FD"</string>
     <string name="razorpay_key">rzp_live_SiMilNQfyJNzJe</string>
     <string name="label_login_agree">By creating an account or logging in, you agree to My11Heros</string>
     <string name="label_policy">READ My11Heros Policies</string>

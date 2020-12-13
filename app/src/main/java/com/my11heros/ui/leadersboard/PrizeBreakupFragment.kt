@@ -55,7 +55,7 @@ class PrizeBreakupFragment : Fragment() {
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
-    ): View? {
+    ): View {
         mBinding = DataBindingUtil.inflate(
             inflater,
             R.layout.fragment_prize_breakup, container, false
@@ -89,7 +89,7 @@ class PrizeBreakupFragment : Fragment() {
 
     fun getPrizeBreakup() {
         mBinding!!.progressBar.visibility = View.VISIBLE
-        var models = RequestModel()
+        val models = RequestModel()
         models.user_id = MyPreferences.getUserID(requireActivity())!!
         models.token = MyPreferences.getToken(requireActivity())!!
         models.match_id = "" + matchObject!!.matchId
@@ -105,11 +105,11 @@ class PrizeBreakupFragment : Fragment() {
                     call: Call<UsersPostDBResponse?>?,
                     response: Response<UsersPostDBResponse?>?
                 ) {
-                    var res = response!!.body()
+                    val res = response!!.body()
                     if (res != null) {
                         if (isVisible) {
                             mBinding!!.progressBar.visibility = View.GONE
-                            var responseModel = res.responseObject
+                            val responseModel = res.responseObject
                             if (responseModel!!.prizeBreakUpModelsList!!.size > 0) {
                                 prizeBreakupList.clear()
 
@@ -118,13 +118,9 @@ class PrizeBreakupFragment : Fragment() {
                             }
                         }
                     }
-
                 }
-
             })
-
     }
-
 
     inner class PrizeBreakUpAdapter(
         val context: Context,
@@ -136,13 +132,13 @@ class PrizeBreakupFragment : Fragment() {
 
 
         override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): RecyclerView.ViewHolder {
-            var view = LayoutInflater.from(parent.context)
+            val view = LayoutInflater.from(parent.context)
                 .inflate(R.layout.prize_breakup_rows, parent, false)
             return MyMatchViewHolder(view)
         }
 
         override fun onBindViewHolder(parent: RecyclerView.ViewHolder, viewType: Int) {
-            var objectVal = matchesListObject[viewType]
+            val objectVal = matchesListObject[viewType]
             val viewHolder: MyMatchViewHolder = parent as MyMatchViewHolder
             viewHolder.rankRange.text = objectVal.rangeName
             viewHolder.winnerPrize.text = "₹" + objectVal.winnersPrice
