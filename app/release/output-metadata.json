@@ -10,9 +10,9 @@
     {
       "type": "SINGLE",
       "filters": [],
-      "versionCode": 1,
-      "versionName": "1.0",
-      "outputFile": "My11Heros-1.0-release.apk"
+      "versionCode": 101,
+      "versionName": "1.01",
+      "outputFile": "My11Heros-1.01-release.apk"
     }
   ]
 }

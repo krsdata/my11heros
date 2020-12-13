@@ -115,8 +115,8 @@ class InviteFriendsActivity : AppCompatActivity() {
             })
 
         shareSheetStyle = ShareSheetStyle(
-            mContext!!, "Ninja11",
-            "Welcome to Ninja11. Register on Ninja11 application with this link.\n\nUse my referral code \"" + userInfo!!.referalCode +
+            mContext!!, "My11Heros",
+            "Welcome to My11Heros. Register on My11Heros application with this link.\n\nUse my referral code \"" + userInfo!!.referalCode +
                     "\" and get extra Rs. 100 Bonus on Joining.".trimIndent()
         ) //.setCopyUrlStyle(getResources().getDrawable(android.R.drawable.ic_menu_send), "Copy", "Added to clipboard")
             //.setMoreOptionStyle(getResources().getDrawable(android.R.drawable.ic_menu_search), "Show more")
@@ -126,7 +126,7 @@ class InviteFriendsActivity : AppCompatActivity() {
 
 
         mBinding!!.inviteFriends.setOnClickListener {
-            //shareReferCode()
+            shareReferCode()
         }
     }
 

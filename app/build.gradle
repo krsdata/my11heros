@@ -15,8 +15,8 @@ android {
         applicationId "com.my11heros"
         minSdkVersion 21
         targetSdkVersion 29
-        versionCode 1
-        versionName "1.0"
+        versionCode 101
+        versionName "1.01"
         multiDexEnabled  true
         vectorDrawables.useSupportLibrary = true
         setProperty("archivesBaseName", "My11Heros-$versionName")

@@ -171,80 +171,9 @@ class MainActivity : BaseActivity(), NavigationView.OnNavigationItemSelectedList
                             setWalletBalanceValue()
                         }
                     }
-
                 }
-
             })
-
     }
-
-/*    override fun onNavigationItemSelected(item: MenuItem): Boolean {
-        when (item.itemId) {
-            R.id.nav_home -> {
-                // Handle the camera action
-            }
-
-            R.id.nav_wallet -> {
-                val intent = Intent(this@MainActivity, MyBalanceActivity::class.java)
-                startActivityForResult(intent, MyBalanceActivity.REQUEST_CODE_ADD_MONEY)
-                if (Build.VERSION.SDK_INT > 21) {
-                    val options =
-                        ActivityOptions.makeSceneTransitionAnimation(this)
-                    startActivity(intent, options.toBundle())
-                } else {
-                    startActivity(intent)
-                }
-            }
-
-            R.id.nav_referenearn -> {
-                val intent = Intent(this@MainActivity, MyTransactionHistoryActivity::class.java)
-                startActivityForResult(intent, MyBalanceActivity.REQUEST_CODE_ADD_MONEY)
-                if (Build.VERSION.SDK_INT > 21) {
-                    val options =
-                        ActivityOptions.makeSceneTransitionAnimation(this)
-                    startActivity(intent, options.toBundle())
-                } else {
-                    startActivity(intent)
-                }
-            }
-
-            R.id.nav_tnc -> {
-                val intent = Intent(this@MainActivity, WebActivity::class.java)
-                intent.putExtra(WebActivity.KEY_URL, BindingUtils.WEBVIEW_TNC)
-                if (Build.VERSION.SDK_INT > 21) {
-                    val options =
-                        ActivityOptions.makeSceneTransitionAnimation(this)
-                    startActivity(intent, options.toBundle())
-                } else {
-                    startActivity(intent)
-                }
-            }
-            R.id.nav_privacy -> {
-                val intent = Intent(this@MainActivity, WebActivity::class.java)
-                intent.putExtra(WebActivity.KEY_URL, BindingUtils.WEBVIEW_PRIVACY)
-                if (Build.VERSION.SDK_INT > 21) {
-                    val options =
-                        ActivityOptions.makeSceneTransitionAnimation(this)
-                    startActivity(intent, options.toBundle())
-                } else {
-                    startActivity(intent)
-                }
-            }
-
-            R.id.nav_aboutus -> {
-                val intent = Intent(this@MainActivity, WebActivity::class.java)
-                intent.putExtra(WebActivity.KEY_URL, BindingUtils.WEBVIEW_ABOUT_US)
-                if (Build.VERSION.SDK_INT > 21) {
-                    val options =
-                        ActivityOptions.makeSceneTransitionAnimation(this)
-                    startActivity(intent, options.toBundle())
-                } else {
-                    startActivity(intent)
-                }
-            }
-        }
-        return true
-    }*/
 
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
         if (item.itemId == android.R.id.home) {

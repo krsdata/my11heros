@@ -46,7 +46,7 @@ class MoreOptionsFragment : BaseFragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         (activity as MainActivity).showToolbar()
-        mBinding!!.appVersion.text = MyUtils.getAppVersionName(requireActivity())
+        mBinding!!.appVersion.text = "App Version ${MyUtils.getAppVersionName(requireActivity())}"
         mBinding!!.recyclerMoreoptions.layoutManager =
             LinearLayoutManager(activity, RecyclerView.VERTICAL, false)
 
@@ -284,7 +284,10 @@ class MoreOptionsFragment : BaseFragment() {
 
                     11 -> {
                         val intent = Intent(activity!!, WebActivity::class.java)
-                        intent.putExtra(WebActivity.KEY_TITLE, BindingUtils.WEB_TITLE_TOP_REFERRAL_USER)
+                        intent.putExtra(
+                            WebActivity.KEY_TITLE,
+                            BindingUtils.WEB_TITLE_TOP_REFERRAL_USER
+                        )
                         intent.putExtra(WebActivity.KEY_URL, BindingUtils.WEBVIEW_TOP_REFERRAL_USER)
                         val options =
                             ActivityOptions.makeSceneTransitionAnimation(activity)
