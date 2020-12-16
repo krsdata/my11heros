@@ -88,7 +88,7 @@ class InviteFriendsActivity : AppCompatActivity() {
         })
 
         buo = BranchUniversalObject()
-            .setTitle("Ninja11")
+            .setTitle("My11Heros")
             .setContentDescription("Cricket Fantasy App")
             .setContentIndexingMode(BranchUniversalObject.CONTENT_INDEX_MODE.PUBLIC)
             .setLocalIndexMode(BranchUniversalObject.CONTENT_INDEX_MODE.PUBLIC)
@@ -116,8 +116,8 @@ class InviteFriendsActivity : AppCompatActivity() {
 
         shareSheetStyle = ShareSheetStyle(
             mContext!!, "My11Heros",
-            "Welcome to My11Heros. Register on My11Heros application with this link.\n\nUse my referral code \"" + userInfo!!.referalCode +
-                    "\" and get extra Rs. 100 Bonus on Joining.".trimIndent()
+            "Welcome to My11Heros.\nRegister on My11Heros application with this link.\n\nUse my referral code \"" + userInfo!!.referalCode +
+                    "\" and get extra Rs. 100 Bonus on Joining.\n".trimIndent()
         ) //.setCopyUrlStyle(getResources().getDrawable(android.R.drawable.ic_menu_send), "Copy", "Added to clipboard")
             //.setMoreOptionStyle(getResources().getDrawable(android.R.drawable.ic_menu_search), "Show more")
             .setAsFullWidthStyle(true)
