@@ -233,7 +233,7 @@ class FixtureCricketFragment : BaseFragment(), SwipeRefreshLayout.OnRefreshListe
                         if (jsonObject.optBoolean("status")) {
                             val array = jsonObject.getJSONArray("data")
                             val data = array.getJSONObject(0)
-                            telegramLink = data.getString("message")
+                            //telegramLink = data.getString("message")
 
                             if (data.optInt("message_status") == 0) {
                                 mBinding!!.messageCard.visibility = View.GONE

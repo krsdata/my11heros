@@ -66,7 +66,7 @@ class BindingUtils {
 
         fun logD(tag: String, message: String) {
             if (BuildConfig.MLOG) {
-                Log.e("MX:$tag", message)
+                //Log.e("MX:$tag", message)
             }
         }
 

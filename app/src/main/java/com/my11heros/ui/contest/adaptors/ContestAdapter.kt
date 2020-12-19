@@ -2,6 +2,7 @@ package com.my11heros.ui.contest.adaptors
 
 import android.app.Activity
 import android.content.Context
+import android.content.Intent
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -10,6 +11,9 @@ import android.widget.TextView
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.edify.atrist.listener.OnContestEvents
+import com.my11heros.ContestActivity
+import com.my11heros.LeadersBoardActivity
+import com.my11heros.MoreContestActivity
 import com.my11heros.R
 import com.my11heros.models.ContestsParentModels
 import com.my11heros.models.UpcomingMatchesModel
@@ -71,9 +75,9 @@ class ContestAdapter(
             colorCode
         )
         viewJoinedMatches.recyclerView.adapter = adapter
-        if (objectVal.allContestsRunning != null && objectVal.allContestsRunning!!.size > 3) {
-            viewJoinedMatches.viewMoreLayout?.visibility = View.VISIBLE
-            viewJoinedMatches.moreContestClick?.setOnClickListener(View.OnClickListener {
+        if (objectVal.allContestsRunning != null && objectVal.allContestsRunning!!.size > 4) {
+            viewJoinedMatches.viewMoreLayout.visibility = View.VISIBLE
+            viewJoinedMatches.moreContestClick.setOnClickListener(View.OnClickListener {
                 val intent = Intent(context, MoreContestActivity::class.java)
                 intent.putExtra(ContestActivity.SERIALIZABLE_KEY_UPCOMING_MATCHES, matchObject)
                 intent.putExtra(ContestActivity.SERIALIZABLE_KEY_JOINED_CONTEST, matchesListObject)
@@ -81,7 +85,7 @@ class ContestAdapter(
                 context.startActivityForResult(intent, LeadersBoardActivity.CREATETEAM_REQUESTCODE)
             })
         } else {
-            viewJoinedMatches.viewMoreLayout?.visibility = View.GONE
+            viewJoinedMatches.viewMoreLayout.visibility = View.GONE
         }*/
 
         adapter.onItemClick = { objects ->
@@ -90,10 +94,9 @@ class ContestAdapter(
     }
 
     private fun getFirst3Values(allContestsRunning: java.util.ArrayList<ContestModelLists>): java.util.ArrayList<ContestModelLists> {
-        val MAX_FILTER_CONTEST_SIZE = 2
-        if (allContestsRunning.size > MAX_FILTER_CONTEST_SIZE) {
+        if (allContestsRunning.size > 4) {
             val values = ArrayList<ContestModelLists>()
-            for (i in 0..MAX_FILTER_CONTEST_SIZE) {
+            for (i in 0..3) {
                 values.add(allContestsRunning.get(i))
             }
             return values

@@ -42,7 +42,6 @@ class MoreOptionsFragment : BaseFragment() {
         return mBinding!!.root
     }
 
-
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         (activity as MainActivity).showToolbar()
@@ -56,21 +55,8 @@ class MoreOptionsFragment : BaseFragment() {
         BackgroundLoading().execute()
     }
 
-
     private fun initContent() {
         allOptionsList.clear()
-
-        /*val upcomingMModle11 = MoreOptionsModel()
-        upcomingMModle11.drawable = R.drawable.more_terms_conditions
-        upcomingMModle11.id = 11
-        upcomingMModle11.title = "Top Referral Users"
-        allOptionsList.add(upcomingMModle11)
-
-        val upcomingMModle10 = MoreOptionsModel()
-        upcomingMModle10.drawable = R.drawable.more_terms_conditions
-        upcomingMModle10.id = 10
-        upcomingMModle10.title = "Offers"
-        allOptionsList.add(upcomingMModle10)*/
 
         val upcomingMModle1 = MoreOptionsModel()
         upcomingMModle1.drawable = R.drawable.more_refern_earn
@@ -78,31 +64,17 @@ class MoreOptionsFragment : BaseFragment() {
         upcomingMModle1.title = "Refer & Earn"
         allOptionsList.add(upcomingMModle1)
 
-        val upcomingMModle7 = MoreOptionsModel()
-        upcomingMModle7.drawable = R.drawable.more_support
-        upcomingMModle7.id = 6
-        upcomingMModle7.title = getString(R.string.label_supportteam)
-        allOptionsList.add(upcomingMModle7)
-
-
         val upcomingMModle2 = MoreOptionsModel()
         upcomingMModle2.drawable = R.drawable.more_point_system
         upcomingMModle2.id = 1
         upcomingMModle2.title = "Fantasy Points System"
         allOptionsList.add(upcomingMModle2)
 
-
         /*val upcomingMModle3 = MoreOptionsModel()
         upcomingMModle3.drawable = R.drawable.more_terms_conditions
         upcomingMModle3.id = 2
         upcomingMModle3.title = "How to Play"
         allOptionsList.add(upcomingMModle3)*/
-
-        val upcomingMModle9 = MoreOptionsModel()
-        upcomingMModle9.drawable = R.drawable.more_terms_conditions
-        upcomingMModle9.id = 9
-        upcomingMModle9.title = "FAQs"
-        allOptionsList.add(upcomingMModle9)
 
         val upcomingMModle4 = MoreOptionsModel()
         upcomingMModle4.drawable = R.drawable.more_about_us
@@ -122,11 +94,11 @@ class MoreOptionsFragment : BaseFragment() {
         upcomingMModle6.title = "Terms and Conditions"
         allOptionsList.add(upcomingMModle6)
 
-//        var upcomingMModle9 = MoreOptionsModel()
-//        upcomingMModle9.drawable = R.drawable.ic_chat_black_24dp
-//        upcomingMModle9.id = 9
-//        upcomingMModle9.title = "Chat with Sports Fight"
-//        allOptionsList.add(upcomingMModle9)
+        val upcomingMModle7 = MoreOptionsModel()
+        upcomingMModle7.drawable = R.drawable.more_support
+        upcomingMModle7.id = 6
+        upcomingMModle7.title = getString(R.string.label_supportteam)
+        allOptionsList.add(upcomingMModle7)
 
         val upcomingMModle8 = MoreOptionsModel()
         upcomingMModle8.drawable = R.drawable.more_logout
@@ -137,8 +109,25 @@ class MoreOptionsFragment : BaseFragment() {
         } else {
             upcomingMModle8.title = "Login"
         }
-
         allOptionsList.add(upcomingMModle8)
+
+        val upcomingMModle9 = MoreOptionsModel()
+        upcomingMModle9.drawable = R.drawable.more_terms_conditions
+        upcomingMModle9.id = 9
+        upcomingMModle9.title = "FAQs"
+        allOptionsList.add(upcomingMModle9)
+
+        /*val upcomingMModle10 = MoreOptionsModel()
+        upcomingMModle10.drawable = R.drawable.more_terms_conditions
+        upcomingMModle10.id = 10
+        upcomingMModle10.title = "Offers"
+        allOptionsList.add(upcomingMModle10)
+
+        val upcomingMModle11 = MoreOptionsModel()
+        upcomingMModle11.drawable = R.drawable.more_terms_conditions
+        upcomingMModle11.id = 11
+        upcomingMModle11.title = "Top Referral Users"
+        allOptionsList.add(upcomingMModle11)*/
     }
 
     inner class MoreOptionsAdaptor(

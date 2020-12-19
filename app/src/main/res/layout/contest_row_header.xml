@@ -49,7 +49,7 @@
             android:fontFamily="@font/montserrat_bold"
             android:paddingStart="@dimen/_10sdp"
             android:paddingEnd="@dimen/_10sdp"
-            android:text="View More Contest"
+            android:text="View All"
             android:textAllCaps="false"
             android:layout_toStartOf="@+id/image_more"
             android:layout_marginEnd="@dimen/_20sdp"

@@ -3,6 +3,7 @@ package com.my11heros
 import android.content.Intent
 import android.graphics.Bitmap
 import android.os.Bundle
+import android.util.Log
 import android.view.Menu
 import android.view.View
 import android.widget.Toast
@@ -12,10 +13,15 @@ import androidx.fragment.app.FragmentManager
 import androidx.fragment.app.FragmentPagerAdapter
 import androidx.swiperefreshlayout.widget.SwipeRefreshLayout
 import androidx.viewpager.widget.ViewPager
+import com.bumptech.glide.Glide
+import com.bumptech.glide.load.engine.DiskCacheStrategy
 import com.deliverdas.customers.utils.HardwareInfoManager
 import com.edify.atrist.listener.OnContestEvents
 import com.edify.atrist.listener.OnContestLoadedListener
 import com.edify.atrist.listener.OnMatchTimerStarted
+import com.google.android.material.tabs.TabLayout
+import com.google.android.material.tabs.TabLayout.OnTabSelectedListener
+import com.google.android.material.tabs.TabLayout.TabLayoutOnPageChangeListener
 import com.my11heros.databinding.ActivityMoreContestBinding
 import com.my11heros.models.ContestsParentModels
 import com.my11heros.models.MyTeamModels
@@ -36,18 +42,22 @@ import retrofit2.Response
 
 
 class MoreContestActivity : BaseActivity(), OnContestLoadedListener, OnContestEvents,
-    ViewPager.OnPageChangeListener {
+    SwipeRefreshLayout.OnRefreshListener {
 
-    private var allContestList: ArrayList<ContestsParentModels>? = null
+    var allContestList: ArrayList<ContestsParentModels>? = null
     private lateinit var selectedObject: ContestsParentModels
     var matchObject: UpcomingMatchesModel? = null
     var isTimeUp: Boolean = false
     var joinedTeamList: java.util.ArrayList<MyTeamModels>? = null
     var contestObjects: ArrayList<ContestModelLists>? = null
     private var mBinding: ActivityMoreContestBinding? = null
+    private val mFragmentList = ArrayList<Fragment>()
+    private val mFragmentTitleList = ArrayList<String>()
     var selected_position = 0
+    var adapter: ViewPagerAdapter? = null
 
     companion object {
+        var TAG: String = MoreContestActivity::class.java.simpleName
         val SERIALIZABLE_KEY_LIST_POSTIION: String = "contestposition"
     }
 
@@ -73,21 +83,36 @@ class MoreContestActivity : BaseActivity(), OnContestLoadedListener, OnContestEv
             val intent = Intent(this@MoreContestActivity, MyBalanceActivity::class.java)
             startActivity(intent)
         })
-        setupViewPager(mBinding!!.viewpagerContest)
-        mBinding!!.tabs.setupWithViewPager(mBinding!!.viewpagerContest)
-        mBinding!!.viewpagerContest.addOnPageChangeListener(this)
 
-        mBinding!!.mycontestRefresh.setOnRefreshListener(SwipeRefreshLayout.OnRefreshListener {
-            getAllContest()
-        })
+        //setupViewPager(mBinding!!.viewpagerContest)
+        //mBinding!!.viewpagerContest.addOnPageChangeListener(this)
+
+        mBinding!!.mycontestRefresh.setOnRefreshListener(this@MoreContestActivity)
     }
 
-
     private fun initViewUpcomingMatches() {
-
         mBinding!!.teamsa.text = matchObject!!.teamAInfo!!.teamShortName
         mBinding!!.teamsb.text = matchObject!!.teamBInfo!!.teamShortName
 
+        if (matchObject!!.status == BindingUtils.MATCH_STATUS_UPCOMING) {
+            mBinding!!.tournamentTitle.text = matchObject!!.leagueTitle
+        } else {
+            mBinding!!.tournamentTitle.text = matchObject!!.matchTitle
+        }
+
+        Glide.with(this)
+            .load(matchObject!!.teamAInfo!!.logoUrl)
+            .placeholder(R.drawable.placeholder_player_teama)
+            .disallowHardwareConfig()
+            .diskCacheStrategy(DiskCacheStrategy.ALL)
+            .into(mBinding!!.teamaLogo)
+
+        Glide.with(this)
+            .load(matchObject!!.teamBInfo!!.logoUrl)
+            .placeholder(R.drawable.placeholder_player_teama)
+            .disallowHardwareConfig()
+            .diskCacheStrategy(DiskCacheStrategy.ALL)
+            .into(mBinding!!.teambLogo)
     }
 
     override fun onResume() {
@@ -118,18 +143,17 @@ class MoreContestActivity : BaseActivity(), OnContestLoadedListener, OnContestEv
 
             override fun onTicks(time: String) {
                 mBinding!!.matchTimer.text = time
-                mBinding!!.matchTimer.setTextColor(resources.getColor(R.color.red))
-                mBinding!!.watchTimerImg.visibility = View.VISIBLE
+                mBinding!!.matchTimer.setTextColor(resources.getColor(R.color.white))
+                //mBinding!!.watchTimerImg.visibility = View.VISIBLE
                 BindingUtils.logD("TimerLogs", "ContestScreen: " + time)
             }
         })
     }
 
-
     private fun updateTimerHeader() {
         mBinding!!.matchTimer.text = matchObject!!.statusString.toUpperCase()
         mBinding!!.matchTimer.setTextColor(resources.getColor(R.color.colorPrimary))
-        mBinding!!.watchTimerImg.visibility = View.GONE
+        //mBinding!!.watchTimerImg.visibility = View.GONE
     }
 
     fun pauseCountDown() {
@@ -145,13 +169,10 @@ class MoreContestActivity : BaseActivity(), OnContestLoadedListener, OnContestEv
         mBinding!!.viewpagerContest.currentItem = postion
     }
 
-
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
         super.onActivityResult(requestCode, resultCode, data)
         mBinding!!.viewpagerContest.currentItem = selected_position
-        //getAllContest()
     }
-
 
     fun getAllContest() {
         //var userInfo = (activity as PlugSportsApplication).userInformations
@@ -162,7 +183,8 @@ class MoreContestActivity : BaseActivity(), OnContestLoadedListener, OnContestEv
         models.match_id = "" + matchObject!!.matchId
         models.token = MyPreferences.getToken(this@MoreContestActivity)!!
         val deviceToken: String? = MyPreferences.getDeviceToken(this@MoreContestActivity)
-        models.deviceDetails = HardwareInfoManager(this@MoreContestActivity).collectData(deviceToken!!)
+        models.deviceDetails =
+            HardwareInfoManager(this@MoreContestActivity).collectData(deviceToken!!)
 
         WebServiceClient(this@MoreContestActivity).client.create(IApiMethod::class.java)
             .getContestByMatch(models)
@@ -202,47 +224,66 @@ class MoreContestActivity : BaseActivity(), OnContestLoadedListener, OnContestEv
     }
 
     override fun onBitmapSelected(bitmap: Bitmap) {
-
     }
 
     override fun onUploadedImageUrl(url: String) {
-
-
     }
-
 
     override fun onCreateOptionsMenu(menu: Menu): Boolean {
         return true
     }
 
     private fun setupViewPager(viewPager: ViewPager) {
+        mBinding!!.tabs.removeAllTabs()
+        //viewPager.removeAllViews()
+        mFragmentList.clear()
+        mFragmentTitleList.clear()
 
+        for (i in allContestList!!.indices) {
+            val contObject = allContestList!![i]
 
-        val adapter = ViewPagerAdapter(supportFragmentManager)
-        viewPager.removeAllViews()
-        for (i in 0..allContestList!!.size - 1) {
-            val clobject = allContestList!!.get(i)
             val bundle = Bundle()
             bundle.putSerializable(ContestActivity.SERIALIZABLE_KEY_MATCH_OBJECT, matchObject)
-            bundle.putSerializable(MoreContestFragment.CONTEST_LIST, clobject.allContestsRunning)
-            adapter.addFragment(
-                MoreContestFragment.newInstance(bundle),
-                clobject.contestTitle + "(" + clobject.allContestsRunning!!.size + ")"
-            )
+            bundle.putSerializable(MoreContestFragment.CONTEST_LIST, contObject.allContestsRunning)
 
-            if (selectedObject.contestTitle.equals(clobject.contestTitle)) {
+            val tabTitle: String = contObject.contestTitle + "(" + contObject.allContestsRunning!!.size + ")"
+
+            mFragmentList.add(MoreContestFragment.newInstance(bundle))
+            mFragmentTitleList.add(tabTitle)
+
+            mBinding!!.tabs.addTab(mBinding!!.tabs.newTab().setText(tabTitle))
+
+            if (selectedObject.contestTitle == contObject.contestTitle) {
                 selected_position = i
             }
         }
-        viewPager.adapter = adapter
-        viewPager.currentItem = selected_position
 
+        adapter!!.notifyDataSetChanged()
+        adapter = ViewPagerAdapter(supportFragmentManager)
+        viewPager.adapter = adapter
+        viewPager.addOnPageChangeListener(TabLayoutOnPageChangeListener(mBinding!!.tabs))
+
+        mBinding!!.tabs.addOnTabSelectedListener(object : OnTabSelectedListener {
+            override fun onTabSelected(tab: TabLayout.Tab) {
+                viewPager.currentItem = tab.position
+                selected_position = tab.position
+                Log.e(TAG, "selected position =======> $selected_position")
+                val contObject = allContestList!![selected_position]
+                Log.e(TAG, "onPageSelected contestTitle =======> ${contObject.contestTitle}")
+            }
+
+            override fun onTabUnselected(tab: TabLayout.Tab) {}
+            override fun onTabReselected(tab: TabLayout.Tab) {}
+        })
+
+        val tab: TabLayout.Tab? = mBinding!!.tabs.getTabAt(selected_position)
+        tab?.select()
+
+        adapter!!.notifyDataSetChanged()
     }
 
-    internal inner class ViewPagerAdapter(manager: FragmentManager) :
+    inner class ViewPagerAdapter(manager: FragmentManager) :
         FragmentPagerAdapter(manager, BEHAVIOR_RESUME_ONLY_CURRENT_FRAGMENT) {
-        private val mFragmentList = ArrayList<Fragment>()
-        private val mFragmentTitleList = ArrayList<String>()
 
         override fun getItem(position: Int): Fragment {
             return mFragmentList[position]
@@ -252,29 +293,33 @@ class MoreContestActivity : BaseActivity(), OnContestLoadedListener, OnContestEv
             return mFragmentList.size
         }
 
-        fun addFragment(fragment: Fragment, title: String) {
+        override fun getItemPosition(`object`: Any): Int {
+            return POSITION_NONE
+        }
+
+        /*fun addFragment(fragment: Fragment, title: String) {
             mFragmentList.add(fragment)
             mFragmentTitleList.add(title)
-        }
+        }*/
 
-        override fun getPageTitle(position: Int): CharSequence {
+        /*override fun getPageTitle(position: Int): CharSequence {
             return mFragmentTitleList[position]
-        }
+        }*/
     }
 
-    override fun onMyContest(contestObjects: ArrayList<ContestModelLists>) {
-        this.contestObjects = contestObjects
+    override fun onMyContest(contestModel: ArrayList<ContestModelLists>) {
+        this.contestObjects = contestModel
         if (matchObject!!.status == BindingUtils.MATCH_STATUS_UPCOMING) {
             mBinding!!.tabs.getTabAt(1)!!.text =
-                String.format("My Contest(%d)", contestObjects.size)
+                String.format("My Contest(%d)", contestModel.size)
         } else {
             mBinding!!.tabs.getTabAt(0)!!.text =
-                String.format("My Contest(%d)", contestObjects.size)
+                String.format("My Contest(%d)", contestModel.size)
         }
     }
 
-    override fun onMyTeam(objects: ArrayList<MyTeamModels>) {
-        this.joinedTeamList = objects
+    override fun onMyTeam(count: ArrayList<MyTeamModels>) {
+        this.joinedTeamList = count
         if (matchObject!!.status == BindingUtils.MATCH_STATUS_UPCOMING) {
             mBinding!!.tabs.getTabAt(2)!!.text =
                 String.format("MyTeam(%d)", this.joinedTeamList!!.size)
@@ -368,7 +413,7 @@ class MoreContestActivity : BaseActivity(), OnContestLoadedListener, OnContestEv
 
     }
 
-    override fun onPageScrollStateChanged(state: Int) {
+    /*override fun onPageScrollStateChanged(state: Int) {
 
 
     }
@@ -379,7 +424,22 @@ class MoreContestActivity : BaseActivity(), OnContestLoadedListener, OnContestEv
 
     override fun onPageSelected(position: Int) {
         selected_position = position
+        Log.e(TAG, "selected position =======> $selected_position")
+        val contObject = allContestList!![selected_position]
+        Log.e(TAG, "onPageSelected contestTitle =======> ${contObject.contestTitle}")
+    }*/
+
+    override fun onRefresh() {
+        for (i in allContestList!!.indices) {
+            val contObject = allContestList!![i]
+            if (selected_position == i) {
+                Log.e(TAG, "selected position =======> $selected_position")
+                Log.e(TAG, "i =======> $i")
+                Log.e(TAG, "contestTitle =======> ${contObject.contestTitle}")
+                selectedObject.contestTitle = contObject.contestTitle
+            }
+        }
+
+        getAllContest()
     }
-
-
 }

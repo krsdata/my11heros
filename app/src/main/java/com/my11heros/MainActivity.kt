@@ -41,7 +41,7 @@ class MainActivity : BaseActivity(), NavigationView.OnNavigationItemSelectedList
         var releaseNote: String = ""
         var CHECK_APK_UPDATE_API: Boolean = false
         var CHECK_FORCE_UPDATE: Boolean = true
-        var telegramLink: String = ""
+        var telegramLink: String = "https://t.me/my11heroes"
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {
