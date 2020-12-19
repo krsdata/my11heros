@@ -18,6 +18,7 @@ import com.deliverdas.customers.utils.HardwareInfoManager
 import com.google.android.material.snackbar.Snackbar
 import com.google.gson.JsonObject
 import com.my11heros.MainActivity
+import com.my11heros.MainActivity.Companion.telegramLink
 import com.my11heros.MaintainanceActivity
 import com.my11heros.R
 import com.my11heros.SportsFightApplication
@@ -232,6 +233,8 @@ class FixtureCricketFragment : BaseFragment(), SwipeRefreshLayout.OnRefreshListe
                         if (jsonObject.optBoolean("status")) {
                             val array = jsonObject.getJSONArray("data")
                             val data = array.getJSONObject(0)
+                            telegramLink = data.getString("message")
+
                             if (data.optInt("message_status") == 0) {
                                 mBinding!!.messageCard.visibility = View.GONE
                             } else {
@@ -253,7 +256,7 @@ class FixtureCricketFragment : BaseFragment(), SwipeRefreshLayout.OnRefreshListe
                                 } else {
                                     mBinding!!.labelMessage.text = data.getString("message")
                                 }
-                                mBinding!!.messageCard.visibility = View.VISIBLE
+                                mBinding!!.messageCard.visibility = View.GONE
                             }
                         }
                     }

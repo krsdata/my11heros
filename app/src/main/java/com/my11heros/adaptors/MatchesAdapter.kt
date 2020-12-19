@@ -22,7 +22,6 @@ import com.my11heros.utils.BindingUtils
 import com.my11heros.utils.MyUtils
 import pl.pzienowicz.autoscrollviewpager.AutoScrollViewPager
 
-
 class MatchesAdapter(val context: Context, val tradeinfoModels: ArrayList<MatchesModels>) :
     RecyclerView.Adapter<RecyclerView.ViewHolder>() {
     var onItemClick: ((MatchesModels) -> Unit)? = null

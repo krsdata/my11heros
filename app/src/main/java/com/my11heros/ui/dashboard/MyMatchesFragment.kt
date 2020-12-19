@@ -33,10 +33,6 @@ class MyMatchesFragment : Fragment() {
         viewpager= root.findViewById(R.id.viewpager)
         tabLayout = root.findViewById(R.id.tabs)
         setupViewPager()
-
-        // viewpager.addOnPageChangeListener(this)
-        //tabs.setupWithViewPager(viewpager)
-
         return root
     }
 

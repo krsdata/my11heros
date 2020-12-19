@@ -10,6 +10,7 @@ import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentManager
 import androidx.fragment.app.FragmentPagerAdapter
+import androidx.swiperefreshlayout.widget.SwipeRefreshLayout
 import androidx.viewpager.widget.ViewPager
 import com.deliverdas.customers.utils.HardwareInfoManager
 import com.edify.atrist.listener.OnContestEvents
@@ -76,9 +77,9 @@ class MoreContestActivity : BaseActivity(), OnContestLoadedListener, OnContestEv
         mBinding!!.tabs.setupWithViewPager(mBinding!!.viewpagerContest)
         mBinding!!.viewpagerContest.addOnPageChangeListener(this)
 
-//        mBinding!!.mycontestRefresh.setOnRefreshListener(SwipeRefreshLayout.OnRefreshListener {
-//            getAllContest()
-//        })
+        mBinding!!.mycontestRefresh.setOnRefreshListener(SwipeRefreshLayout.OnRefreshListener {
+            getAllContest()
+        })
     }
 
 
@@ -91,6 +92,7 @@ class MoreContestActivity : BaseActivity(), OnContestLoadedListener, OnContestEv
 
     override fun onResume() {
         super.onResume()
+        getAllContest()
         if (matchObject!!.status == BindingUtils.MATCH_STATUS_UPCOMING) {
             pauseCountDown()
             startCountDown()
@@ -238,7 +240,7 @@ class MoreContestActivity : BaseActivity(), OnContestLoadedListener, OnContestEv
     }
 
     internal inner class ViewPagerAdapter(manager: FragmentManager) :
-        FragmentPagerAdapter(manager) {
+        FragmentPagerAdapter(manager, BEHAVIOR_RESUME_ONLY_CURRENT_FRAGMENT) {
         private val mFragmentList = ArrayList<Fragment>()
         private val mFragmentTitleList = ArrayList<String>()
 

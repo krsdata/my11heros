@@ -1,7 +1,9 @@
 package com.my11heros
 
+import android.content.ActivityNotFoundException
 import android.content.Intent
 import android.graphics.Bitmap
+import android.net.Uri
 import android.os.Bundle
 import android.view.MenuItem
 import android.view.View
@@ -39,6 +41,7 @@ class MainActivity : BaseActivity(), NavigationView.OnNavigationItemSelectedList
         var releaseNote: String = ""
         var CHECK_APK_UPDATE_API: Boolean = false
         var CHECK_FORCE_UPDATE: Boolean = true
+        var telegramLink: String = ""
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -72,8 +75,16 @@ class MainActivity : BaseActivity(), NavigationView.OnNavigationItemSelectedList
                 intent.putExtra(FullScreenImageViewActivity.KEY_IMAGE_URL, userInfo!!.profileImage)
                 startActivity(intent)
             }
-
         })
+
+        mBinding!!.telegramId.setOnClickListener{
+            if(telegramLink != "") {
+                val intent = Intent(Intent.ACTION_VIEW, Uri.parse(telegramLink))
+                intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK)
+                //intent.setPackage("com.android.chrome")
+                startActivity(intent)
+            }
+        }
 
         mBinding!!.navigation.setOnNavigationItemSelectedListener(this)
 
@@ -92,11 +103,11 @@ class MainActivity : BaseActivity(), NavigationView.OnNavigationItemSelectedList
     }
 
     fun viewUpcomingMatches() {
-
+        mBinding!!.navigation.selectedItemId = R.id.navigation_home
     }
 
     fun viewAllMatches() {
-
+        mBinding!!.navigation.selectedItemId = R.id.navigation_home
     }
 
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
@@ -106,7 +117,6 @@ class MainActivity : BaseActivity(), NavigationView.OnNavigationItemSelectedList
             setWalletBalanceValue()
         }
     }
-
 
     private fun setWalletBalanceValue() {
 //        var walletInfo = (application as SportsFightApplication).walletInfo
