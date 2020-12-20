@@ -4,6 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools">
 
     <data>
+
         <variable
             name="contentviews"
             type="com.my11heros.TeamPreviewActivity" />
@@ -14,70 +15,74 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:fitsSystemWindows="true"
-        tools:context="com.my11heros.CreateTeamActivity"
         android:orientation="vertical"
-        >
+        tools:context="com.my11heros.CreateTeamActivity">
+
         <LinearLayout
             android:id="@+id/linear_top_bar"
             android:layout_width="match_parent"
             android:layout_height="?attr/actionBarSize"
             android:background="@color/colorPrimaryDark"
-            android:orientation="vertical"
-            >
+            android:orientation="vertical">
+
             <RelativeLayout
                 android:layout_width="match_parent"
                 android:layout_height="?attr/actionBarSize"
                 android:background="@color/colorPrimaryDark"
-                android:orientation="horizontal"
-                >
+                android:orientation="horizontal">
+
                 <ImageView
                     android:id="@+id/image_back"
                     android:layout_width="@dimen/header_icon_size"
                     android:layout_height="@dimen/header_icon_size"
-                    android:src="@drawable/ic_arrow_back_black_24dp"
-                    android:tint="@color/white"
                     android:layout_centerVertical="true"
                     android:layout_gravity="center_vertical"
-                    android:layout_marginLeft="8dip"/>
+                    android:layout_marginLeft="8dip"
+                    android:src="@drawable/ic_arrow_back_black_24dp"
+                    app:tint="@color/white" />
 
                 <TextView
                     android:id="@+id/match_timer"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="10h 21m left"
-                    android:layout_gravity="center"
-
-                    android:gravity="center"
-                    android:textSize="@dimen/create_team_text_size_normal"
-                    android:textColor="@color/white"
                     android:layout_centerHorizontal="true"
                     android:layout_centerVertical="true"
-                    android:fontFamily="@font/montserrat_bold"/>
+
+                    android:layout_gravity="center"
+                    android:fontFamily="@font/montserrat_bold"
+                    android:gravity="center"
+                    android:text="10h 21m left"
+                    android:textColor="@color/white"
+                    android:textSize="@dimen/create_team_text_size_normal" />
 
                 <ImageView
                     android:id="@+id/how_toplay"
                     android:layout_width="@dimen/header_icon_size"
                     android:layout_height="@dimen/header_icon_size"
-                    android:src="@drawable/ic_live_help_black_24dp"
-                    android:tint="@color/white"
-                    android:layout_toLeftOf="@+id/img_wallet"
                     android:layout_centerVertical="true"
-                    android:layout_marginRight="5dp"
                     android:layout_gravity="center_vertical"
-                    android:layout_marginLeft="8dip"/>
+                    android:layout_marginLeft="8dip"
+                    android:visibility="invisible"
+                    android:layout_marginRight="5dp"
+                    android:layout_toLeftOf="@+id/img_wallet"
+                    android:src="@drawable/ic_live_help_black_24dp"
+                    app:tint="@color/white" />
+
                 <ImageView
                     android:id="@+id/img_wallet"
                     android:layout_width="@dimen/header_icon_size"
                     android:layout_height="@dimen/header_icon_size"
-                    android:src="@drawable/ic_account_balance_wallet_black_24dp"
-                    android:tint="@color/white"
                     android:layout_alignParentRight="true"
                     android:layout_centerVertical="true"
-                    android:layout_marginRight="10dp"
                     android:layout_gravity="center_vertical"
-                    android:layout_marginLeft="8dip"/>
+                    android:visibility="invisible"
+                    android:layout_marginLeft="8dip"
+                    android:layout_marginRight="10dp"
+                    android:src="@drawable/ic_account_balance_wallet_black_24dp"
+                    app:tint="@color/white" />
             </RelativeLayout>
         </LinearLayout>
+
         <LinearLayout
             android:id="@+id/linear_indicator"
             android:layout_width="match_parent"
@@ -85,35 +90,33 @@
             android:layout_below="@+id/linear_top_bar"
             android:background="@color/light_grey_bg"
             android:orientation="vertical"
-            android:paddingBottom="10dp"
-            >
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Choose your Captain &amp; Vice Captain"
-                android:layout_gravity="center"
-                android:gravity="center"
-                android:textSize="@dimen/create_team_text_size_normal"
-                android:textColor="@color/black"
-                android:layout_centerHorizontal="true"
-                android:layout_centerVertical="true"
-                android:layout_marginTop="8dp"
-                android:fontFamily="@font/montserrat_bold"
-                />
+            android:paddingBottom="10dp">
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="C gets 2x points, VC gets 1.5x points"
-                android:layout_gravity="center"
-                android:gravity="center"
-                android:textSize="@dimen/create_team_text_size_normal"
-                android:textColor="@color/black"
                 android:layout_centerHorizontal="true"
-                android:layout_marginTop="10dp"
                 android:layout_centerVertical="true"
+                android:layout_gravity="center"
+                android:layout_marginTop="8dp"
+                android:fontFamily="@font/montserrat_bold"
+                android:gravity="center"
+                android:text="Choose your Captain &amp; Vice Captain"
+                android:textColor="@color/black"
+                android:textSize="@dimen/create_team_text_size_normal" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerHorizontal="true"
+                android:layout_centerVertical="true"
+                android:layout_gravity="center"
+                android:layout_marginTop="10dp"
                 android:fontFamily="@font/montserrat_regular"
-                />
+                android:gravity="center"
+                android:text="C gets 2x points, VC gets 1.5x points"
+                android:textColor="@color/black"
+                android:textSize="@dimen/create_team_text_size_normal" />
 
 
         </LinearLayout>
@@ -122,48 +125,48 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:layout_below="@+id/linear_indicator">
+
             <androidx.recyclerview.widget.RecyclerView
                 android:id="@+id/recycler_save_team"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:paddingBottom="100dp"
-                android:clipToPadding="false"/>
+                android:clipToPadding="false"
+                android:paddingBottom="100dp" />
 
         </RelativeLayout>
+
         <LinearLayout
             android:layout_width="wrap_content"
             android:layout_height="45dp"
-            android:layout_centerHorizontal="true"
             android:layout_alignParentBottom="true"
-            android:orientation="horizontal"
+            android:layout_centerHorizontal="true"
             android:layout_marginBottom="20dp"
-            >
+            android:orientation="horizontal">
+
             <TextView
                 android:id="@+id/team_preview"
                 android:layout_width="125dip"
                 android:layout_height="match_parent"
-                android:text="TEAM PREVIEW"
-                android:textSize="10sp"
+                android:background="@drawable/button_selector_white"
+                android:fontFamily="@font/montserratsemibold"
                 android:gravity="center"
                 android:padding="10dp"
-                android:fontFamily="@font/montserratsemibold"
-                android:background="@drawable/button_selector_white"
+                android:text="TEAM PREVIEW"
                 android:textColor="@color/colorAccent"
-                />
+                android:textSize="10sp" />
 
             <TextView
                 android:id="@+id/team_continue"
                 android:layout_width="125dip"
                 android:layout_height="match_parent"
-                android:text="SAVE TEAM"
-                android:textSize="10sp"
+                android:layout_marginLeft="18dip"
+                android:background="@drawable/default_rounded_button_sportsfight"
+                android:fontFamily="@font/montserratsemibold"
                 android:gravity="center"
                 android:padding="10dp"
-                android:layout_marginLeft="18dip"
-                android:fontFamily="@font/montserratsemibold"
-                android:background="@drawable/default_rounded_button_sportsfight"
+                android:text="SAVE TEAM"
                 android:textColor="@color/white"
-                />
+                android:textSize="10sp" />
 
         </LinearLayout>
 

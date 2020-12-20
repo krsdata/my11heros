@@ -185,5 +185,6 @@
 
     <color name="orange">#f0a015</color>
     <color name="text_view_color">#282828</color>
+    <color name="text_view_background_color">#4FC3F7</color>
 
 </resources>

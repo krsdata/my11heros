@@ -16,12 +16,12 @@ import com.my11heros.ui.createteam.models.PlayersInfoModel
 class PlayersSelectedAdapter(
     val context: Context,
     contestModelList: ArrayList<PlayersInfoModel>,
-    listeners: OnRolesSelected
+    listener: OnRolesSelected
 ) :
     RecyclerView.Adapter<RecyclerView.ViewHolder>() {
     var onItemClick: ((PlayersInfoModel) -> Unit)? = null
     private var matchesListObject = contestModelList
-    var listeners = listeners
+    var listeners = listener
 
     companion object {
         const val TYPE_LABEL = 1
@@ -51,13 +51,12 @@ class PlayersSelectedAdapter(
         if(objectVal.viewType== TYPE_LABEL){
             val viewHolder: ViewLabelsHolders = parent as ViewLabelsHolders
             viewHolder.roleType.text = objectVal.playerRole
-
         } else {
             val viewHolder: DataViewHolder = parent as DataViewHolder
-            viewHolder.selectedPlayerName?.text = objectVal.shortName
+            viewHolder.selectedPlayerName.text = objectVal.shortName
 
-            viewHolder.selectedPlayerCountry?.text = objectVal.teamShortName
-            viewHolder.selectedPlayingStyle?.text = objectVal.playerRole
+            viewHolder.selectedPlayerCountry.text = objectVal.teamShortName
+            viewHolder.selectedPlayingStyle.text = objectVal.playerRole
 
             if (objectVal.analyticsModel != null) {
                 viewHolder.selectedCaptainPercentage.text =
@@ -66,23 +65,20 @@ class PlayersSelectedAdapter(
                     String.format("%.1f%%", objectVal.analyticsModel!!.viceCaptainPc)
                 viewHolder.selectedTrumpPercentage.text =
                     String.format("%.1f%%", objectVal.analyticsModel!!.trumpPc)
-                viewHolder.playerSelectionPercentage?.text =
-                    "Sel by " + objectVal.analyticsModel!!.selectionPc + "%"
-                viewHolder.selectedPlayerPoints?.text = "" + objectVal.playerSeriesPoints
+                viewHolder.playerSelectionPercentage.text = String.format("Sel by %.1f%", objectVal.analyticsModel!!.selectionPc)
+                viewHolder.selectedPlayerPoints.text = String.format("%d", objectVal.playerSeriesPoints)
 
             } else {
                 viewHolder.selectedCaptainPercentage.text = "0%"
                 viewHolder.selectedvcPercentage.text = "0%"
                 viewHolder.selectedTrumpPercentage.text = "0%"
-                viewHolder.playerSelectionPercentage?.text = ""
+                viewHolder.playerSelectionPercentage.text = ""
             }
-
 
             Glide.with(context)
                 .load(objectVal.playerImage)
                 .placeholder(R.drawable.player_blue)
                 .into(viewHolder.selectedPlayerImage)
-
             setSelections(objectVal, viewHolder, position)
         }
     }
@@ -126,17 +122,17 @@ class PlayersSelectedAdapter(
         }
 
 
-        viewHolder.roleTypeTrump?.setOnClickListener(View.OnClickListener {
+        viewHolder.roleTypeTrump.setOnClickListener(View.OnClickListener {
             listeners.onTrumpSelected(objectVal, position)
 
         })
 
-        viewHolder.roleTypeCaptain?.setOnClickListener(View.OnClickListener {
+        viewHolder.roleTypeCaptain.setOnClickListener(View.OnClickListener {
             listeners.onCaptainSelected(objectVal, position)
 
         })
 
-        viewHolder.roleTypeViceCaptain?.setOnClickListener(View.OnClickListener {
+        viewHolder.roleTypeViceCaptain.setOnClickListener(View.OnClickListener {
             listeners.onViceCaptainSelected(objectVal, position)
 
         })
@@ -158,28 +154,23 @@ class PlayersSelectedAdapter(
             }
         }
 
-        val selectedPlayerName = itemView.findViewById<TextView>(R.id.player_name)
-        val playerSelectionPercentage =
-            itemView.findViewById<TextView>(R.id.player_selection_percentage)
-        val selectedPlayerPoints = itemView.findViewById<TextView>(R.id.player_points)
-        val selectedPlayerCountry = itemView.findViewById<TextView>(R.id.selected_player_country)
-        val selectedPlayingStyle = itemView.findViewById<TextView>(R.id.selected_player_playing_style)
-        val selectedPlayerImage = itemView.findViewById<ImageView>(R.id.player_image)
+        val selectedPlayerName: TextView = itemView.findViewById(R.id.player_name)
+        val playerSelectionPercentage: TextView =
+            itemView.findViewById(R.id.player_selection_percentage)
+        val selectedPlayerPoints: TextView = itemView.findViewById(R.id.player_points)
+        val selectedPlayerCountry: TextView = itemView.findViewById(R.id.selected_player_country)
+        val selectedPlayingStyle: TextView = itemView.findViewById(R.id.selected_player_playing_style)
+        val selectedPlayerImage: ImageView = itemView.findViewById(R.id.player_image)
 
-        val roleTypeTrump = itemView.findViewById<TextView>(R.id.role_type_trump)
-        val selectedTrumpPercentage =
-            itemView.findViewById<TextView>(R.id.selected_trump_percentage)
+        val roleTypeTrump: TextView = itemView.findViewById(R.id.role_type_trump)
+        val selectedTrumpPercentage: TextView =
+            itemView.findViewById(R.id.selected_trump_percentage)
 
-        val roleTypeCaptain = itemView.findViewById<TextView>(R.id.role_type_captain)
-        val selectedCaptainPercentage =
-            itemView.findViewById<TextView>(R.id.selected_captain_percentage)
+        val roleTypeCaptain : TextView = itemView.findViewById(R.id.role_type_captain)
+        val selectedCaptainPercentage : TextView =
+            itemView.findViewById(R.id.selected_captain_percentage)
 
-        val roleTypeViceCaptain = itemView.findViewById<TextView>(R.id.role_type_vicecaptain)
-        val selectedvcPercentage = itemView.findViewById<TextView>(R.id.selected_vc_percentage)
-
-
+        val roleTypeViceCaptain: TextView = itemView.findViewById(R.id.role_type_vicecaptain)
+        val selectedvcPercentage: TextView = itemView.findViewById(R.id.selected_vc_percentage)
     }
-
-
 }
-

@@ -92,7 +92,7 @@ class MyAccountBalanceFragment : BaseFragment() {
         })
 
         mBinding!!.refferalList.setOnClickListener(View.OnClickListener {
-            val intent = Intent(requireActivity(), RefferalFriendsListActivity::class.java)
+            val intent = Intent(requireActivity(), InviteFriendsActivity::class.java)
             startActivity(intent)
         })
 

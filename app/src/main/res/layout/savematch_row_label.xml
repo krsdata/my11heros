@@ -4,34 +4,33 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:orientation="horizontal"
-    app:cardElevation="12dp"
-   >
+    app:cardElevation="12dp">
 
     <TextView
         android:id="@+id/player_role_label"
         android:layout_width="@dimen/_110sdp"
         android:layout_height="24dp"
-        android:text="Wicket"
-        android:gravity="center"
-        android:textColor="@color/white"
-        android:textSize="12sp"
-        android:fontFamily="@font/montserrat_bold"
-       android:background="@drawable/rectangle_curve"
         android:layout_marginLeft="3dp"
-        android:layout_marginBottom="5dp"
         android:layout_marginTop="5dp"
-        android:layout_marginRight="3dp"/>
+        android:layout_marginRight="3dp"
+        android:layout_marginBottom="5dp"
+        android:background="@drawable/rectangle_curve"
+        android:fontFamily="@font/montserrat_bold"
+        android:gravity="center"
+        android:text="Wicket"
+        android:textColor="@color/white"
+        android:textSize="12sp" />
 
     <TextView
         android:layout_width="@dimen/_110sdp"
         android:layout_height="24dp"
-        android:text="Points"
-        android:gravity="center"
-        android:textColor="@color/greyish"
-        android:textSize="12sp"
-        android:fontFamily="@font/montserrat_bold"
         android:layout_marginLeft="3dp"
-        android:layout_marginBottom="5dp"
         android:layout_marginTop="5dp"
-        android:layout_marginRight="3dp"/>
+        android:layout_marginRight="3dp"
+        android:layout_marginBottom="5dp"
+        android:fontFamily="@font/montserrat_bold"
+        android:gravity="center"
+        android:text="Points"
+        android:textColor="@color/greyish"
+        android:textSize="12sp" />
 </LinearLayout>

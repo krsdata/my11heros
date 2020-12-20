@@ -64,8 +64,9 @@
                     android:layout_marginLeft="8dip"
                     android:layout_marginRight="5dp"
                     android:layout_toLeftOf="@+id/img_wallet"
+                    android:visibility="invisible"
                     android:src="@drawable/ic_live_help_black_24dp"
-                    android:tint="@color/white" />
+                    app:tint="@color/white" />
 
                 <ImageView
                     android:id="@+id/img_wallet"
@@ -76,8 +77,9 @@
                     android:layout_gravity="center_vertical"
                     android:layout_marginLeft="8dip"
                     android:layout_marginRight="10dp"
+                    android:visibility="invisible"
                     android:src="@drawable/ic_account_balance_wallet_black_24dp"
-                    android:tint="@color/white" />
+                    app:tint="@color/white" />
             </RelativeLayout>
         </LinearLayout>
 
