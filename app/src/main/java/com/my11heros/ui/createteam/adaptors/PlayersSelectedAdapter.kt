@@ -32,6 +32,7 @@ class PlayersSelectedAdapter(
         val comparable = matchesListObject.get(position)
         return comparable.viewType
     }
+
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): RecyclerView.ViewHolder {
         if (viewType == TYPE_LABEL) {
             val view = LayoutInflater.from(parent.context)

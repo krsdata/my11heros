@@ -15,8 +15,8 @@ android {
         applicationId "com.my11heros"
         minSdkVersion 21
         targetSdkVersion 29
-        versionCode 102
-        versionName "1.02"
+        versionCode 103
+        versionName "1.03"
         multiDexEnabled  true
         vectorDrawables.useSupportLibrary = true
         setProperty("archivesBaseName", "My11Heros-$versionName")
@@ -101,7 +101,7 @@ dependencies {
     implementation 'com.google.firebase:firebase-auth:20.0.1'
     implementation 'com.google.android.gms:play-services-auth:19.0.0'
 
-    implementation 'com.google.firebase:firebase-messaging:21.0.0'
+    implementation 'com.google.firebase:firebase-messaging:21.0.1'
     implementation 'com.google.firebase:firebase-core:18.0.0'
 
     implementation 'com.google.firebase:firebase-crashlytics-ktx:17.3.0'

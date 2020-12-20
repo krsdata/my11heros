@@ -47,7 +47,7 @@ class SaveTeamActivity : BaseActivity(), OnRolesSelected {
     private var isCaptainSelected: Boolean = false
     private var isViceCaptainSelected: Boolean = false
     private lateinit var matchObject: UpcomingMatchesModel
-    private lateinit var hasmapPlayers: HashMap<String, java.util.ArrayList<PlayersInfoModel>>
+    private lateinit var hasmapPlayers: HashMap<String, ArrayList<PlayersInfoModel>>
     private var mBinding: ActivitySaveTeamBinding? = null
     var savedTeamList = ArrayList<PlayersInfoModel>()
     lateinit var adapter: PlayersSelectedAdapter
