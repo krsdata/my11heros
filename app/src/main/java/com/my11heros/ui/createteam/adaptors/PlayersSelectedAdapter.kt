@@ -66,7 +66,7 @@ class PlayersSelectedAdapter(
                     String.format("%.1f%%", objectVal.analyticsModel!!.viceCaptainPc)
                 viewHolder.selectedTrumpPercentage.text =
                     String.format("%.1f%%", objectVal.analyticsModel!!.trumpPc)
-                viewHolder.playerSelectionPercentage.text = String.format("Sel by %.1f%", objectVal.analyticsModel!!.selectionPc)
+                viewHolder.playerSelectionPercentage.text = String.format("Sel by %.1f%%", objectVal.analyticsModel!!.selectionPc)
                 viewHolder.selectedPlayerPoints.text = String.format("%d", objectVal.playerSeriesPoints)
 
             } else {
