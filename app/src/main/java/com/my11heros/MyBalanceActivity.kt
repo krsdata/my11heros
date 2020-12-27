@@ -108,7 +108,6 @@ class MyBalanceActivity : AppCompatActivity() {
                 mBinding!!.verifyAccount.setOnClickListener(View.OnClickListener {
                     gotoDocumentsListActivity()
                 })
-
             } else
                 if (accountStatus.documentsVerified == BindingUtils.BANK_DOCUMENTS_STATUS_VERIFIED) {
                     mBinding!!.verifyAccountMessage.visibility = View.GONE

@@ -1,4 +1,5 @@
 package com.my11heros.utils
+
 import android.app.DownloadManager
 import android.content.BroadcastReceiver
 import android.content.Context
@@ -12,6 +13,7 @@ import androidx.core.content.FileProvider
 import com.my11heros.BuildConfig
 import com.my11heros.R
 import java.io.File
+
 class DownloadController(
     private val context: Context,
     private val url: String,
@@ -24,6 +26,7 @@ class DownloadController(
         private const val PROVIDER_PATH = ".provider"
         private const val APP_INSTALL_PATH = "application/vnd.android.package-archive"
     }
+
     fun enqueueDownload() {
         customeProgressDialog.show()
         var destination =
@@ -46,6 +49,7 @@ class DownloadController(
         Toast.makeText(context, context.getString(R.string.downloading), Toast.LENGTH_LONG)
             .show()
     }
+
     private fun showInstallOption(
         destination: String,
         uri: Uri

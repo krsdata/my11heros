@@ -17,12 +17,12 @@ android {
         targetSdkVersion 29
         versionCode 104
         versionName "1.04"
-        multiDexEnabled  true
+        multiDexEnabled true
         vectorDrawables.useSupportLibrary = true
         setProperty("archivesBaseName", "My11Heros-$versionName")
     }
 
-        packagingOptions {
+    packagingOptions {
         exclude 'AndroidManifest.xml'
     }
 

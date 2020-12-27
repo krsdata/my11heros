@@ -7,6 +7,7 @@ import android.text.TextUtils
 import android.view.View
 import androidx.databinding.DataBindingUtil
 import com.bumptech.glide.Glide
+import com.my11heros.databinding.ActivityViewDocumentBinding
 import com.my11heros.network.IApiMethod
 import com.my11heros.network.RequestModel
 import com.my11heros.network.WebServiceClient
@@ -18,17 +19,18 @@ import com.my11heros.utils.MyUtils
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
-import com.my11heros.databinding.ActivityViewDocumentBinding
 
 
 class DocumentsListActivity : BaseActivity() {
 
     private var mBinding: ActivityViewDocumentBinding? = null
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         customeProgressDialog = CustomeProgressDialog(this)
         userInfo = (application as SportsFightApplication).userInformations
-        mBinding = DataBindingUtil.setContentView(this,
+        mBinding = DataBindingUtil.setContentView(
+            this,
             R.layout.activity_view_document
         )
         mBinding!!.linearPaytm.visibility = View.GONE
@@ -52,8 +54,8 @@ class DocumentsListActivity : BaseActivity() {
 
 
     fun getDocumentsList() {
-        if(!MyUtils.isConnectedWithInternet(this)) {
-            MyUtils.showToast(this,"No Internet connection found")
+        if (!MyUtils.isConnectedWithInternet(this)) {
+            MyUtils.showToast(this, "No Internet connection found")
             return
         }
         customeProgressDialog.show()
@@ -73,37 +75,37 @@ class DocumentsListActivity : BaseActivity() {
                 ) {
                     customeProgressDialog.dismiss()
                     var res = response!!.body()
-                    if(res!=null) {
-                        if(res.responseObject==null){
-                           return
+                    if (res != null) {
+                        if (res.responseObject == null) {
+                            return
                         }
                         var documentsList = res.responseObject!!.documentsList
                         var paytmNoList = res.responseObject!!.paytmNoList
                         var bankAccountsList = res.responseObject!!.bankAccountsList
-                        if(paytmNoList!=null && paytmNoList.size>0) {
+                        if (paytmNoList != null && paytmNoList.size > 0) {
                             mBinding!!.linearPaytm.visibility = View.VISIBLE
                             var docModel = paytmNoList.get(0)
                             var message = docModel.message
-                            if(!TextUtils.isEmpty(message) && message.equals("Approved")){
+                            if (!TextUtils.isEmpty(message) && message.equals("Approved")) {
                                 mBinding!!.imgCheck.setImageResource(R.drawable.checked)
-                            }else {
+                            } else {
                                 mBinding!!.imgCheck.setImageResource(R.drawable.unchecked_doc)
                             }
                             var dataModel = docModel.documentDataModel
                             mBinding!!.paytmNumber.text = dataModel!!.docNumber
-                        }else {
+                        } else {
                             mBinding!!.linearPaytm.visibility = View.GONE
                         }
 
-                        if(documentsList!=null) {
+                        if (documentsList != null) {
                             mBinding!!.linearDocuments.visibility = View.VISIBLE
                             var docModel = documentsList.get(0)
                             var message = docModel.message
                             var dataModel = docModel.documentDataModel
 
-                            if(!TextUtils.isEmpty(message) && message.equals("Approved")){
+                            if (!TextUtils.isEmpty(message) && message.equals("Approved")) {
                                 mBinding!!.documentImgCheck.setImageResource(R.drawable.checked)
-                            }else {
+                            } else {
                                 mBinding!!.documentImgCheck.setImageResource(R.drawable.unchecked_doc)
                             }
 
@@ -115,19 +117,19 @@ class DocumentsListActivity : BaseActivity() {
                                 .placeholder(R.drawable.ic_photo_camera_black_24dp)
                                 .into(mBinding!!.imgDocType)
 
-                        }else {
+                        } else {
                             mBinding!!.linearDocuments.visibility = View.GONE
                         }
 
-                        if(bankAccountsList!=null) {
+                        if (bankAccountsList != null) {
                             mBinding!!.linearBankaccounts.visibility = View.VISIBLE
                             var docModel = bankAccountsList.get(0)
                             var message = docModel.message
                             var dataModel = docModel.documentDataModel
 
-                            if(!TextUtils.isEmpty(message) && message.equals("Approved")){
+                            if (!TextUtils.isEmpty(message) && message.equals("Approved")) {
                                 mBinding!!.bankImgCheck.setImageResource(R.drawable.checked)
-                            }else {
+                            } else {
                                 mBinding!!.bankImgCheck.setImageResource(R.drawable.unchecked_doc)
                             }
                             mBinding!!.bankName.text = dataModel!!.bankName
@@ -139,7 +141,7 @@ class DocumentsListActivity : BaseActivity() {
                                 .into(mBinding!!.chequeBookImage)
 
                         }
-                    }else {
+                    } else {
                         mBinding!!.linearBankaccounts.visibility = View.GONE
                     }
 

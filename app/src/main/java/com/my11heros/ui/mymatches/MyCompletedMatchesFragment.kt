@@ -165,7 +165,7 @@ class MyCompletedMatchesFragment : Fragment() {
             // viewHolder?.matchProgress?.text = ""+objectVal.timestampEnd
             viewHolder.opponent1?.text = objectVal.teamAInfo!!.teamShortName
             viewHolder.opponent2?.text = objectVal.teamBInfo!!.teamShortName
-            viewHolder.winningPrice?.text = String.format("You Won ₹%s", objectVal.prizeAmount)
+            viewHolder.winningPrice?.text = String.format("You Won")
 
             viewHolder.totalTeamCreated?.text = String.format("%d", objectVal.totalTeams)
             viewHolder.totalContestJoined?.text = String.format("%d", objectVal.totalJoinContests)

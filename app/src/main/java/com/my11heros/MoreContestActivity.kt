@@ -439,7 +439,6 @@ class MoreContestActivity : BaseActivity(), OnContestLoadedListener, OnContestEv
                 selectedObject.contestTitle = contObject.contestTitle
             }
         }
-
         getAllContest()
     }
 }
