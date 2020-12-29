@@ -7,7 +7,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_margin="@dimen/matches_view_top_margin"
-        app:cardCornerRadius="6sp"
+        app:cardCornerRadius="@dimen/_6sdp"
         app:cardElevation="12dp">
 
         <LinearLayout
@@ -20,8 +20,8 @@
             <RelativeLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginLeft="8dp"
-                android:layout_marginRight="@dimen/matches_view_right_margin_inner">
+                android:layout_marginStart="@dimen/_5sdp"
+                android:layout_marginEnd="@dimen/_5sdp">
 
                 <TextView
                     android:layout_width="match_parent"
@@ -30,9 +30,8 @@
                     android:gravity="center_horizontal"
                     android:text="SCORECARD"
                     android:textColor="@color/black"
-                    android:textSize="16sp"
+                    android:textSize="@dimen/_13sdp"
                     android:textStyle="bold" />
-
             </RelativeLayout>
 
             <LinearLayout
@@ -49,25 +48,27 @@
                     android:layout_height="@dimen/_51sdp"
                     android:layout_marginEnd="@dimen/_5sdp"
                     android:layout_weight="1"
-                    android:background="@color/secondery_color"
                     android:gravity="center|start"
                     android:orientation="horizontal">
 
                     <com.mikhaellopez.circularimageview.CircularImageView
                         android:id="@+id/img_teama_logo"
-                        android:layout_width="25dp"
-                        android:layout_height="25dp"
+                        android:layout_width="@dimen/_25sdp"
+                        android:layout_height="@dimen/_25sdp"
                         android:layout_marginStart="@dimen/_5sdp"
                         android:layout_marginEnd="@dimen/_5sdp"
-                        android:src="@drawable/placeholder_player_teama" />
+                        android:src="@drawable/placeholder_player_teama"
+                        android:visibility="gone"
+                        app:civ_border_width="@dimen/_1sdp" />
 
                     <TextView
                         android:id="@+id/teamAName"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
+                        android:layout_marginStart="@dimen/_5sdp"
                         android:fontFamily="@font/montserrat_medium"
                         android:text="IND"
-                        android:textColor="@color/white"
+                        android:textColor="@color/black"
                         android:textSize="@dimen/_12sdp" />
 
                     <TextView
@@ -77,7 +78,7 @@
                         android:layout_marginStart="5dp"
                         android:fontFamily="@font/montserrat_medium"
                         android:text="87-5"
-                        android:textColor="@color/white"
+                        android:textColor="@color/black"
                         android:textSize="@dimen/_16sdp" />
 
                     <TextView
@@ -87,7 +88,7 @@
                         android:layout_marginStart="5dp"
                         android:fontFamily="@font/montserrat_regular"
                         android:text="(10)"
-                        android:textColor="@color/white"
+                        android:textColor="@color/black"
                         android:textSize="@dimen/small_info_size" />
                 </LinearLayout>
 
@@ -96,25 +97,27 @@
                     android:layout_height="@dimen/_51sdp"
                     android:layout_marginStart="@dimen/_5sdp"
                     android:layout_weight="1"
-                    android:background="@color/player_bg_dark_yellow"
                     android:gravity="center|start"
                     android:orientation="horizontal">
 
                     <com.mikhaellopez.circularimageview.CircularImageView
                         android:id="@+id/img_teamb_logo"
-                        android:layout_width="25dp"
-                        android:layout_height="25dp"
+                        android:layout_width="@dimen/_25sdp"
+                        android:layout_height="@dimen/_25sdp"
                         android:layout_marginStart="@dimen/_5sdp"
                         android:layout_marginEnd="@dimen/_5sdp"
-                        android:src="@drawable/placeholder_player_teama" />
+                        android:src="@drawable/placeholder_player_teama"
+                        android:visibility="gone"
+                        app:civ_border_width="@dimen/_1sdp" />
 
                     <TextView
                         android:id="@+id/teamBName"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
+                        android:layout_marginStart="@dimen/_5sdp"
                         android:fontFamily="@font/montserrat_medium"
                         android:text="PAK"
-                        android:textColor="@color/white"
+                        android:textColor="@color/black"
                         android:textSize="@dimen/_12sdp" />
 
                     <TextView
@@ -124,7 +127,7 @@
                         android:layout_marginStart="5dp"
                         android:fontFamily="@font/montserrat_medium"
                         android:text="86-5"
-                        android:textColor="@color/white"
+                        android:textColor="@color/black"
                         android:textSize="@dimen/_16sdp" />
 
                     <TextView
@@ -134,7 +137,7 @@
                         android:layout_marginStart="5dp"
                         android:fontFamily="@font/montserrat_regular"
                         android:text="(10)"
-                        android:textColor="@color/white"
+                        android:textColor="@color/black"
                         android:textSize="@dimen/small_info_size" />
                 </LinearLayout>
             </LinearLayout>
@@ -177,7 +180,7 @@
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
-                    android:gravity="left"
+                    android:gravity="start"
                     android:orientation="vertical">
 
                     <TextView
@@ -196,8 +199,6 @@
                         android:text="₹3 Lakhs"
                         android:textColor="@color/black"
                         android:textSize="@dimen/small_info_size" />
-
-
                 </LinearLayout>
 
                 <LinearLayout
@@ -223,15 +224,13 @@
                         android:text="6689"
                         android:textColor="@color/black"
                         android:textSize="@dimen/small_info_size" />
-
-
                 </LinearLayout>
 
                 <LinearLayout
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
-                    android:gravity="right"
+                    android:gravity="end"
                     android:orientation="vertical">
 
                     <TextView
@@ -250,11 +249,7 @@
                         android:text="₹49"
                         android:textColor="@color/black"
                         android:textSize="@dimen/small_info_size" />
-
-
                 </LinearLayout>
-
-
             </LinearLayout>
 
             <View
@@ -262,9 +257,6 @@
                 android:layout_height="0.4dp"
                 android:layout_marginTop="10dp"
                 android:background="@color/greyish" />
-
-
         </LinearLayout>
-
     </androidx.cardview.widget.CardView>
 </layout>

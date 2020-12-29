@@ -18,7 +18,6 @@ class DocumentsModel :Serializable,Cloneable {
     var aadharCardDocumentUrlFront: String = ""
     var aadharCardDocumentUrlBack: String = ""
 
-
     var bankName : String = ""
     var accountHolderName : String = ""
     var accountNumber : String = ""
@@ -26,11 +25,11 @@ class DocumentsModel :Serializable,Cloneable {
     var accountType : String = ""
     var bankPassbookUrl: String = ""
     var paytmNumber: String = ""
-
+    var phonepe: String = ""
+    var gpay: String = ""
+    var whatsApp: String = ""
 
     public override fun clone(): DocumentsModel {
         return super.clone() as DocumentsModel
     }
-
-
 }

@@ -1,11 +1,14 @@
 package com.my11heros.ui.contest
 
+import android.app.Activity
 import android.content.Context
 import android.content.Intent
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.LinearLayout
+import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
 import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.Fragment
@@ -17,6 +20,7 @@ import com.edify.atrist.listener.OnContestEvents
 import com.edify.atrist.listener.OnContestLoadedListener
 import com.my11heros.*
 import com.my11heros.databinding.FragmentAllContestBinding
+import com.my11heros.models.ContestCategoryModel
 import com.my11heros.models.ContestsParentModels
 import com.my11heros.models.UpcomingMatchesModel
 import com.my11heros.network.IApiMethod
@@ -35,7 +39,6 @@ import retrofit2.Response
 
 class ContestFragment : Fragment() {
 
-
     private var objectMatches: UpcomingMatchesModel? = null
     var matchObject: UpcomingMatchesModel? = null
     var mListenerContestEvents: OnContestEvents? = null
@@ -45,8 +48,11 @@ class ContestFragment : Fragment() {
     private lateinit var spotSizeFilterAdaptor: ContestListAdapter
     var allContestListData = ArrayList<ContestsParentModels>()
     var filterSpotsListData = ArrayList<ContestModelLists>()
+    var filterArrayList = ArrayList<ContestCategoryModel>()
     var isEntryAscending = false
     private var isVisibleToUser: Boolean = false
+    private lateinit var filterAdapter: FilterAdapter
+    private var pos = 0
 
     companion object {
         fun newInstance(bundle: Bundle): ContestFragment {
@@ -88,7 +94,6 @@ class ContestFragment : Fragment() {
         mBinding!!.linearEmptyContest.visibility = View.GONE
         mBinding!!.contestViewRecycler.adapter = adapter
 
-
         registerSpotSizeSelection()
 
         mBinding!!.recyclerBySpotsize.layoutManager =
@@ -103,14 +108,22 @@ class ContestFragment : Fragment() {
         )
         mBinding!!.recyclerBySpotsize.adapter = spotSizeFilterAdaptor
 
-
         mBinding!!.linearEmptyContest.visibility = View.GONE
         mBinding!!.contestViewRecycler.adapter = adapter
+
+        mBinding!!.filterRecyclerView.layoutManager =
+            LinearLayoutManager(activity, RecyclerView.HORIZONTAL, false)
+        filterAdapter = FilterAdapter(requireActivity(), filterArrayList)
+
+        mBinding!!.filterRecyclerView.adapter = filterAdapter
 
         mBinding!!.btnCreateTeam.setOnClickListener(View.OnClickListener {
             val intent = Intent(activity, CreateTeamActivity::class.java)
             intent.putExtra(CreateTeamActivity.SERIALIZABLE_MATCH_KEY, matchObject)
-            requireActivity().startActivityForResult(intent, CreateTeamActivity.CREATETEAM_REQUESTCODE)
+            requireActivity().startActivityForResult(
+                intent,
+                CreateTeamActivity.CREATETEAM_REQUESTCODE
+            )
         })
 
         mBinding!!.btnEmptyView.setOnClickListener(View.OnClickListener {
@@ -122,6 +135,10 @@ class ContestFragment : Fragment() {
         mBinding!!.contestRefresh.setOnRefreshListener(SwipeRefreshLayout.OnRefreshListener {
             getAllContest()
         })
+
+        mBinding!!.contestFilterRefresh.setOnRefreshListener {
+            getFilteredContest()
+        }
     }
 
     private fun registerSpotSizeSelection() {
@@ -244,7 +261,16 @@ class ContestFragment : Fragment() {
 
     private fun showAllContestRecycler() {
         mBinding!!.contestViewRecycler.visibility = View.VISIBLE
+        mBinding!!.contestRefresh.visibility = View.VISIBLE
+        mBinding!!.contestFilterRefresh.visibility = View.GONE
         mBinding!!.recyclerBySpotsize.visibility = View.GONE
+    }
+
+    private fun showFilteredContestRecycler() {
+        mBinding!!.contestViewRecycler.visibility = View.GONE
+        mBinding!!.contestRefresh.visibility = View.GONE
+        mBinding!!.contestFilterRefresh.visibility = View.VISIBLE
+        mBinding!!.recyclerBySpotsize.visibility = View.VISIBLE
     }
 
     private fun filterByEntryPrize() {
@@ -322,13 +348,19 @@ class ContestFragment : Fragment() {
 
     override fun onResume() {
         super.onResume()
+        pos = 0
+        for (i in filterArrayList.indices) {
+            filterArrayList[i].isStatus = pos == i
+        }
+
+        //filterAdapter.notifyDataSetChanged()
+        filterAdapter.updateRecord(filterArrayList)
+
         if (!MyUtils.isConnectedWithInternet(activity as AppCompatActivity)) {
             MyUtils.showToast(activity as AppCompatActivity, "No Internet connection found")
             return
         }
-        //if (isVisibleToUser) {
-            getAllContest()
-        //}
+        getAllContest()
     }
 
     override fun setUserVisibleHint(isVisibleToUser: Boolean) {
@@ -369,7 +401,9 @@ class ContestFragment : Fragment() {
         val deviceToken: String? = MyPreferences.getDeviceToken(requireActivity())
         models.deviceDetails = HardwareInfoManager(activity).collectData(deviceToken!!)
 
-        WebServiceClient(requireActivity()).client.create(IApiMethod::class.java).getContestByMatch(models)
+        WebServiceClient(requireActivity()).client.create(IApiMethod::class.java).getContestByMatch(
+            models
+        )
             .enqueue(object : Callback<UsersPostDBResponse?> {
                 override fun onFailure(call: Call<UsersPostDBResponse?>?, t: Throwable?) {
                     if (isVisible) {
@@ -401,6 +435,22 @@ class ContestFragment : Fragment() {
                             if (responseModel!!.matchContestlist != null && responseModel.matchContestlist!!.size > 0) {
                                 allContestListData.clear()
                                 allContestListData.addAll(responseModel.matchContestlist!!)
+
+                                filterArrayList.clear()
+
+                                val model = ContestCategoryModel("All", true)
+                                filterArrayList.add(model)
+
+                                for (i in responseModel.matchContestlist!!.indices) {
+                                    val categoryModel = ContestCategoryModel(
+                                        responseModel.matchContestlist!![i].contestTitle,
+                                        false
+                                    )
+                                    filterArrayList.add(categoryModel)
+                                }
+
+                                filterAdapter.updateRecord(filterArrayList)
+
                                 adapter.setMatchesList(allContestListData)
                                 mListener.onMyTeam(responseModel.myjoinedTeams!!)
                                 mListener.onMyContest(responseModel.joinedContestDetails!!)
@@ -422,5 +472,196 @@ class ContestFragment : Fragment() {
         } else {
             mBinding!!.linearEmptyContest.visibility = View.GONE
         }
+    }
+
+    inner class FilterAdapter(
+        val mContext: Activity,
+        var arrayList: ArrayList<ContestCategoryModel>
+    ) :
+        RecyclerView.Adapter<FilterAdapter.ViewHolderJoinedContest>() {
+
+        override fun onCreateViewHolder(
+            parent: ViewGroup,
+            viewType: Int
+        ): FilterAdapter.ViewHolderJoinedContest {
+            val view = LayoutInflater.from(mContext)
+                .inflate(R.layout.contest_filter_new, parent, false)
+            return ViewHolderJoinedContest(view)
+        }
+
+        override fun onBindViewHolder(
+            holder: FilterAdapter.ViewHolderJoinedContest,
+            position: Int
+        ) {
+            try {
+                val categoryModel: ContestCategoryModel = arrayList[position]
+                holder.contestTitle.text = categoryModel.name
+                if (categoryModel.isStatus) {
+                    if (position % 2 == 0) {
+                        holder.filterLayout.background =
+                            mContext.resources.getDrawable(R.drawable.new_filter_color_one_back)
+                        holder.contestTitle.setTextColor(mContext.resources.getColor(R.color.white))
+                    } else {
+                        holder.filterLayout.background =
+                            mContext.resources.getDrawable(R.drawable.new_filter_color_two_back)
+                        holder.contestTitle.setTextColor(mContext.resources.getColor(R.color.white))
+                    }
+                } else {
+                    holder.contestTitle.setTextColor(mContext.resources.getColor(R.color.crop__selector_focused))
+                    holder.filterLayout.background =
+                        mContext.resources.getDrawable(R.drawable.new_filter_back)
+                }
+                holder.filterLayout.setOnClickListener(ClickView(position))
+            } catch (e: Exception) {
+                e.printStackTrace()
+            }
+        }
+
+        inner class ClickView(position: Int) : View.OnClickListener {
+            var pos = position
+
+            override fun onClick(v: View?) {
+                updateContestData(pos)
+            }
+        }
+
+        override fun getItemCount(): Int {
+            return arrayList.size
+        }
+
+        fun updateRecord(filterArrayList: ArrayList<ContestCategoryModel>) {
+            this.arrayList = filterArrayList
+            notifyDataSetChanged()
+        }
+
+        inner class ViewHolderJoinedContest(itemView: View) : RecyclerView.ViewHolder(itemView) {
+            val contestTitle: TextView = itemView.findViewById(R.id.contest_title)
+            val filterLayout: LinearLayout = itemView.findViewById(R.id.filter_layout)
+        }
+    }
+
+    private fun updateContestData(pos: Int) {
+        for (i in filterArrayList.indices) {
+            filterArrayList[i].isStatus = pos == i
+        }
+
+        //filterAdapter.notifyDataSetChanged()
+        filterAdapter.updateRecord(filterArrayList)
+
+        this.pos = pos
+
+        if (pos == 0) {
+            showAllContestRecycler()
+        } else {
+
+            val actualPosition = pos - 1
+
+            showFilteredContestRecycler()
+            filterSpotsListData.clear()
+
+            for (i in allContestListData.indices) {
+                if (actualPosition == i) {
+                    val values = allContestListData[i].allContestsRunning
+                    if (values != null) {
+                        filterSpotsListData.addAll(values)
+                    }
+                }
+            }
+            spotSizeFilterAdaptor.notifyDataSetChanged()
+        }
+    }
+
+    private fun getFilteredContest() {
+        mBinding!!.contestFilterRefresh.isRefreshing = true
+        val models = RequestModel()
+        models.user_id = MyPreferences.getUserID(requireActivity())!!
+        models.match_id = "" + matchObject!!.matchId
+        models.token = MyPreferences.getToken(requireActivity())!!
+        val deviceToken: String? = MyPreferences.getDeviceToken(requireActivity())
+        models.deviceDetails = HardwareInfoManager(activity).collectData(deviceToken!!)
+
+        WebServiceClient(requireActivity()).client.create(IApiMethod::class.java).getContestByMatch(
+            models
+        )
+            .enqueue(object : Callback<UsersPostDBResponse?> {
+                override fun onFailure(call: Call<UsersPostDBResponse?>?, t: Throwable?) {
+                    if (isVisible) {
+                        MyUtils.showToast(activity!! as AppCompatActivity, "Something went wrong!!")
+                        mBinding!!.contestFilterRefresh.isRefreshing = false
+                    }
+                }
+
+                override fun onResponse(
+                    call: Call<UsersPostDBResponse?>?,
+                    response: Response<UsersPostDBResponse?>?
+                ) {
+                    if (!isVisible) {
+                        return
+                    }
+                    mBinding!!.contestFilterRefresh.isRefreshing = false
+                    val res = response!!.body()
+                    if (res != null && res.appMaintainance) {
+                        val intent = Intent(activity, MaintainanceActivity::class.java)
+                        intent.flags =
+                            Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TASK
+                        startActivity(intent)
+                        activity!!.finish()
+                    } else
+                        if (res != null) {
+                            BindingUtils.currentTimeStamp = res.systemTime
+                            val responseModel = res.responseObject
+                            if (responseModel!!.matchContestlist != null && responseModel.matchContestlist!!.isNotEmpty()) {
+                                allContestListData.clear()
+                                allContestListData.addAll(responseModel.matchContestlist!!)
+                                filterArrayList.clear()
+
+                                val model = ContestCategoryModel("All", false)
+                                filterArrayList.add(model)
+
+                                val actualPosition = pos - 1
+
+                                for (i in responseModel.matchContestlist!!.indices) {
+                                    if (actualPosition == i) {
+                                        val categoryModel = ContestCategoryModel(
+                                            responseModel.matchContestlist!![i].contestTitle,
+                                            true
+                                        )
+                                        filterArrayList.add(categoryModel)
+                                    } else {
+                                        val categoryModel = ContestCategoryModel(
+                                            responseModel.matchContestlist!![i].contestTitle,
+                                            false
+                                        )
+                                        filterArrayList.add(categoryModel)
+                                    }
+                                }
+
+                                filterAdapter.updateRecord(filterArrayList)
+
+
+                                showFilteredContestRecycler()
+                                filterSpotsListData.clear()
+
+                                for (i in allContestListData.indices) {
+                                    if (actualPosition == i) {
+                                        val values = allContestListData[i].allContestsRunning
+                                        if (values != null) {
+                                            filterSpotsListData.addAll(values)
+                                        }
+                                    }
+                                }
+                                spotSizeFilterAdaptor.notifyDataSetChanged()
+
+                                mListener.onMyTeam(responseModel.myjoinedTeams!!)
+                                mListener.onMyContest(responseModel.joinedContestDetails!!)
+                            } else {
+                                MyUtils.showToast(
+                                    activity!! as AppCompatActivity,
+                                    "No Contest available for this match $res"
+                                )
+                            }
+                        }
+                }
+            })
     }
 }

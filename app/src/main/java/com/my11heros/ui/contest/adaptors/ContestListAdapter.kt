@@ -33,11 +33,12 @@ class ContestListAdapter(
     val TYPE_NORMAL: Int = 100
 
     override fun getItemViewType(position: Int): Int {
-        if (matchesListObject[position].totalWinningPrize.toInt() % 20000 == 0) {
+        /*if (matchesListObject[position].totalWinningPrize.toInt() % 20000 == 0) {
             return TYPE_IPL_FINAL
         } else {
             return TYPE_NORMAL
-        }
+        }*/
+        return TYPE_NORMAL
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): RecyclerView.ViewHolder {

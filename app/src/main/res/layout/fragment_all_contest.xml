@@ -156,11 +156,29 @@
             </LinearLayout>
         </LinearLayout>
 
+        <LinearLayout
+            android:id="@+id/top_new_filter"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/_40sdp"
+            android:visibility="gone"
+            android:background="@color/greybackround"
+            android:orientation="horizontal">
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/filter_recycler_view"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:clipToPadding="false"
+                android:layoutAnimation="@anim/layout_animation"
+                android:paddingBottom="80dp"
+                app:layout_behavior="@string/appbar_scrolling_view_behavior" />
+        </LinearLayout>
+
         <androidx.swiperefreshlayout.widget.SwipeRefreshLayout
             android:id="@+id/contest_refresh"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:layout_below="@+id/filter_bar">
+            android:layout_below="@+id/top_new_filter">
 
             <androidx.recyclerview.widget.RecyclerView
                 android:id="@+id/contest_view_recycler"
@@ -172,15 +190,23 @@
                 app:layout_behavior="@string/appbar_scrolling_view_behavior" />
         </androidx.swiperefreshlayout.widget.SwipeRefreshLayout>
 
-        <androidx.recyclerview.widget.RecyclerView
-            android:id="@+id/recycler_by_spotsize"
+        <androidx.swiperefreshlayout.widget.SwipeRefreshLayout
+            android:id="@+id/contest_filter_refresh"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:layout_below="@+id/filter_bar"
-            android:clipToPadding="false"
-            android:layoutAnimation="@anim/layout_animation"
-            android:paddingBottom="80dp"
-            app:layout_behavior="@string/appbar_scrolling_view_behavior" />
+            android:layout_below="@+id/top_new_filter">
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/recycler_by_spotsize"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_above="@+id/bottom_layout"
+                android:layout_below="@+id/top_new_filter"
+                android:clipToPadding="false"
+                android:layoutAnimation="@anim/layout_animation"
+                android:paddingBottom="80dp"
+                app:layout_behavior="@string/appbar_scrolling_view_behavior" />
+        </androidx.swiperefreshlayout.widget.SwipeRefreshLayout>
 
         <TextView
             android:id="@+id/btn_create_team"

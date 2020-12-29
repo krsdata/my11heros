@@ -108,7 +108,7 @@
                             android:textSize="@dimen/_8sdp" />
 
                         <com.google.android.material.textfield.TextInputLayout
-                            style="@style/OutlinedBox"
+
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:layout_marginTop="@dimen/_10sdp"
@@ -132,7 +132,7 @@
                         </com.google.android.material.textfield.TextInputLayout>
 
                         <com.google.android.material.textfield.TextInputLayout
-                            style="@style/OutlinedBox"
+
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:layout_marginTop="@dimen/_10sdp"
@@ -152,7 +152,7 @@
                         </com.google.android.material.textfield.TextInputLayout>
 
                         <com.google.android.material.textfield.TextInputLayout
-                            style="@style/OutlinedBox"
+
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:layout_marginTop="@dimen/_10sdp"
@@ -179,10 +179,11 @@
                             android:layout_height="wrap_content"
                             android:layout_marginLeft="@dimen/_3sdp"
                             android:text="You will receive an OTP for verification"
-                            android:textSize="@dimen/_8sdp" />
+                            android:textSize="@dimen/_8sdp"
+                            android:visibility="gone" />
 
                         <com.google.android.material.textfield.TextInputLayout
-                            style="@style/OutlinedBox"
+
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:layout_marginTop="@dimen/_10sdp"
@@ -201,7 +202,7 @@
                         </com.google.android.material.textfield.TextInputLayout>
 
                         <com.google.android.material.textfield.TextInputLayout
-                            style="@style/OutlinedBox"
+
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:layout_marginTop="@dimen/_10sdp"
@@ -222,14 +223,14 @@
 
                         <Button
                             android:id="@+id/register_button"
-                            android:layout_width="wrap_content"
+                            android:layout_width="match_parent"
                             android:layout_height="@dimen/_35sdp"
                             android:layout_gravity="center"
+                            android:layout_marginStart="@dimen/_20sdp"
                             android:layout_marginTop="@dimen/_10sdp"
+                            android:layout_marginEnd="@dimen/_20sdp"
                             android:background="@drawable/default_rounded_button_sportsfight"
                             android:fontFamily="@font/open_sans_semibold"
-                            android:paddingStart="@dimen/_10sdp"
-                            android:paddingEnd="@dimen/_10sdp"
                             android:text="Register"
                             android:textAllCaps="false"
                             android:textColor="@color/white"

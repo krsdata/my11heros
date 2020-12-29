@@ -40,8 +40,8 @@
                 <RelativeLayout
                     android:layout_width="@dimen/_70sdp"
                     android:layout_height="@dimen/_70sdp"
-                    android:visibility="gone"
-                    android:layout_gravity="center_horizontal">
+                    android:layout_gravity="center_horizontal"
+                    android:visibility="gone">
 
                     <com.mikhaellopez.circularimageview.CircularImageView
                         android:id="@+id/profile_image"
@@ -62,7 +62,7 @@
                 </RelativeLayout>
 
                 <com.google.android.material.textfield.TextInputLayout
-                    style="@style/OutlinedBox"
+
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="@dimen/_10sdp"
@@ -80,12 +80,13 @@
                         android:singleLine="true"
                         android:textColor="@color/text_view_color"
                         android:textSize="@dimen/_14sdp">
-                        <requestFocus/>
+
+                        <requestFocus />
                     </com.google.android.material.textfield.TextInputEditText>
                 </com.google.android.material.textfield.TextInputLayout>
 
                 <com.google.android.material.textfield.TextInputLayout
-                    style="@style/OutlinedBox"
+
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="@dimen/_10sdp"
@@ -105,7 +106,7 @@
                 </com.google.android.material.textfield.TextInputLayout>
 
                 <com.google.android.material.textfield.TextInputLayout
-                    style="@style/OutlinedBox"
+
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="@dimen/_10sdp"
@@ -130,7 +131,7 @@
 
                 <com.google.android.material.textfield.TextInputLayout
                     android:id="@+id/input_layout_mobile"
-                    style="@style/OutlinedBox"
+
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="@dimen/_10sdp"
@@ -191,7 +192,7 @@
                 </RadioGroup>
 
                 <com.google.android.material.textfield.TextInputLayout
-                    style="@style/OutlinedBox"
+
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="@dimen/_10sdp"
@@ -214,7 +215,7 @@
                 </com.google.android.material.textfield.TextInputLayout>
 
                 <com.google.android.material.textfield.TextInputLayout
-                    style="@style/OutlinedBox"
+
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="@dimen/_10sdp"
@@ -237,6 +238,8 @@
                     android:layout_height="@dimen/_35sdp"
                     android:layout_marginTop="@dimen/_10sdp"
                     android:layout_marginBottom="@dimen/_10sdp"
+                    android:layout_marginEnd="@dimen/_20sdp"
+                    android:layout_marginStart="@dimen/_20sdp"
                     android:background="@drawable/rounded_corner_filled_blue"
                     android:text="Update Profile"
                     android:textAllCaps="false"

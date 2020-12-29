@@ -65,7 +65,6 @@ class LeadersBoardActivity : BaseActivity() {
 
         val SERIALIZABLE_MATCH_KEY: String = "matchObject"
         val SERIALIZABLE_CONTEST_KEY: String = "contest"
-
     }
 
 
