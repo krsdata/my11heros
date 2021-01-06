@@ -196,8 +196,8 @@ class MyUtils {
                     val bitmap =getBitmapFromURL(urls)
                     if(bitmap!=null) {
                         logd("bitmap","Found bitmap for "+urls)
-                        var dominanctColor = getDominantColor(bitmap)
-                        teamAColorView!!.setBackgroundColor(dominanctColor)
+                        val dominantColor = getDominantColor(bitmap)
+                        teamAColorView!!.setBackgroundColor(dominantColor)
                     }
 
                 } catch (e: java.lang.Exception) {
@@ -224,22 +224,10 @@ class MyUtils {
             toast: String?
         ) {
             if (!TextUtils.isEmpty(toast)) {
-                var msg = Toast.makeText(context, toast, Toast.LENGTH_LONG)
+                val msg = Toast.makeText(context, toast, Toast.LENGTH_LONG)
                 msg.setGravity(Gravity.CENTER, 0, 0)
                 msg.show()
-//                val bottomSheetFragment =
-//                    BottomSheetErrorDialogFragment()
-//                val bundle = Bundle()
-//                bundle.putString(BottomSheetErrorDialogFragment.CONST_TITLE, toast)
-//                //bundle.putString(BottomSheetErrorDialogFragment.CONST_MESSAGE, toast);
-//                bottomSheetFragment.setArguments(bundle)
-//                bottomSheetFragment.show(fragmentManager, bottomSheetFragment.getTag())
             }
-            //return msg;
         }
-
     }
-
-
-
 }

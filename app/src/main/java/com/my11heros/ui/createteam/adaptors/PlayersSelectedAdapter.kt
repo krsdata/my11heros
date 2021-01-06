@@ -10,18 +10,21 @@ import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.edify.atrist.listener.OnRolesSelected
 import com.my11heros.R
+import com.my11heros.models.UpcomingMatchesModel
 import com.my11heros.ui.createteam.models.PlayersInfoModel
 
 
 class PlayersSelectedAdapter(
     val context: Context,
     contestModelList: ArrayList<PlayersInfoModel>,
-    listener: OnRolesSelected
+    listener: OnRolesSelected,
+    matchObjectModel: UpcomingMatchesModel
 ) :
     RecyclerView.Adapter<RecyclerView.ViewHolder>() {
     var onItemClick: ((PlayersInfoModel) -> Unit)? = null
     private var matchesListObject = contestModelList
     var listeners = listener
+    var matchObject = matchObjectModel
 
     companion object {
         const val TYPE_LABEL = 1
@@ -49,7 +52,7 @@ class PlayersSelectedAdapter(
     override fun onBindViewHolder(parent: RecyclerView.ViewHolder, position: Int) {
 
         val objectVal = matchesListObject[position]
-        if(objectVal.viewType== TYPE_LABEL){
+        if (objectVal.viewType == TYPE_LABEL) {
             val viewHolder: ViewLabelsHolders = parent as ViewLabelsHolders
             viewHolder.roleType.text = objectVal.playerRole
         } else {
@@ -66,14 +69,27 @@ class PlayersSelectedAdapter(
                     String.format("%.1f%%", objectVal.analyticsModel!!.viceCaptainPc)
                 viewHolder.selectedTrumpPercentage.text =
                     String.format("%.1f%%", objectVal.analyticsModel!!.trumpPc)
-                viewHolder.playerSelectionPercentage.text = String.format("Sel by %.1f%%", objectVal.analyticsModel!!.selectionPc)
-                viewHolder.selectedPlayerPoints.text = String.format("%d", objectVal.playerSeriesPoints)
+                viewHolder.playerSelectionPercentage.text =
+                    String.format("Sel by %.1f%%", objectVal.analyticsModel!!.selectionPc)
+                viewHolder.selectedPlayerPoints.text =
+                    String.format("%d", objectVal.playerSeriesPoints)
 
             } else {
                 viewHolder.selectedCaptainPercentage.text = "0%"
                 viewHolder.selectedvcPercentage.text = "0%"
                 viewHolder.selectedTrumpPercentage.text = "0%"
                 viewHolder.playerSelectionPercentage.text = ""
+            }
+
+
+            if (matchObject.teamAInfo!!.teamId == objectVal.teamId) {
+                viewHolder.selectedPlayerCountry.background =
+                    context.resources.getDrawable(R.drawable.team_name_back_blue)
+                viewHolder.selectedPlayerCountry.setTextColor(context.resources.getColor(R.color.white))
+            } else {
+                viewHolder.selectedPlayerCountry.background =
+                    context.resources.getDrawable(R.drawable.team_name_back_white)
+                viewHolder.selectedPlayerCountry.setTextColor(context.resources.getColor(R.color.white))
             }
 
             Glide.with(context)
@@ -160,15 +176,16 @@ class PlayersSelectedAdapter(
             itemView.findViewById(R.id.player_selection_percentage)
         val selectedPlayerPoints: TextView = itemView.findViewById(R.id.player_points)
         val selectedPlayerCountry: TextView = itemView.findViewById(R.id.selected_player_country)
-        val selectedPlayingStyle: TextView = itemView.findViewById(R.id.selected_player_playing_style)
+        val selectedPlayingStyle: TextView =
+            itemView.findViewById(R.id.selected_player_playing_style)
         val selectedPlayerImage: ImageView = itemView.findViewById(R.id.player_image)
 
         val roleTypeTrump: TextView = itemView.findViewById(R.id.role_type_trump)
         val selectedTrumpPercentage: TextView =
             itemView.findViewById(R.id.selected_trump_percentage)
 
-        val roleTypeCaptain : TextView = itemView.findViewById(R.id.role_type_captain)
-        val selectedCaptainPercentage : TextView =
+        val roleTypeCaptain: TextView = itemView.findViewById(R.id.role_type_captain)
+        val selectedCaptainPercentage: TextView =
             itemView.findViewById(R.id.selected_captain_percentage)
 
         val roleTypeViceCaptain: TextView = itemView.findViewById(R.id.role_type_vicecaptain)

@@ -122,4 +122,8 @@
     <string name="contact_support_Team">"Contact My11Heros Support Team"</string>
     <string name="label_update">"My11Heros Update"</string>
     <string name="verify_communication">Verify Communication</string>
+
+    <string name="my_reward_points">(100 points = ₹1.00)</string>
+    <string name="share_this_code_with_your_friends">Share this code with your friends and after they Signup, both of you will get ₹100 Bonus.</string>
+
 </resources>

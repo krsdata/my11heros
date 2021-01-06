@@ -77,8 +77,8 @@ class JoinContestDialogFragment(
     }
 
     private fun initWalletInfo() {
-        val walletInfo = (requireActivity().applicationContext as SportsFightApplication).walletInfo
-        userInfo = (requireActivity().applicationContext as SportsFightApplication).userInformations
+        val walletInfo = (requireActivity().applicationContext as My11HerosApplication).walletInfo
+        userInfo = (requireActivity().applicationContext as My11HerosApplication).userInformations
         DISCOUNT_ON_BONUS = contestModel.usableBonus.toInt()
         walletAmount = walletInfo.walletAmount
         bonusAmount = walletInfo.bonusAmount
@@ -256,7 +256,7 @@ class JoinContestDialogFragment(
                             } else {
                                 val responseModel = res.walletObjects
                                 if (responseModel != null) {
-                                    (activity!!.applicationContext as SportsFightApplication).saveWalletInformation(
+                                    (activity!!.applicationContext as My11HerosApplication).saveWalletInformation(
                                         responseModel
                                     )
                                     initWalletInfo()

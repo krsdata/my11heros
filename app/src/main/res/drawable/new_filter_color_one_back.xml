@@ -7,9 +7,9 @@
         android:topLeftRadius="@dimen/_5sdp"
         android:topRightRadius="@dimen/_5sdp" />
 
-    <solid android:color="@color/secondery_color" />
+    <solid android:color="@color/green" />
 
     <stroke
         android:width="@dimen/_1sdp"
-        android:color="@color/secondery_color" />
+        android:color="@color/green" />
 </shape>

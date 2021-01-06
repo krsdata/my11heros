@@ -2,15 +2,16 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:id="@+id/linear_trades_status"
     android:layout_width="match_parent"
-    android:layout_height="65dp"
+    android:layout_height="63dp"
     android:background="@color/white"
+    android:baselineAligned="false"
     android:orientation="horizontal"
-    android:paddingTop="@dimen/matches_gap_between_each_views">
+    android:paddingTop="1.5dp">
 
     <RelativeLayout
         android:id="@+id/rel_player_image"
-        android:layout_width="75dp"
-        android:layout_height="wrap_content">
+        android:layout_width="70dp"
+        android:layout_height="match_parent">
 
         <ImageView
             android:id="@+id/player_image"
@@ -21,16 +22,17 @@
 
         <TextView
             android:id="@+id/team_name"
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_alignParentStart="true"
             android:layout_alignParentBottom="true"
-            android:layout_marginStart="@dimen/_5sdp"
-            android:background="@color/white"
+            android:layout_gravity="center|bottom"
+            android:background="@drawable/team_name_back_blue"
+            android:gravity="center"
             android:padding="3dp"
             android:text="AU-W"
-            android:textColor="@color/black"
-            android:textSize="8sp" />
+            android:textColor="@color/white"
+            android:textSize="8sp"
+            android:textStyle="bold" />
     </RelativeLayout>
 
     <LinearLayout
@@ -50,7 +52,7 @@
             android:singleLine="true"
             android:text="Virat Kohli"
             android:textColor="@color/black"
-            android:textSize="13sp" />
+            android:textSize="@dimen/_11sdp" />
 
         <TextView
             android:id="@+id/player_selection_percentage"
@@ -62,7 +64,7 @@
             android:singleLine="true"
             android:text="Selected by 81.96%"
             android:textColor="@color/black"
-            android:textSize="8sp" />
+            android:textSize="@dimen/_8sdp" />
 
         <LinearLayout
             android:id="@+id/linear_announced"
@@ -85,8 +87,8 @@
                 android:maxLines="1"
                 android:singleLine="true"
                 android:text="Announced"
-                android:textColor="@color/colorPrimary"
-                android:textSize="@dimen/_7sdp" />
+                android:textColor="@color/green"
+                android:textSize="@dimen/_8sdp" />
         </LinearLayout>
     </LinearLayout>
 
@@ -101,23 +103,20 @@
 
         <TextView
             android:id="@+id/player_points"
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginRight="10dp"
-            android:padding="3dp"
+            android:layout_gravity="center"
+            android:gravity="center"
             android:text="100"
             android:textColor="@color/black"
-            android:textSize="@dimen/save_team_text_size_normal"
+            android:textSize="@dimen/_8sdp"
             android:textStyle="bold" />
-
-
     </LinearLayout>
 
     <LinearLayout
         android:id="@+id/linear_selection_"
         android:layout_width="0dp"
         android:layout_height="match_parent"
-        android:layout_alignParentRight="true"
         android:layout_weight="2"
         android:gravity="center_vertical"
         android:orientation="horizontal">
@@ -126,7 +125,7 @@
             android:id="@+id/fantasy_points"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_marginRight="10dp"
+            android:layout_marginEnd="10dp"
             android:layout_weight="1"
             android:gravity="right"
             android:padding="3dp"
@@ -137,11 +136,8 @@
             android:id="@+id/add_image"
             android:layout_width="25dp"
             android:layout_height="25dp"
-            android:layout_marginRight="6dp"
+            android:layout_marginEnd="6dp"
             android:src="@drawable/ic_do_not_disturb_on_black_24dp"
             android:textColor="@color/black" />
-
     </LinearLayout>
-
-
 </LinearLayout>

@@ -18,10 +18,9 @@ import com.deliverdas.customers.utils.HardwareInfoManager
 import com.google.android.material.snackbar.Snackbar
 import com.google.gson.JsonObject
 import com.my11heros.MainActivity
-import com.my11heros.MainActivity.Companion.telegramLink
 import com.my11heros.MaintainanceActivity
+import com.my11heros.My11HerosApplication
 import com.my11heros.R
-import com.my11heros.SportsFightApplication
 import com.my11heros.adaptors.MatchesAdapter
 import com.my11heros.databinding.FragmentAllGamesBinding
 import com.my11heros.listener.RecyclerViewLoadMoreScroll
@@ -40,17 +39,17 @@ import retrofit2.Callback
 import retrofit2.Response
 
 
-class FixtureCricketFragment : BaseFragment(), SwipeRefreshLayout.OnRefreshListener {
-    //var listener : OnPageRefreshedListener? =null
+class FixtureCricketFragment : BaseFragment()/*, SwipeRefreshLayout.OnRefreshListener*/ {
+
     companion object {
         fun newInstance() = FixtureCricketFragment()
         var pageNo = 1
     }
 
-    //   private lateinit var mainViewModel: MatchesViewModel
     private var mBinding: FragmentAllGamesBinding? = null
+
     lateinit var adapter: MatchesAdapter
-    var allmatchesArrayList = ArrayList<MatchesModels>()
+    var allMatchesArrayList = ArrayList<MatchesModels>()
     var scrollListener: RecyclerViewLoadMoreScroll? = null
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -66,20 +65,15 @@ class FixtureCricketFragment : BaseFragment(), SwipeRefreshLayout.OnRefreshListe
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         (activity as MainActivity).showToolbar()
-        // mainViewModel = ViewModelProviders.of(this).get(MatchesViewModel::class.java)
-        //mainViewModel = ViewModelProviders.of(this).get(MatchesViewModel::class.java)
+        mBinding!!.linearEmptyContest.visibility = View.GONE
         mBinding!!.allGameViewRecycler.layoutManager =
             LinearLayoutManager(activity, RecyclerView.VERTICAL, false)
-        mBinding!!.linearEmptyContest.visibility = View.GONE
 
-        mBinding!!.swipeRefresh.setColorScheme(
-            android.R.color.holo_blue_bright,
-            android.R.color.holo_green_light,
-            android.R.color.holo_orange_light,
-            android.R.color.holo_red_light
-        )
-
-        mBinding!!.swipeRefresh.setOnRefreshListener(this)
+        mBinding!!.swipeRefresh.setColorScheme(R.color.colorPrimary)
+        mBinding!!.swipeRefresh.setOnRefreshListener {
+            getAllMatches()
+            getMessage()
+        }
 
         // initDummyContent();
         val linearLayoutManager = LinearLayoutManager(activity)
@@ -90,12 +84,12 @@ class FixtureCricketFragment : BaseFragment(), SwipeRefreshLayout.OnRefreshListe
         mBinding!!.allGameViewRecycler.layoutManager = linearLayoutManager
 
         val upcomingmatchlist =
-            (requireActivity().applicationContext as SportsFightApplication).getUpcomingMatches
+            (requireActivity().applicationContext as My11HerosApplication).getUpcomingMatches
         if (upcomingmatchlist != null && upcomingmatchlist.size > 0) {
-            allmatchesArrayList.clear()
-            allmatchesArrayList.addAll(upcomingmatchlist)
+            allMatchesArrayList.clear()
+            allMatchesArrayList.addAll(upcomingmatchlist)
         }
-        adapter = MatchesAdapter(requireActivity(), allmatchesArrayList)
+        adapter = MatchesAdapter(requireActivity(), allMatchesArrayList)
         mBinding!!.allGameViewRecycler.adapter = adapter
         getAllMatches()
         getMessage()
@@ -112,14 +106,13 @@ class FixtureCricketFragment : BaseFragment(), SwipeRefreshLayout.OnRefreshListe
     }
 
     fun updateEmptyViews() {
-        if (allmatchesArrayList.size == 0) {
+        if (allMatchesArrayList.size == 0) {
             mBinding!!.linearEmptyContest.visibility = View.VISIBLE
             mBinding!!.btnEmptyView.setOnClickListener(View.OnClickListener {
                 val openURL = Intent(Intent.ACTION_VIEW)
                 openURL.data = Uri.parse(BindingUtils.WEBVIEW_TNC)
                 startActivity(openURL)
             })
-
         } else {
             mBinding!!.linearEmptyContest.visibility = View.GONE
         }
@@ -177,12 +170,12 @@ class FixtureCricketFragment : BaseFragment(), SwipeRefreshLayout.OnRefreshListe
                                     val responseObject = resObje.responseObject
                                     val listofData =
                                         responseObject!!.matchdatalist as ArrayList<MatchesModels>?
-                                    (activity!!.applicationContext as SportsFightApplication).saveUpcomingMatches(
+                                    (activity!!.applicationContext as My11HerosApplication).saveUpcomingMatches(
                                         listofData
                                     )
                                     if (listofData!!.size > 0) {
                                         addAllList(listofData)
-                                        adapter.setMatchesList(allmatchesArrayList)
+                                        adapter.setMatchesList(allMatchesArrayList)
                                     }
                                 }
                             }
@@ -194,21 +187,20 @@ class FixtureCricketFragment : BaseFragment(), SwipeRefreshLayout.OnRefreshListe
 
     private fun addAllList(userPostData: java.util.ArrayList<MatchesModels>) {
         if (isValidRequest()) {
-            allmatchesArrayList.clear()
-            allmatchesArrayList.addAll(userPostData)
+            allMatchesArrayList.clear()
+            allMatchesArrayList.addAll(userPostData)
         }
     }
 
-    override fun onRefresh() {
+    /*override fun onRefresh() {
         getAllMatches()
         getMessage()
-    }
+    }*/
 
     private fun getMessage() {
         if (!MyUtils.isConnectedWithInternet(activity as AppCompatActivity)) {
             return
         }
-        mBinding!!.swipeRefresh.isRefreshing = true
         val models = RequestModel()
         models.user_id = MyPreferences.getUserID(requireActivity())!!
         models.token = MyPreferences.getToken(requireActivity())!!
@@ -227,7 +219,6 @@ class FixtureCricketFragment : BaseFragment(), SwipeRefreshLayout.OnRefreshListe
                     response: Response<JsonObject?>?
                 ) {
                     if (isVisible) {
-                        mBinding!!.swipeRefresh.isRefreshing = false
                         val resObje = response!!.body().toString()
                         val jsonObject = JSONObject(resObje)
                         if (jsonObject.optBoolean("status")) {
@@ -263,4 +254,13 @@ class FixtureCricketFragment : BaseFragment(), SwipeRefreshLayout.OnRefreshListe
                 }
             })
     }
+
+    private fun setSliderAdapter() {
+
+    }
+
+    private fun setUpcomingMatchAdapter() {
+
+    }
+
 }

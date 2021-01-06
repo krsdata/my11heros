@@ -54,7 +54,7 @@ class PlayersContestAdapter(
         if (objectVal.isPlaying11 /*&& matchObject.isLineup*/) {
             viewHolder.anouncedIndicatorCircle?.setBackgroundResource(R.drawable.circle_green)
             viewHolder.anouncedIndicatorText?.text = "Announced"
-            viewHolder.anouncedIndicatorText?.setTextColor(context.resources.getColor(R.color.colorPrimary))
+            viewHolder.anouncedIndicatorText?.setTextColor(context.resources.getColor(R.color.green))
         } else {
             viewHolder.anouncedIndicatorText?.text = ""
             viewHolder.anouncedIndicatorCircle?.setBackgroundResource(R.drawable.circle_red)
@@ -72,6 +72,17 @@ class PlayersContestAdapter(
             viewHolder.addImage.setImageResource(R.drawable.ic_add_circle_outline_black_24dp)
             viewHolder.linearTradesStatus.setBackgroundColor(context.resources.getColor(R.color.white))
         }
+
+        if (matchObject.teamAInfo!!.teamId == objectVal.teamId) {
+            viewHolder.teamName.background =
+                context.resources.getDrawable(R.drawable.team_name_back_blue)
+            viewHolder.teamName.setTextColor(context.resources.getColor(R.color.white))
+        } else {
+            viewHolder.teamName.background =
+                context.resources.getDrawable(R.drawable.team_name_back_white)
+            viewHolder.teamName.setTextColor(context.resources.getColor(R.color.white))
+        }
+
     }
 
     override fun getItemCount(): Int {

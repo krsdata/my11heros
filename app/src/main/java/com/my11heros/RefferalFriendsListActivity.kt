@@ -39,7 +39,7 @@ class RefferalFriendsListActivity : BaseActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        userInfo = (application as SportsFightApplication).userInformations
+        userInfo = (application as My11HerosApplication).userInformations
         mBinding = DataBindingUtil.setContentView(this,
             R.layout.activity_refferal_friends
         )

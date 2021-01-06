@@ -61,7 +61,7 @@ class AddMoneyActivity : BaseActivity(), PaymentResultListener {
 
     override fun onStart() {
         super.onStart()
-        val infomodel = (application as SportsFightApplication).userInformations
+        val infomodel = (application as My11HerosApplication).userInformations
         if (infomodel != null) {
         }
     }
@@ -516,7 +516,7 @@ class AddMoneyActivity : BaseActivity(), PaymentResultListener {
     }
 
     private fun initWalletInfo() {
-        val walletInfo = (application as SportsFightApplication).walletInfo
+        val walletInfo = (application as My11HerosApplication).walletInfo
 
         MyPreferences.setGooglePayId(this, walletInfo.gPay)
 
@@ -571,7 +571,7 @@ class AddMoneyActivity : BaseActivity(), PaymentResultListener {
                             MyPreferences.setShowGpay(mContext!!, res.gpay_show)
                             MyPreferences.setShowRazorPay(mContext!!, res.rozarpay_show)
 
-                            (application as SportsFightApplication).saveWalletInformation(
+                            (application as My11HerosApplication).saveWalletInformation(
                                 responseModel
                             )
                             initWalletInfo()
@@ -613,7 +613,7 @@ class AddMoneyActivity : BaseActivity(), PaymentResultListener {
 
                         val responseModel = res.walletObjects
                         if (responseModel != null) {
-                            (application as SportsFightApplication).saveWalletInformation(
+                            (application as My11HerosApplication).saveWalletInformation(
                                 responseModel
                             )
                             MyUtils.showMessage(this@AddMoneyActivity, res.message)

@@ -13,20 +13,20 @@ import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.bumptech.glide.load.engine.DiskCacheStrategy
 import com.edify.atrist.listener.OnMatchTimerStarted
-import kotlinx.coroutines.InternalCoroutinesApi
 import com.my11heros.R
 import com.my11heros.models.UpcomingMatchesModel
 import com.my11heros.utils.BindingUtils
+import kotlinx.coroutines.InternalCoroutinesApi
 import java.util.*
 
 
 class UpcomingMatchesAdapter(
     val context: Context,
-    val tradeinfoModels: ArrayList<UpcomingMatchesModel>
+    tradeInfoModels: ArrayList<UpcomingMatchesModel>
 ) :
     RecyclerView.Adapter<RecyclerView.ViewHolder>() {
     var onItemClick: ((UpcomingMatchesModel) -> Unit)? = null
-    private var matchesListObject = tradeinfoModels
+    private var matchesListObject = tradeInfoModels
 
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): RecyclerView.ViewHolder {

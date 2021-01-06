@@ -27,7 +27,7 @@ class DocumentsModel :Serializable,Cloneable {
     var paytmNumber: String = ""
     var phonepe: String = ""
     var gpay: String = ""
-    var whatsApp: String = ""
+    var whats_app: String = ""
 
     public override fun clone(): DocumentsModel {
         return super.clone() as DocumentsModel

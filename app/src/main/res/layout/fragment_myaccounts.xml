@@ -26,7 +26,8 @@
 
             <RelativeLayout
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content">
+                android:layout_height="wrap_content"
+                android:visibility="gone">
 
                 <TextView
                     android:layout_width="wrap_content"
@@ -79,7 +80,6 @@
                 <Button
                     android:id="@+id/btn_edit_profile"
                     android:layout_width="0dp"
-                    style="@style/Widget.AppCompat.Button"
                     android:layout_height="match_parent"
                     android:layout_marginStart="@dimen/_10sdp"
                     android:layout_marginEnd="@dimen/_5sdp"
@@ -92,7 +92,6 @@
 
                 <Button
                     android:id="@+id/btn_verify_account"
-                    style="@style/Widget.AppCompat.Button"
                     android:layout_width="0dp"
                     android:layout_height="match_parent"
                     android:layout_marginStart="@dimen/_5sdp"

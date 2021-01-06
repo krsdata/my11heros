@@ -47,7 +47,6 @@ import java.io.ByteArrayOutputStream
 import java.io.File
 import java.io.IOException
 
-
 abstract class BaseActivity : AppCompatActivity() {
 
     private lateinit var options: Array<CharSequence>
@@ -77,7 +76,7 @@ abstract class BaseActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         customeProgressDialog = CustomeProgressDialog(this)
         //uploadReceiver = SingleUploadBroadcastReceiver()
-        userInfo = (application as SportsFightApplication).userInformations
+        userInfo = (application as My11HerosApplication).userInformations
     }
 
     fun showDeadLineAlert(message: String) {

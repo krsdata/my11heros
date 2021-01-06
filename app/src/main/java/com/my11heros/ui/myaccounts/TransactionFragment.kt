@@ -13,7 +13,7 @@ import androidx.recyclerview.widget.DividerItemDecoration
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.my11heros.R
-import com.my11heros.SportsFightApplication
+import com.my11heros.My11HerosApplication
 import com.my11heros.databinding.FragmentTransactionHistoryBinding
 import com.my11heros.models.TransactionModel
 import com.my11heros.network.IApiMethod
@@ -58,7 +58,7 @@ class TransactionFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         var transactionHistory =
-            (requireActivity().applicationContext as SportsFightApplication).getTransactionHistory
+            (requireActivity().applicationContext as My11HerosApplication).getTransactionHistory
         if (transactionHistory != null && transactionHistory.size > 0) {
             transactionList.clear()
             transactionList.addAll(transactionHistory)
@@ -110,7 +110,7 @@ class TransactionFragment : Fragment() {
                         var responseModel = res.transactionHistory
                         if (responseModel != null) {
                             if (responseModel.transactionList != null && responseModel.transactionList!!.size > 0) {
-                                (activity!!.applicationContext as SportsFightApplication).saveTransactionHistory(
+                                (activity!!.applicationContext as My11HerosApplication).saveTransactionHistory(
                                     responseModel.transactionList!!
                                 )
                                 transactionList.addAll(responseModel.transactionList!!)

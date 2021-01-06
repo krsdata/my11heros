@@ -54,7 +54,7 @@ class MyTransactionHistoryActivity : BaseActivity() {
         var itemDecoration = DividerItemDecoration(this, LinearLayout.VERTICAL)
         mBinding!!.transactionHistoryRecycler.addItemDecoration(itemDecoration)
         var transactionHistory =
-            (applicationContext as SportsFightApplication).getTransactionHistory
+            (applicationContext as My11HerosApplication).getTransactionHistory
         if(transactionHistory!=null && transactionHistory.size>0){
             transactionList.clear()
             transactionList.addAll(transactionHistory)
@@ -101,7 +101,7 @@ class MyTransactionHistoryActivity : BaseActivity() {
                         var responseModel = res.transactionHistory
                         if(responseModel!=null) {
                             if (responseModel.transactionList != null && responseModel.transactionList!!.size > 0) {
-                                (applicationContext as SportsFightApplication).saveTransactionHistory(
+                                (applicationContext as My11HerosApplication).saveTransactionHistory(
                                     responseModel.transactionList!!)
                                 transactionList.addAll(responseModel.transactionList!!)
                                 adapter.notifyDataSetChanged()

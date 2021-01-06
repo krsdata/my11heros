@@ -28334,7 +28334,7 @@ com.my11heros.ui.mymatches.MyCompletedMatchesFragment$MyMatchesAdapter$DataViewH
     public final android.widget.TextView getTotalTeamCreated()
     public final android.widget.TextView getTotalContestJoined()
 plug.cricket.ui.createteam.Batsman$resetSorting$1
-com.my11heros.SportsFightApplication:
+com.my11heros.My11HerosApplication:
     public final void saveWalletInformation(com.my11heros.models.WalletInfo)
     public final void saveUpcomingMatches(java.util.ArrayList)
     public final java.util.ArrayList getGetUpcomingMatches()

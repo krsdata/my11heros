@@ -39,7 +39,7 @@ class NotificationListActivity : AppCompatActivity() {
         mBinding = DataBindingUtil.setContentView(this,
             R.layout.activity_notification_list
         )
-        walletInfo = (application as SportsFightApplication).walletInfo
+        walletInfo = (application as My11HerosApplication).walletInfo
         mBinding!!.toolbar.title = "Notifications"
         mBinding!!.toolbar.setTitleTextColor(resources.getColor(R.color.white))
         mBinding!!.toolbar.setNavigationIcon(R.drawable.ic_arrow_back_black_24dp)

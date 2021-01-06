@@ -39,11 +39,11 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center|bottom"
-                    android:background="@color/text_view_background_color"
+                    android:background="@drawable/team_name_back_blue"
                     android:gravity="center"
                     android:padding="3dp"
                     android:text="AU-W"
-                    android:textColor="@color/black"
+                    android:textColor="@color/white"
                     android:textSize="8sp"
                     android:textStyle="bold" />
 
@@ -58,7 +58,7 @@
                     android:text="BAT"
                     android:textColor="@color/black"
                     android:textSize="8sp"
-                    android:visibility="invisible" />
+                    android:visibility="gone" />
 
             </LinearLayout>
         </RelativeLayout>
@@ -79,7 +79,7 @@
                 android:singleLine="true"
                 android:text="Virat Kohli"
                 android:textColor="@color/black"
-                android:textSize="13sp" />
+                android:textSize="@dimen/_11sdp" />
 
             <TextView
                 android:id="@+id/player_selection_percentage"
@@ -91,7 +91,7 @@
                 android:singleLine="true"
                 android:text="Selected by 81.96%"
                 android:textColor="@color/black"
-                android:textSize="8sp" />
+                android:textSize="@dimen/_8sdp" />
 
         </LinearLayout>
 
@@ -105,13 +105,13 @@
 
             <TextView
                 android:id="@+id/player_points"
-                android:layout_width="wrap_content"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginEnd="10dp"
-                android:padding="3dp"
+                android:layout_gravity="center"
+                android:gravity="center"
                 android:text="100"
                 android:textColor="@color/black"
-                android:textSize="@dimen/save_team_text_size_normal"
+                android:textSize="@dimen/_8sdp"
                 android:textStyle="bold" />
         </LinearLayout>
 
@@ -182,7 +182,7 @@
                     android:padding="3dp"
                     android:text="0.8%"
                     android:textColor="@color/black"
-                    android:textSize="@dimen/save_team_text_size_normal" />
+                    android:textSize="@dimen/_7sdp" />
 
             </LinearLayout>
 
@@ -213,7 +213,7 @@
                     android:padding="3dp"
                     android:text="3%"
                     android:textColor="@color/black"
-                    android:textSize="@dimen/save_team_text_size_normal" />
+                    android:textSize="@dimen/_7sdp" />
             </LinearLayout>
         </LinearLayout>
     </LinearLayout>

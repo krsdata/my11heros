@@ -191,7 +191,7 @@ class LeadersBoardActivity : BaseActivity() {
             .into(mBinding!!.includeLiveMatchRow.imgTeambLogo)
 
         mBinding!!.matchTimer.text = matchObject!!.statusString.toUpperCase(Locale.ENGLISH)
-        mBinding!!.matchTimer.setTextColor(resources.getColor(R.color.white))
+        mBinding!!.matchTimer.setTextColor(resources.getColor(R.color.colorPrimaryDark))
 
         mBinding!!.includeLiveMatchRow.teamAName.text = matchObject!!.teamAInfo!!.teamShortName
         mBinding!!.includeLiveMatchRow.teamBName.text = matchObject!!.teamBInfo!!.teamShortName
@@ -295,7 +295,6 @@ class LeadersBoardActivity : BaseActivity() {
                 }
             })
     }
-
 
     private fun initUpcomingMatchData() {
         mBinding!!.teamsa.text = matchObject!!.teamAInfo!!.teamShortName

@@ -41,7 +41,7 @@ class MyBalanceActivity : AppCompatActivity() {
             this,
             R.layout.activity_my_ballance
         )
-        walletInfo = (application as SportsFightApplication).walletInfo
+        walletInfo = (application as My11HerosApplication).walletInfo
         mBinding!!.toolbar.title = "My Balance"
         mBinding!!.toolbar.setTitleTextColor(resources.getColor(R.color.white))
         mBinding!!.toolbar.setNavigationIcon(R.drawable.ic_arrow_back_black_24dp)
@@ -153,7 +153,7 @@ class MyBalanceActivity : AppCompatActivity() {
     }
 
     private fun initWalletInfo() {
-        val walletInfo = (application as SportsFightApplication).walletInfo
+        val walletInfo = (application as My11HerosApplication).walletInfo
         val totalBalance =
             walletInfo.depositAmount + walletInfo.prizeAmount + walletInfo.bonusAmount
         mBinding!!.walletTotalAmount.text = String.format("₹%.2f", totalBalance)
@@ -202,7 +202,7 @@ class MyBalanceActivity : AppCompatActivity() {
                             MyPreferences.setShowPaytm(this@MyBalanceActivity, responseModel.paytm_show)
                             MyPreferences.setShowGpay(this@MyBalanceActivity, responseModel.gpay_show)
                             MyPreferences.setShowRazorPay(this@MyBalanceActivity, responseModel.rozarpay_show)
-                            (application as SportsFightApplication).saveWalletInformation(
+                            (application as My11HerosApplication).saveWalletInformation(
                                 responseModel
                             )
                             initWalletInfo()

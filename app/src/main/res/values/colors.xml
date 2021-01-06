@@ -186,5 +186,13 @@
     <color name="orange">#f0a015</color>
     <color name="text_view_color">#282828</color>
     <color name="text_view_background_color">#4FC3F7</color>
+    <color name="highlight_back">#F57F17</color>
+
+    <color name="blue_grey_200">#B0BEC5</color>
+    <color name="lime_a_200">#EEFF41</color>
+    <color name="lime_a_700">#AEEA00</color>
+    <color name="green_a_400">#00E676</color>
+    <color name="orange_400">#FFA726</color>
+    <color name="brown_500">#795548</color>
 
 </resources>

@@ -83,7 +83,7 @@ class LeadersBoardFragment : Fragment() {
         mBinding!!.progressBar.visibility = View.GONE
         mBinding!!.prizeLeadersboardRecycler.layoutManager =
             LinearLayoutManager(activity, RecyclerView.VERTICAL, false)
-        userInfo = (requireActivity().applicationContext as SportsFightApplication).userInformations
+        userInfo = (requireActivity().applicationContext as My11HerosApplication).userInformations
         val dividerItemDecoration = DividerItemDecoration(
             mBinding!!.prizeLeadersboardRecycler.context,
             RecyclerView.VERTICAL
@@ -195,7 +195,7 @@ class LeadersBoardFragment : Fragment() {
                                 "" + contestObject!!.id,
                                 user_id,
                                 teamId,
-                                (requireActivity().applicationContext as SportsFightApplication).userInformations,
+                                (requireActivity().applicationContext as My11HerosApplication).userInformations,
                                 "Last Seen"
                             )
 
@@ -314,10 +314,15 @@ class LeadersBoardFragment : Fragment() {
             if (!TextUtils.isEmpty(objectVal.userInfo.profileImage)) {
                 Glide.with(context)
                     .load(objectVal.userInfo.profileImage)
-                    .placeholder(R.drawable.placeholder_player_teama)
+                    .placeholder(R.drawable.ic_profile)
+                    .error(R.drawable.ic_profile)
                     .into(viewHolder.profileImage)
             } else {
-                viewHolder.profileImage.setImageResource(R.drawable.placeholder_player_teama)
+                Glide.with(context)
+                    .load(R.drawable.ic_profile)
+                    .placeholder(R.drawable.ic_profile)
+                    .error(R.drawable.ic_profile)
+                    .into(viewHolder.profileImage)
             }
         }
 

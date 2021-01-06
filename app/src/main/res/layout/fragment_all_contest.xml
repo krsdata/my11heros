@@ -160,7 +160,7 @@
             android:id="@+id/top_new_filter"
             android:layout_width="match_parent"
             android:layout_height="@dimen/_40sdp"
-            android:visibility="gone"
+            android:visibility="visible"
             android:background="@color/greybackround"
             android:orientation="horizontal">
 

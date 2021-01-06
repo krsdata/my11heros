@@ -9,214 +9,110 @@
             type="com.my11heros.SupportActivity" />
     </data>
 
-    <androidx.coordinatorlayout.widget.CoordinatorLayout
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:fitsSystemWindows="true">
+        android:fitsSystemWindows="true"
+        android:orientation="vertical">
 
-        <com.google.android.material.appbar.AppBarLayout
-            android:id="@+id/appbar"
+        <androidx.appcompat.widget.Toolbar
+            android:id="@+id/toolbar"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content">
+            android:layout_height="?attr/actionBarSize"
+            android:background="@color/colorPrimaryDark"
+            android:elevation="@dimen/_5sdp"
+            app:theme="@style/ToolbarColoredBackArrow"
+            app:titleTextAppearance="@style/TextAppearance.MyApp.Widget.ActionBar.Title" />
 
-            <androidx.appcompat.widget.Toolbar
-                android:id="@+id/toolbar"
-                android:layout_width="match_parent"
-                android:layout_height="?attr/actionBarSize"
-                android:background="@color/colorPrimaryDark"
-                android:elevation="5dp"
-                app:theme="@style/ToolbarColoredBackArrow"
-                app:titleTextAppearance="@style/TextAppearance.MyApp.Widget.ActionBar.Title" />
-
-        </com.google.android.material.appbar.AppBarLayout>
-
-        <androidx.core.widget.NestedScrollView
+        <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            app:layout_behavior="@string/appbar_scrolling_view_behavior">
+            android:orientation="vertical">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginTop="@dimen/_15sdp"
+                android:fontFamily="@font/montserrat_medium"
+                android:gravity="center"
+                android:text="Get In Touch With Us"
+                android:textColor="@color/colorAccent"
+                android:textSize="@dimen/_20sdp" />
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/_1sdp"
+                android:background="@color/button_material_light" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginStart="@dimen/_10sdp"
+                android:layout_marginTop="@dimen/_10sdp"
+                android:layout_marginEnd="@dimen/_10sdp"
+                android:fontFamily="@font/montserrat_medium"
+                android:gravity="center"
+                android:text="Our support team available on given Telegram Id &amp; Email Address. Please feel free to contact us."
+                android:textColor="@color/black"
+                android:textSize="@dimen/_13sdp" />
+
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:orientation="vertical">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_marginTop="@dimen/_30sdp"
+                    android:fontFamily="@font/montserrat_medium"
+                    android:gravity="center"
+                    android:text="CONNECT WITH"
+                    android:textColor="@color/black"
+                    android:textSize="@dimen/_13sdp" />
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/_1sdp"
+                    android:background="@color/black_transperent" />
+            </LinearLayout>
 
             <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:orientation="vertical"
-                app:layout_behavior="@string/appbar_scrolling_view_behavior">
+                android:layout_height="@dimen/_100sdp"
+                android:layout_marginStart="@dimen/_10sdp"
+                android:layout_marginTop="@dimen/_30sdp"
+                android:layout_marginEnd="@dimen/_10sdp"
+                android:gravity="center"
+                android:orientation="horizontal"
+                android:weightSum="2">
 
-                <TextView
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginStart="15dip"
-                    android:fontFamily="@font/open_sans_semibold"
-                    android:text="Get In Touch"
-                    android:textColor="@color/colorAccent"
-                    android:textSize="28sp" />
+                <ImageView
+                    android:id="@+id/email"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_marginEnd="@dimen/_5sdp"
+                    android:layout_weight="1"
+                    android:background="@drawable/new_card_view_border"
+                    android:padding="@dimen/_10sdp"
+                    android:src="@drawable/ic_gmail" />
 
-                <View
-                    android:layout_width="200dp"
-                    android:layout_height="3dp"
-                    android:layout_marginStart="15dip"
-                    android:layout_marginTop="5dip"
-                    android:background="@color/grey" />
+                <ImageView
+                    android:id="@+id/telegram_id"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_marginStart="@dimen/_5sdp"
+                    android:layout_weight="1"
+                    android:background="@drawable/new_card_view_border"
+                    android:padding="@dimen/_10sdp"
+                    android:src="@drawable/telegram_old" />
 
-                <TextView
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginStart="15dip"
-                    android:layout_marginTop="40dp"
-                    android:fontFamily="@font/open_sans_semibold"
-                    android:text="Our support team available on given WhatsApp, Call, Email &amp; SMS. "
-                    android:textColor="@color/black"
-                    android:textSize="16sp" />
-
-                <TextView
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginStart="15dip"
-                    android:layout_marginTop="8dp"
-                    android:fontFamily="@font/open_sans_light"
-                    android:text="Please feel free to contact us"
-                    android:textColor="@color/black"
-                    android:textSize="16sp" />
-
-
-                <TextView
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="25dip"
-                    android:fontFamily="@font/open_sans_semibold"
-                    android:gravity="center"
-                    android:text="CONNECT WITH "
-                    android:textColor="@color/black"
-                    android:textSize="18sp"
-                    android:textStyle="bold" />
-
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="30dp"
-                    android:gravity="center"
-                    android:orientation="vertical">
-
-
-                    <LinearLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:orientation="horizontal">
-
-                        <androidx.cardview.widget.CardView
-                            android:layout_width="0dp"
-                            android:layout_height="80dp"
-                            android:layout_margin="@dimen/_8sdp"
-                            android:layout_weight="1"
-                            android:background="@color/white"
-                            app:cardCornerRadius="@dimen/_4sdp">
-
-                            <ImageView
-                                android:id="@+id/call_email"
-                                android:layout_width="match_parent"
-                                android:layout_height="match_parent"
-                                android:layout_marginBottom="@dimen/_8sdp"
-                                android:padding="@dimen/_8sdp"
-                                android:src="@drawable/ic_gmail" />
-
-                            <TextView
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:layout_gravity="center_vertical|bottom|center_horizontal"
-                                android:fontFamily="@font/open_sans_light"
-                                android:text="Email"
-                                android:textColor="@color/black" />
-
-                        </androidx.cardview.widget.CardView>
-
-
-                        <androidx.cardview.widget.CardView
-                            android:layout_width="0dp"
-                            android:layout_height="80dp"
-                            android:layout_margin="@dimen/_8sdp"
-                            android:layout_weight="1"
-                            android:background="@color/white"
-                            android:visibility="gone"
-                            app:cardCornerRadius="@dimen/_4sdp">
-
-                            <ImageView
-                                android:id="@+id/call_sms"
-                                android:layout_width="match_parent"
-                                android:layout_height="match_parent"
-                                android:layout_marginBottom="@dimen/_8sdp"
-                                android:padding="@dimen/_8sdp"
-                                android:src="@drawable/ic_sms" />
-
-                            <TextView
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:layout_gravity="center_vertical|bottom|center_horizontal"
-                                android:fontFamily="@font/open_sans_light"
-                                android:text="SMS"
-                                android:textColor="@color/black" />
-                        </androidx.cardview.widget.CardView>
-                    </LinearLayout>
-
-                    <LinearLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_marginTop="10dp"
-                        android:gravity="center_horizontal"
-                        android:visibility="gone"
-                        android:orientation="horizontal">
-
-                        <androidx.cardview.widget.CardView
-                            android:layout_width="match_parent"
-                            android:layout_height="80dp"
-                            android:layout_margin="@dimen/_8sdp"
-                            android:background="@color/white"
-                            app:cardCornerRadius="@dimen/_4sdp">
-
-                            <ImageView
-                                android:id="@+id/call_whatsapp"
-                                android:layout_width="match_parent"
-                                android:layout_height="match_parent"
-                                android:layout_marginBottom="@dimen/_8sdp"
-                                android:padding="@dimen/_8sdp"
-                                android:src="@drawable/ic_whatsapp" />
-
-                            <TextView
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:layout_gravity="center_vertical|bottom|center_horizontal"
-                                android:fontFamily="@font/open_sans_light"
-                                android:text="WhatsApp"
-                                android:textColor="@color/black" />
-                        </androidx.cardview.widget.CardView>
-
-
-                        <androidx.cardview.widget.CardView
-                            android:layout_width="0dp"
-                            android:layout_height="80dp"
-                            android:layout_margin="@dimen/_8sdp"
-                            android:layout_weight="1"
-                            android:background="@color/white"
-                            android:visibility="gone"
-                            app:cardCornerRadius="@dimen/_4sdp">
-
-                            <ImageView
-                                android:id="@+id/call_phone"
-                                android:layout_width="match_parent"
-                                android:layout_height="match_parent"
-                                android:layout_marginBottom="@dimen/_8sdp"
-                                android:padding="@dimen/_8sdp"
-                                android:src="@drawable/ic_phone_call" />
-
-                            <TextView
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:layout_gravity="center_vertical|bottom|center_horizontal"
-                                android:fontFamily="@font/open_sans_light"
-                                android:text="Phone"
-                                android:textColor="@color/black" />
-                        </androidx.cardview.widget.CardView>
-                    </LinearLayout>
-                </LinearLayout>
             </LinearLayout>
-        </androidx.core.widget.NestedScrollView>
-    </androidx.coordinatorlayout.widget.CoordinatorLayout>
+        </LinearLayout>
+    </LinearLayout>
 </layout>

@@ -40,7 +40,7 @@ class VerifyDocumentsActivity : BaseActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        userInfo = (application as SportsFightApplication).userInformations
+        userInfo = (application as My11HerosApplication).userInformations
         mBinding = DataBindingUtil.setContentView(
             this,
             R.layout.activity_verify_document
@@ -194,7 +194,7 @@ class VerifyDocumentsActivity : BaseActivity() {
             models.paytmNumber = paytmNumber
             models.phonepe = phonepe
             models.gpay = gpay
-            models.whatsApp = whatsApp
+            models.whats_app = whatsApp
             models.documentType = DOCUMENT_TYPE_PANCARD
 
             if (MyUtils.isConnectedWithInternet(this@VerifyDocumentsActivity)) {

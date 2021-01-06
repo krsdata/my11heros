@@ -66,7 +66,6 @@ class ContestFragment : Fragment() {
         super.onCreate(savedInstanceState)
         objectMatches =
             requireArguments().get(ContestActivity.SERIALIZABLE_KEY_MATCH_OBJECT) as UpcomingMatchesModel
-
     }
 
     override fun onCreateView(
@@ -162,8 +161,8 @@ class ContestFragment : Fragment() {
             mBinding!!.rupees.setTextColor(resources.getColor(R.color.black))
 
             showRecyclerListBySpotSize(2)
-
         })
+
         mBinding!!.sortBy3spots.setOnClickListener(View.OnClickListener {
 
             mBinding!!.sortBy2spots.setBackgroundResource(R.drawable.circle_grey)
@@ -183,9 +182,8 @@ class ContestFragment : Fragment() {
             mBinding!!.rupees.setTextColor(resources.getColor(R.color.black))
 
             showRecyclerListBySpotSize(3)
-
-
         })
+
         mBinding!!.sortBy4spots.setOnClickListener(View.OnClickListener {
 
             mBinding!!.sortBy2spots.setBackgroundResource(R.drawable.circle_grey)
@@ -221,21 +219,14 @@ class ContestFragment : Fragment() {
             mBinding!!.filterByAll.setBackgroundResource(R.drawable.circle_grey)
             mBinding!!.filterByAll.setTextColor(resources.getColor(R.color.black))
 
-
-
             mBinding!!.linearEntryPrizeSort.setBackgroundResource(R.drawable.circle_app_color)
             mBinding!!.prizeArrow.visibility = View.VISIBLE
-
             mBinding!!.rupees.setTextColor(resources.getColor(R.color.white))
-
             filterByEntryPrize()
         })
 
-
         mBinding!!.filterByAll.setOnClickListener(View.OnClickListener {
-
             selectAllContest()
-
         })
     }
 
@@ -385,7 +376,6 @@ class ContestFragment : Fragment() {
                 "$context must implement OnContestLoadedListener"
             )
         }
-
     }
 
     private fun getAllContest() {

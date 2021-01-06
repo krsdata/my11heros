@@ -42,7 +42,7 @@ class RegisterScreenActivity : BaseActivity(), Callback<ResponseModel> {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        userInfo = (applicationContext as SportsFightApplication).userInformations
+        userInfo = (applicationContext as My11HerosApplication).userInformations
         binding = DataBindingUtil.setContentView(this, R.layout.activity_register)
         updateFireBase()
 
@@ -198,7 +198,7 @@ class RegisterScreenActivity : BaseActivity(), Callback<ResponseModel> {
                         MyPreferences.setGooglePayId(this, responseb.gpayid)
                         MyPreferences.setRazorPayId(this, responseb.razorPay)
 
-                        (applicationContext as SportsFightApplication).saveUserInformations(
+                        (applicationContext as My11HerosApplication).saveUserInformations(
                             responseb.infomodel
                         )
                         if (TextUtils.isEmpty(infoModels.mobileNumber) || TextUtils.isEmpty(

@@ -83,9 +83,7 @@ class PrizeBreakupFragment : Fragment() {
             mBinding!!.winnerGlory.visibility = View.GONE
             getPrizeBreakup()
         }
-
     }
-
 
     fun getPrizeBreakup() {
         mBinding!!.progressBar.visibility = View.VISIBLE
@@ -144,7 +142,6 @@ class PrizeBreakupFragment : Fragment() {
             viewHolder.winnerPrize.text = "₹" + objectVal.winnersPrice
         }
 
-
         override fun getItemCount(): Int {
             return matchesListObject.size
         }
@@ -153,12 +150,6 @@ class PrizeBreakupFragment : Fragment() {
 
             val rankRange = itemView.findViewById<TextView>(R.id.rank_range)
             val winnerPrize = itemView.findViewById<TextView>(R.id.winner_rpize)
-
-
         }
-
-
     }
-
-
 }

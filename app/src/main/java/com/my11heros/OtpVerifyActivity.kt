@@ -62,7 +62,7 @@ class OtpVerifyActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
          mBinding = DataBindingUtil.setContentView(this, R.layout.activity_otp_verify)
-        userInfo = (application as SportsFightApplication).userInformations
+        userInfo = (application as My11HerosApplication).userInformations
         customeProgressDialog = CustomeProgressDialog(this)
         mBinding!!.mobileNumber.setText(userInfo.mobileNumber)
         if(intent.hasExtra(RegisterScreenActivity.ISACTIVITYRESULT)) {
@@ -107,7 +107,7 @@ class OtpVerifyActivity : AppCompatActivity() {
 
     override fun onStart() {
         super.onStart()
-//        var infomodel = (application as SportsFightApplication).userInformations
+//        var infomodel = (application as My11HerosApplication).userInformations
 //        if(infomodel!=null) {
 //            BindingUtils.logFireBaseEvents(
 //                this,

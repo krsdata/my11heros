@@ -50,7 +50,7 @@ class MainActivity : BaseActivity(), NavigationView.OnNavigationItemSelectedList
             this,
             R.layout.activity_main
         )
-        userInfo = (application as SportsFightApplication).userInformations
+        userInfo = (application as My11HerosApplication).userInformations
         setSupportActionBar(mBinding!!.toolbar)
         // setUpDrawerLayout()
         updateFireBase()
@@ -119,7 +119,7 @@ class MainActivity : BaseActivity(), NavigationView.OnNavigationItemSelectedList
     }
 
     private fun setWalletBalanceValue() {
-//        var walletInfo = (application as SportsFightApplication).walletInfo
+//        var walletInfo = (application as My11HerosApplication).walletInfo
 //        if(walletInfo!=null){
 //            var totalBalance =
 //                walletInfo.depositAmount + walletInfo.prizeAmount + walletInfo.bonusAmount
@@ -175,7 +175,7 @@ class MainActivity : BaseActivity(), NavigationView.OnNavigationItemSelectedList
                                 this@MainActivity,
                                 responseModel.rozarpay_show
                             )
-                            (application as SportsFightApplication).saveWalletInformation(
+                            (application as My11HerosApplication).saveWalletInformation(
                                 responseModel
                             )
                             setWalletBalanceValue()

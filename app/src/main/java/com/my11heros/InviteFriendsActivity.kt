@@ -46,7 +46,7 @@ class InviteFriendsActivity : AppCompatActivity() {
             finish()
         })
 
-        userInfo = (application as SportsFightApplication).userInformations
+        userInfo = (application as My11HerosApplication).userInformations
 
         mBinding!!.rereralCode.text = userInfo!!.referalCode
         buo = BranchUniversalObject()

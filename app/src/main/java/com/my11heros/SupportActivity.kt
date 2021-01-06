@@ -4,7 +4,6 @@ import android.content.Intent
 import android.net.Uri
 import android.os.Bundle
 import android.view.View
-import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.databinding.DataBindingUtil
 import com.my11heros.databinding.ActivitySupportsBinding
@@ -23,7 +22,7 @@ class SupportActivity : AppCompatActivity() {
             R.layout.activity_supports
         )
 
-        mBinding!!.toolbar.title = "Support Team"
+        mBinding!!.toolbar.title = "Support"
         mBinding!!.toolbar.setTitleTextColor(resources.getColor(R.color.white))
         mBinding!!.toolbar.setNavigationIcon(R.drawable.ic_arrow_back_black_24dp)
         setSupportActionBar(mBinding!!.toolbar)
@@ -31,56 +30,20 @@ class SupportActivity : AppCompatActivity() {
             finish()
         })
 
-        mBinding!!.callPhone.setOnClickListener(object : View.OnClickListener {
-            override fun onClick(v: View?) {
-                val intent = Intent(
-                    Intent.ACTION_DIAL,
-                    Uri.fromParts(
-                        "tel",
-                        BindingUtils.PHONE_NUMBER,
-                        null
-                    )
+        mBinding!!.email.setOnClickListener {
+            val emailIntent = Intent(
+                Intent.ACTION_SENDTO, Uri.fromParts(
+                    "mailto", BindingUtils.EMAIL, null
                 )
-                startActivity(intent)
-            }
-        })
+            )
+            emailIntent.putExtra(Intent.EXTRA_SUBJECT, getString(R.string.contact_support_Team))
+            emailIntent.putExtra(Intent.EXTRA_TEXT, "")
+            startActivity(Intent.createChooser(emailIntent, "Send Email"))
+        }
 
-        mBinding!!.callSms.setOnClickListener(object : View.OnClickListener {
-            override fun onClick(v: View?) {
-                try {
-                    val uri =
-                        Uri.parse("smsto:" + BindingUtils.PHONE_NUMBER)
-                    val it = Intent(Intent.ACTION_SENDTO, uri)
-                    it.putExtra("sms_body", "")
-                    startActivity(it)
-                } catch (e: Exception) {
-                    Toast.makeText(
-                        this@SupportActivity,
-                        "Sms not send" + e.message,
-                        Toast.LENGTH_LONG
-                    ).show()
-                }
-            }
-        })
-
-        mBinding!!.callEmail.setOnClickListener(object : View.OnClickListener {
-            override fun onClick(v: View?) {
-                val emailIntent = Intent(
-                    Intent.ACTION_SENDTO, Uri.fromParts(
-                        "mailto", BindingUtils.EMAIL, null
-                    )
-                )
-                emailIntent.putExtra(Intent.EXTRA_SUBJECT, getString(R.string.contact_support_Team))
-                emailIntent.putExtra(Intent.EXTRA_TEXT, "")
-                startActivity(Intent.createChooser(emailIntent, "Send email..."))
-            }
-        })
-
-        mBinding!!.callWhatsapp.setOnClickListener(object : View.OnClickListener {
-            override fun onClick(v: View?) {
-                raiseIssuesOnWhatsApp()
-            }
-        })
+        mBinding!!.telegramId.setOnClickListener {
+            raiseIssuesOnTelegram()
+        }
     }
 
     fun raiseIssuesOnWhatsApp() {
@@ -89,6 +52,23 @@ class SupportActivity : AppCompatActivity() {
             val intent = Intent(Intent.ACTION_VIEW)
             intent.data =
                 Uri.parse("http://api.whatsapp.com/send?phone=${BindingUtils.PHONE_NUMBER}&text=$text")
+            startActivity(intent)
+        } catch (e: java.lang.Exception) {
+            e.printStackTrace()
+        }
+    }
+
+    fun raiseIssuesOnTelegram() {
+        try {
+            /*val telegramIntent = Intent(Intent.ACTION_SEND)
+            tIntent.setDataAndType(Uri.parse("http://telegram.me/username"), "text/plain")
+            val appName = "org.telegram.messenger"
+            tIntent.setPackage(appName)
+            tIntent.putExtra(Intent.EXTRA_TEXT, "hello")
+            startActivity(tIntent)*/
+            val intent = Intent(Intent.ACTION_VIEW)
+            intent.data =
+                Uri.parse("https://telegram.me/${BindingUtils.TELEGRAM_USER_NAME}")
             startActivity(intent)
         } catch (e: java.lang.Exception) {
             e.printStackTrace()

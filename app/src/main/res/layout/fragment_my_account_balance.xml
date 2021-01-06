@@ -22,9 +22,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="15dp"
-                    app:cardBackgroundColor="#ffffff"
-
-                    >
+                    app:cardBackgroundColor="@color/white">
 
                     <RelativeLayout
                         android:layout_width="match_parent"
@@ -37,14 +35,14 @@
                             android:layout_height="@dimen/_35sdp"
                             android:layout_centerVertical="true"
                             android:src="@drawable/ic_my_account_add_cash"
-                            android:tint="@color/colorAccent" />
+                            app:tint="@color/colorAccent" />
 
                         <LinearLayout
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:layout_marginLeft="20dp"
-                            android:layout_toLeftOf="@+id/btn_add_cash"
-                            android:layout_toRightOf="@+id/ruppe_icon"
+                            android:layout_marginStart="20dp"
+                            android:layout_toStartOf="@+id/btn_add_cash"
+                            android:layout_toEndOf="@+id/ruppe_icon"
                             android:orientation="vertical">
 
                             <TextView
@@ -63,14 +61,13 @@
                                 android:text="My Deposit"
                                 android:textColor="@color/black"
                                 android:textSize="10sp" />
-
                         </LinearLayout>
 
                         <LinearLayout
                             android:id="@+id/btn_add_cash"
                             android:layout_width="80dp"
                             android:layout_height="32dp"
-                            android:layout_alignParentRight="true"
+                            android:layout_alignParentEnd="true"
                             android:layout_centerVertical="true"
                             android:background="@drawable/add_cash_button"
                             android:gravity="center_vertical">
@@ -92,9 +89,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="15dp"
-                    app:cardBackgroundColor="#ffffff"
-
-                    >
+                    app:cardBackgroundColor="@color/white">
 
                     <RelativeLayout
                         android:layout_width="match_parent"
@@ -107,14 +102,14 @@
                             android:layout_height="@dimen/_35sdp"
                             android:layout_centerVertical="true"
                             android:src="@drawable/ic_my_account_withdrawal"
-                            android:tint="@color/colorAccent" />
+                            app:tint="@color/colorAccent" />
 
                         <LinearLayout
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:layout_marginLeft="20dp"
-                            android:layout_toLeftOf="@+id/btn_withdraw"
-                            android:layout_toRightOf="@+id/trophy_icon"
+                            android:layout_marginStart="20dp"
+                            android:layout_toStartOf="@+id/btn_withdraw"
+                            android:layout_toEndOf="@+id/trophy_icon"
                             android:orientation="vertical">
 
                             <TextView
@@ -140,7 +135,7 @@
                             android:id="@+id/btn_withdraw"
                             android:layout_width="80dp"
                             android:layout_height="32dp"
-                            android:layout_alignParentRight="true"
+                            android:layout_alignParentEnd="true"
                             android:layout_centerVertical="true"
                             android:background="@drawable/add_cash_button"
                             android:gravity="center_vertical">
@@ -166,7 +161,7 @@
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
-                        app:cardBackgroundColor="#ffffff">
+                        app:cardBackgroundColor="@color/white">
 
                         <RelativeLayout
                             android:layout_width="match_parent"
@@ -180,14 +175,14 @@
                                 android:layout_alignParentLeft="true"
                                 android:layout_centerVertical="true"
                                 android:src="@drawable/ic_my_account_cash_bonous"
-                                android:tint="@color/colorAccent" />
+                                app:tint="@color/colorAccent" />
 
                             <LinearLayout
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
                                 android:layout_centerVertical="true"
-                                android:layout_marginLeft="10dp"
-                                android:layout_toRightOf="@+id/bonus_icon"
+                                android:layout_marginStart="10dp"
+                                android:layout_toEndOf="@+id/bonus_icon"
                                 android:orientation="vertical">
 
                                 <TextView
@@ -210,21 +205,16 @@
                                     android:text="Cash Bonus"
                                     android:textColor="@color/black"
                                     android:textSize="10sp" />
-
                             </LinearLayout>
-
                         </RelativeLayout>
                     </androidx.cardview.widget.CardView>
-
 
                     <androidx.cardview.widget.CardView
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
-                        android:layout_marginLeft="20dp"
+                        android:layout_marginStart="20dp"
                         android:layout_weight="1"
-                        app:cardBackgroundColor="#ffffff"
-
-                        >
+                        app:cardBackgroundColor="@color/white">
 
                         <RelativeLayout
                             android:layout_width="match_parent"
@@ -235,17 +225,17 @@
                                 android:id="@+id/wallet_icon"
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
-                                android:layout_alignParentLeft="true"
+                                android:layout_alignParentStart="true"
                                 android:layout_centerVertical="true"
                                 android:src="@drawable/ic_my_account_wallet"
-                                android:tint="@color/colorAccent" />
+                                app:tint="@color/colorAccent" />
 
                             <LinearLayout
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
                                 android:layout_centerVertical="true"
-                                android:layout_marginLeft="10dp"
-                                android:layout_toRightOf="@+id/wallet_icon"
+                                android:layout_marginStart="10dp"
+                                android:layout_toEndOf="@+id/wallet_icon"
                                 android:orientation="vertical">
 
                                 <TextView
@@ -266,20 +256,16 @@
                                     android:text="Total Balance"
                                     android:textColor="@color/black"
                                     android:textSize="10sp" />
-
                             </LinearLayout>
-
                         </RelativeLayout>
                     </androidx.cardview.widget.CardView>
-
                 </LinearLayout>
-
 
                 <androidx.cardview.widget.CardView
                     android:layout_width="match_parent"
                     android:layout_height="120dp"
                     android:layout_marginTop="15dp"
-                    app:cardBackgroundColor="#ffffff">
+                    app:cardBackgroundColor="@color/white">
 
                     <LinearLayout
                         android:id="@+id/refferal_list"
@@ -292,22 +278,22 @@
                             android:layout_height="match_parent"
                             android:layout_weight="0.6"
                             android:background="@color/white"
-                            android:paddingLeft="16dp">
+                            android:paddingStart="16dp">
 
                             <ImageView
                                 android:id="@+id/refferal_icon"
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
-                                android:layout_alignParentLeft="true"
+                                android:layout_alignParentStart="true"
                                 android:layout_centerVertical="true"
                                 android:src="@drawable/ic_wc_black_24dp"
-                                android:tint="@color/colorAccent" />
+                                app:tint="@color/colorAccent" />
 
                             <LinearLayout
                                 android:layout_width="match_parent"
                                 android:layout_height="match_parent"
                                 android:layout_centerVertical="true"
-                                android:layout_marginLeft="25dp"
+                                android:layout_marginStart="25dp"
                                 android:gravity="center_vertical"
                                 android:orientation="vertical">
 
@@ -315,7 +301,7 @@
                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
                                     android:fontFamily="@font/open_sans_semibold"
-                                    android:text="You have Reffered"
+                                    android:text="You have Referred"
                                     android:textColor="@color/black"
                                     android:textSize="14sp" />
 
@@ -373,9 +359,7 @@
                                     android:text="Earn and Play Matches"
                                     android:textColor="@color/black"
                                     android:textSize="10sp" />
-
                             </LinearLayout>
-
                         </RelativeLayout>
 
                         <View
@@ -383,13 +367,10 @@
                             android:layout_height="wrap_content"
                             android:layout_weight="0.5"
                             android:background="@drawable/refferal_bg"
-                            android:text="YOU REFFER TO" />
+                            android:text="YOU REFER TO" />
                     </LinearLayout>
-
                 </androidx.cardview.widget.CardView>
-
             </LinearLayout>
-
         </androidx.core.widget.NestedScrollView>
 
         <ProgressBar

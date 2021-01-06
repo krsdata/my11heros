@@ -3,42 +3,37 @@
     xmlns:app="http://schemas.android.com/apk/res-auto">
 
     <data>
+
         <variable
             name="contentviews"
             type="com.my11heros.WebActivity" />
     </data>
-<RelativeLayout
-    android:id="@+id/content_menu_list"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:orientation="vertical"
-    app:layout_behavior="@string/appbar_scrolling_view_behavior"
-   >
-    <androidx.appcompat.widget.Toolbar
-        android:id="@+id/toolbar"
-        android:layout_width="match_parent"
-        android:layout_height="?attr/actionBarSize"
-        android:background="@color/colorPrimaryDark"
-        android:orientation="vertical"
-        />
 
-    <WebView
-        android:id="@+id/web_body"
+    <RelativeLayout
+        android:id="@+id/content_menu_list"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_below="@+id/toolbar"
-        android:background="@color/white"
-        android:textAlignment="textStart" />
+        android:orientation="vertical"
+        app:layout_behavior="@string/appbar_scrolling_view_behavior">
 
+        <androidx.appcompat.widget.Toolbar
+            android:id="@+id/toolbar"
+            android:layout_width="match_parent"
+            android:layout_height="?attr/actionBarSize"
+            android:background="@color/colorPrimaryDark"
+            android:orientation="vertical" />
 
-     <ImageView
-         android:id="@+id/img_close"
-         android:layout_width="wrap_content"
-         android:layout_height="45dp"
-         android:src="@drawable/ic_arrow_back"
-         android:layout_alignParentLeft="true"
-         android:visibility="gone"
-         android:tint="@color/colorAccent"
-         android:layout_margin="10dip"/>
-</RelativeLayout>
+        <androidx.swiperefreshlayout.widget.SwipeRefreshLayout
+            android:id="@+id/refreshLayout"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_below="@+id/toolbar">
+
+            <WebView
+                android:id="@+id/web_body"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="@color/white" />
+        </androidx.swiperefreshlayout.widget.SwipeRefreshLayout>
+    </RelativeLayout>
 </layout>

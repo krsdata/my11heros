@@ -67,7 +67,7 @@ class BannersMatchesAdapter(
                 customTabsIntent.intent.setPackage("com.android.chrome")
                 customTabsIntent.launchUrl(context, Uri.parse(objectVal.descriptions))
 
-                // BindingUtils.sendEventLogs(context!!, 0,0,(context!!.applicationContext as SportsFightApplication).userInformations,"GAMEZOP-BANNER-FREE")
+                // BindingUtils.sendEventLogs(context!!, 0,0,(context!!.applicationContext as My11HerosApplication).userInformations,"GAMEZOP-BANNER-FREE")
 
 //                val urlString = objectVal.descriptions
 //                val intent = Intent(Intent.ACTION_VIEW, Uri.parse(urlString))

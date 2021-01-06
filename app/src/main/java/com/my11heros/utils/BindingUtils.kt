@@ -36,6 +36,7 @@ class BindingUtils {
         val BANNERS_KEY_BROWSERS: String = "browser"
         val EMAIL: String = "my11heros@gmail.com"
         val PHONE_NUMBER: String = "=+91"
+        val TELEGRAM_USER_NAME: String = "My11hero"
         val GOOGLE_TEZ_PACKAGE_NAME = "com.google.android.apps.nbu.paisa.user"
         val PAYMENT_GOOGLEPAY_UPI = "9340301139@okbizaxis"
         val PAYMENT_RAZOR_PAY_KEY = "rzp_live_31mXi69McwbIiq"

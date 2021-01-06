@@ -155,7 +155,6 @@ class MyUpcomingMatchesFragment : Fragment() {
             val view = LayoutInflater.from(parent.context)
                 .inflate(R.layout.matches_row_upcoming_inner, parent, false)
             return DataViewHolder(view)
-
         }
 
         fun getRandomColor(): Int {

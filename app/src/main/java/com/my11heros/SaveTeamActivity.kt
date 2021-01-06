@@ -109,7 +109,8 @@ class SaveTeamActivity : BaseActivity(), OnRolesSelected {
         adapter = PlayersSelectedAdapter(
             this,
             savedTeamList,
-            this
+            this,
+            matchObject
         )
         mBinding!!.recyclerSaveTeam.adapter = adapter
         onReady()

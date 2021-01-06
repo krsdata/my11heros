@@ -10,6 +10,7 @@ import android.view.View.VISIBLE
 import android.view.ViewGroup
 import android.widget.ImageView
 import android.widget.LinearLayout
+import android.widget.RelativeLayout
 import android.widget.TextView
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
@@ -35,25 +36,29 @@ class MatchesAdapter(val context: Context, val tradeinfoModels: ArrayList<Matche
     }
 
     override fun getItemViewType(position: Int): Int {
-        val comparable = matchesListObject.get(position)
+        val comparable = matchesListObject[position]
         return comparable.viewType
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): RecyclerView.ViewHolder {
-        if (viewType == TYPE_BANNERS) {
-            val view = LayoutInflater.from(parent.context)
-                .inflate(R.layout.matches_row_banners_matches, parent, false)
-            return BannersViewHolder(view)
-        } else if (viewType == TYPE_JOINED) {
-            val view = LayoutInflater.from(parent.context)
-                .inflate(R.layout.matches_row_joined_matches, parent, false)
-            return ViewHolderJoinedMatches(view)
-        } else if (viewType == TYPE_UPCOMING_MATCHES) {
-            val view = LayoutInflater.from(parent.context)
-                .inflate(R.layout.matches_row_upcoming_matches, parent, false)
-            return UpcomingMatchesViewHolder(view)
+        when (viewType) {
+            TYPE_BANNERS -> {
+                val view = LayoutInflater.from(parent.context)
+                    .inflate(R.layout.matches_row_banners_matches, parent, false)
+                return BannersViewHolder(view)
+            }
+            TYPE_JOINED -> {
+                val view = LayoutInflater.from(parent.context)
+                    .inflate(R.layout.matches_row_joined_matches, parent, false)
+                return ViewHolderJoinedMatches(view)
+            }
+            TYPE_UPCOMING_MATCHES -> {
+                val view = LayoutInflater.from(parent.context)
+                    .inflate(R.layout.matches_row_upcoming_matches, parent, false)
+                return UpcomingMatchesViewHolder(view)
+            }
+            else -> return null!!
         }
-        return null!!
     }
 
     override fun onBindViewHolder(parent: RecyclerView.ViewHolder, position: Int) {
@@ -85,16 +90,12 @@ class MatchesAdapter(val context: Context, val tradeinfoModels: ArrayList<Matche
             viewJoinedMatches.txtViewAll.setOnClickListener {
                 (mContext as MainActivity).viewAllMatches()
             }
+
+            viewJoinedMatches.joinedLayout.visibility = View.VISIBLE
+
         } else if (objectVal.viewType == TYPE_BANNERS) {
             val objectVal = matchesListObject[position]
             val viewBanners: BannersViewHolder = parent as BannersViewHolder
-            /*viewBanners.recyclerView.layoutManager =
-                LinearLayoutManager(mContext, RecyclerView.HORIZONTAL, false)
-            val adapter = BannersMatchesAdapter(
-                mContext!!,
-                objectVal.matchBanners!!
-            )
-            viewBanners.recyclerView.adapter = adapter*/
 
             val scrollViewAdapter = BannerSliderAdapter(mContext!!, objectVal.matchBanners!!)
             viewBanners.recyclerView.adapter = scrollViewAdapter
@@ -166,9 +167,10 @@ class MatchesAdapter(val context: Context, val tradeinfoModels: ArrayList<Matche
     }
 
     inner class ViewHolderJoinedMatches(itemView: View) : RecyclerView.ViewHolder(itemView) {
-        val recyclerView = itemView.findViewById<RecyclerView>(R.id.recycler_joined_matches)
-        val txtViewAll = itemView.findViewById<TextView>(R.id.txtViewAll)
-        val backgroundImage = itemView.findViewById<ImageView>(R.id.imageView4)
+        val recyclerView: RecyclerView = itemView.findViewById(R.id.recycler_joined_matches)
+        val txtViewAll: TextView = itemView.findViewById(R.id.txtViewAll)
+        val backgroundImage: ImageView = itemView.findViewById(R.id.imageView4)
+        val joinedLayout: RelativeLayout = itemView.findViewById(R.id.match_joined_layout)
     }
 
     inner class BannersViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
@@ -177,8 +179,8 @@ class MatchesAdapter(val context: Context, val tradeinfoModels: ArrayList<Matche
     }
 
     inner class UpcomingMatchesViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
-        val recyclerView = itemView.findViewById<RecyclerView>(R.id.recycler_upcoming_matches)
-        val linearEmptyView = itemView.findViewById<LinearLayout>(R.id.linear_empty_view)
+        val recyclerView: RecyclerView = itemView.findViewById(R.id.recycler_upcoming_matches)
+        val linearEmptyView: LinearLayout = itemView.findViewById(R.id.linear_empty_view)
 
     }
 }

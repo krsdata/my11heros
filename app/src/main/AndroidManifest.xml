@@ -17,7 +17,7 @@
         android:required="true" />
 
     <application
-        android:name="com.my11heros.SportsFightApplication"
+        android:name="com.my11heros.My11HerosApplication"
         android:allowBackup="false"
         android:hardwareAccelerated="true"
         android:icon="@mipmap/ic_launcher"

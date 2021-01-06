@@ -54,26 +54,22 @@ class MyAccountFragment : BaseFragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        userInfo = (requireActivity().applicationContext as SportsFightApplication).userInformations
-        walletInfo = (requireActivity().applicationContext as SportsFightApplication).walletInfo
-        (activity as MainActivity).hideToolbar()
+        userInfo = (requireActivity().applicationContext as My11HerosApplication).userInformations
+        walletInfo = (requireActivity().applicationContext as My11HerosApplication).walletInfo
+        //(activity as MainActivity).hideToolbar()
 
-        mBinding!!.notificationClick.setOnClickListener(View.OnClickListener {
+        mBinding!!.notificationClick.setOnClickListener {
             val intent = Intent(requireActivity(), NotificationListActivity::class.java)
             startActivityForResult(intent, MyBalanceActivity.REQUEST_CODE_ADD_MONEY)
-        })
+        }
         val viewpager: ViewPager = view.findViewById(R.id.account_viewpager)
         val tabs: TabLayout = view.findViewById(R.id.account_tabs)
         setupViewPager(viewpager)
-        // viewpager.addOnPageChangeListener(this)
         tabs.setupWithViewPager(viewpager)
     }
 
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
         super.onActivityResult(requestCode, resultCode, data)
-//        if(resultCode == Activity.RESULT_OK) {
-//
-//        }
         customeProgressDialog!!.show()
         getWalletBalances()
     }
@@ -112,30 +108,19 @@ class MyAccountFragment : BaseFragment() {
                 ) {
                     if (isVisible) {
                         customeProgressDialog!!.dismiss()
-                        //mBinding!!.progressBarPlayingHistory.visibility = View.GONE
                         val res = response!!.body()
                         if (res != null) {
                             val responseModel = res.walletObjects
                             if (responseModel != null) {
-                                (activity!!.applicationContext as SportsFightApplication).saveWalletInformation(
+                                (activity!!.applicationContext as My11HerosApplication).saveWalletInformation(
                                     responseModel
                                 )
                                 initProfile()
-
-//                                var fragment = activity!!.getSupportFragmentManager()
-//                                    .findFragmentById("myFragmentTag") as MyAccountBalanceFragment
-//                                if (fragment != null) {
-//                                    fragment!!.initViews()
-//                                }
                             }
                         }
                     }
-
-
                 }
-
             })
-
     }
 
     fun initProfile() {
@@ -156,7 +141,7 @@ class MyAccountFragment : BaseFragment() {
             val intent = Intent(requireActivity(), EditProfileActivity::class.java)
             startActivity(intent)
         })
-        walletInfo = (requireActivity().applicationContext as SportsFightApplication).walletInfo
+        walletInfo = (requireActivity().applicationContext as My11HerosApplication).walletInfo
         if (walletInfo != null) {
             val accountStatus = walletInfo.accountStatus
             if (accountStatus != null) {

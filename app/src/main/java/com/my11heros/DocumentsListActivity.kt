@@ -28,7 +28,7 @@ class DocumentsListActivity : BaseActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         customeProgressDialog = CustomeProgressDialog(this)
-        userInfo = (application as SportsFightApplication).userInformations
+        userInfo = (application as My11HerosApplication).userInformations
         mBinding = DataBindingUtil.setContentView(
             this,
             R.layout.activity_view_document
