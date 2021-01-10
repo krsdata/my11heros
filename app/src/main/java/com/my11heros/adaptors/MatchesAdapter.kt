@@ -74,11 +74,9 @@ class MatchesAdapter(val context: Context, val tradeinfoModels: ArrayList<Matche
                 )
                 viewJoinedMatches.recyclerView.adapter = adapter
                 adapter.onItemClick = { objects ->
-                    //MyUtils.logd("MatchesAdapter","Joined Contest"+objects.country1Name+" Vs "+objects.country1Name)
                     val intent = Intent(mContext, ContestActivity::class.java)
                     intent.putExtra(ContestActivity.SERIALIZABLE_KEY_JOINED_CONTEST, objects)
                     mContext!!.startActivity(intent)
-                    // MyUtils.showToast(parent.recyclerView,"Open New Joined Contest Activity")
                 }
             }
 
@@ -126,13 +124,8 @@ class MatchesAdapter(val context: Context, val tradeinfoModels: ArrayList<Matche
                     objectVal.upcomingMatches!!
                 )
                 viewUpcomingMatches.recyclerView.setHasFixedSize(true)
-                // viewUpcomingMatches.recyclerView.setDrawingCacheEnabled(true);
-                // viewUpcomingMatches.recyclerView.setDrawingCacheQuality(View.DRAWING_CACHE_QUALITY_HIGH);
                 viewUpcomingMatches.recyclerView.adapter = adapter
-                //(viewUpcomingMatches.recyclerView.adapter as UpcomingMatchesAdapter).setHasStableIds(true)
                 adapter.onItemClick = { objects ->
-
-                    //MyUtils.logd("MatchesAdapter",objects.country1Name+" Vs "+objects.country1Name)
                     val intent = Intent(mContext, ContestActivity::class.java)
                     intent.putExtra(ContestActivity.SERIALIZABLE_KEY_UPCOMING_MATCHES, objects)
                     mContext!!.startActivity(intent)
@@ -146,7 +139,6 @@ class MatchesAdapter(val context: Context, val tradeinfoModels: ArrayList<Matche
 
     fun setMatchesList(matchesList: java.util.ArrayList<MatchesModels>?) {
         this.matchesListObject = matchesList!!
-        // this.mContext = mContext
         notifyDataSetChanged()
     }
 
@@ -174,7 +166,6 @@ class MatchesAdapter(val context: Context, val tradeinfoModels: ArrayList<Matche
     }
 
     inner class BannersViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
-        //val recyclerView = itemView.findViewById<RecyclerView>(R.id.recycler_banners)
         val recyclerView: AutoScrollViewPager = itemView.findViewById(R.id.recycler_banners)
     }
 
@@ -184,4 +175,3 @@ class MatchesAdapter(val context: Context, val tradeinfoModels: ArrayList<Matche
 
     }
 }
-
