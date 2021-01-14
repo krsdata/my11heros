@@ -1,6 +1,5 @@
 package com.my11heros
 
-import android.content.ActivityNotFoundException
 import android.content.Intent
 import android.graphics.Bitmap
 import android.net.Uri
@@ -55,30 +54,28 @@ class MainActivity : BaseActivity(), NavigationView.OnNavigationItemSelectedList
         // setUpDrawerLayout()
         updateFireBase()
 
-        mBinding!!.imgWalletAmount.setOnClickListener(View.OnClickListener {
+        mBinding!!.imgWalletAmount.setOnClickListener {
             val intent = Intent(this@MainActivity, MyBalanceActivity::class.java)
             startActivityForResult(intent, MyBalanceActivity.REQUEST_CODE_ADD_MONEY)
-        })
-        mBinding!!.notificationId.setOnClickListener(View.OnClickListener {
+        }
+        mBinding!!.notificationId.setOnClickListener {
             val intent = Intent(this@MainActivity, NotificationListActivity::class.java)
             startActivityForResult(intent, MyBalanceActivity.REQUEST_CODE_ADD_MONEY)
-        })
+        }
 
         getWalletBalances()
 
         Glide.with(this).load(userInfo!!.profileImage)
             .placeholder(R.drawable.player_blue).into(mBinding!!.profileImage)
 
-        mBinding!!.profileImage.setOnClickListener(object : View.OnClickListener {
-            override fun onClick(p0: View?) {
-                val intent = Intent(this@MainActivity, EditProfileActivity::class.java)
-                intent.putExtra(FullScreenImageViewActivity.KEY_IMAGE_URL, userInfo!!.profileImage)
-                startActivity(intent)
-            }
-        })
+        mBinding!!.profileImage.setOnClickListener {
+            val intent = Intent(this@MainActivity, EditProfileActivity::class.java)
+            intent.putExtra(FullScreenImageViewActivity.KEY_IMAGE_URL, userInfo!!.profileImage)
+            startActivity(intent)
+        }
 
-        mBinding!!.telegramId.setOnClickListener{
-            if(telegramLink != "") {
+        mBinding!!.telegramId.setOnClickListener {
+            if (telegramLink != "") {
                 val intent = Intent(Intent.ACTION_VIEW, Uri.parse(telegramLink))
                 intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK)
                 //intent.setPackage("com.android.chrome")
@@ -203,7 +200,7 @@ class MainActivity : BaseActivity(), NavigationView.OnNavigationItemSelectedList
     }
 
     override fun onNavigationItemSelected(menuItem: MenuItem): Boolean {
-        when (menuItem.getItemId()) {
+        when (menuItem.itemId) {
             R.id.navigation_home -> {
                 fragment = FixtureCricketFragment()
                 loadFragment()
